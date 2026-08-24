@@ -2,6 +2,7 @@
 
 import React from "react";
 import { Star, Quote, CheckCircle2 } from "lucide-react";
+import { Shayari } from "@/components/ui/Shayari";
 
 interface Review {
   name: string;
@@ -88,6 +89,13 @@ export function TestimonialMarquee() {
       
       {/* Background Lighting */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-gradient-to-r from-emerald-500/10 via-cyan-500/10 to-transparent blur-[140px] pointer-events-none" />
+
+      {/* Reviews Shayari Header */}
+      <div className="relative z-10 text-center mb-10 px-4">
+        <Shayari>
+          Aapki tareef, hamari taqat — har khush safar ki yahi shuruaat!
+        </Shayari>
+      </div>
 
       {/* Marquee Row 1 (Left Direction) */}
       <div className="relative flex overflow-x-hidden mb-6">

@@ -96,6 +96,13 @@ export function HeroSection() {
         <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
       </button>
 
+      {/* Shayari Overlay */}
+      <div className="safe-bottom mb-14 sm:mb-16 absolute left-1/2 -translate-x-1/2 z-20 w-full max-w-md px-4">
+        <p className="text-center glass-panel rounded-full border border-emerald-500/30 px-4 py-2.5 text-xs sm:text-sm italic text-white/90 shadow-lg shadow-black/40">
+          ❝ Manzil aap ki, zimmedari hamari — <span className="text-emerald-300 font-semibold">Chaloji</span> ke saath har safar suhaana! ❞
+        </p>
+      </div>
+
       {/* Dot Indicators */}
       <div className="safe-bottom absolute left-1/2 -translate-x-1/2 z-20 flex items-center space-x-3">
         {HERO_SLIDES.map((_, idx) => (

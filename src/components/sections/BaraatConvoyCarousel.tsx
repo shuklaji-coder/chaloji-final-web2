@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import confetti from "canvas-confetti";
 import { Crown, Sparkles, ChevronLeft, ChevronRight, CheckCircle2, Calendar, PhoneCall, Zap, Star } from "lucide-react";
+import { Shayari } from "@/components/ui/Shayari";
 
 interface WeddingVehicle {
   id: string;
@@ -132,6 +133,10 @@ export function BaraatConvoyCarousel() {
           <p className="text-base text-gray-300">
             Make your wedding entry unforgettable. Rent premium luxury sedans, vintage open-roof cars, and synchronized Fortuner convoys with flower decorations & uniformed chauffeurs.
           </p>
+
+          <Shayari className="text-amber-100/80">
+            Shehnai baja de, baarat saja le — royal safar ab Chaloji karwaye!
+          </Shayari>
         </div>
 
         {/* 3D Coverflow Carousel Container */}

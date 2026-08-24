@@ -12,8 +12,9 @@ import {
   Route,
   Clock,
   Wallet,
-  Sparkles,
+   Sparkles,
 } from "lucide-react";
+import { Shayari } from "@/components/ui/Shayari";
 
 type Highlight = {
   icon: React.ReactNode;
@@ -66,6 +67,10 @@ export function HighlightsMarquee() {
           Built for Riders. <br />
           <span className="text-gradient-emerald">Empowered for Drivers.</span>
         </h2>
+
+        <Shayari>
+          Na surge ka vaar, na bhav bhaari — sirf bharosa, saath hamara!
+        </Shayari>
       </div>
 
       {/* Marquee Row 1 (Left Direction) */}

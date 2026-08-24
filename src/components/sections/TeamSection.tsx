@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Users, Linkedin, Mail } from "lucide-react";
+import { Shayari } from "@/components/ui/Shayari";
 
 const TEAM = [
   {
@@ -53,6 +54,10 @@ export function TeamSection() {
           <p className="text-base text-gray-300">
             A passionate crew on a mission to redefine mobility across Uttar Pradesh &amp; beyond.
           </p>
+
+          <Shayari>
+            Mehnat hamara zewar, muskaan aapka inaam — yahi hai Chaloji ki pehchaan!
+          </Shayari>
         </div>
 
         {/* Team Cards Grid */}

@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Smartphone, Apple, Zap, ArrowRight, ShieldCheck, Star } from "lucide-react";
+import { Shayari } from "@/components/ui/Shayari";
 
 export function CTASection() {
   return (
@@ -34,6 +35,10 @@ export function CTASection() {
               <p className="text-base text-gray-300 max-w-xl leading-relaxed">
                 Download the ChaloJi mobile app on iOS and Android. Enjoy instant 1-click ride requests, live driver GPS tracking, emergency SOS safety, and exclusive cash-back offers.
               </p>
+
+              <Shayari className="!justify-start">
+                Ab der kis baat ki, gaadi khadi hai — Chaloji keh raha, safar azma ke dekhi!
+              </Shayari>
 
               {/* App Store / Play Store Buttons */}
               <div className="flex flex-wrap items-center gap-4 pt-2">

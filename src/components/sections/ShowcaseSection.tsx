@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import { Shayari } from "@/components/ui/Shayari";
 
 export function ShowcaseSection() {
   return (
@@ -27,6 +28,10 @@ export function ShowcaseSection() {
           />
           <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#08090C]/80 to-transparent pointer-events-none" />
         </motion.div>
+
+        <Shayari className="mt-8">
+          Kadam badhe toh saath chale hum — har raah pe Chaloji, bas naam hi kaafi hai!
+        </Shayari>
       </div>
     </section>
   );

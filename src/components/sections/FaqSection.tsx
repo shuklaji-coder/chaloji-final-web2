@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MessageSquareText, Plus } from "lucide-react";
+import { Shayari } from "@/components/ui/Shayari";
 
 interface FaqItem {
   question: string;
@@ -70,6 +71,10 @@ export function FaqSection() {
           <p className="text-base text-gray-300">
             Everything about bookings, fares, safety & payments — answered.
           </p>
+
+          <Shayari>
+            Sawaal aapke, jawaab humari zubaani — bharosa hi hai Chaloji ki shaan!
+          </Shayari>
         </div>
 
         <div className="space-y-4">

@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Smartphone, Download, ShieldCheck, Zap, X, Rocket, BellRing } from "lucide-react";
+import { Shayari } from "@/components/ui/Shayari";
 
 type AppType = {
   name: string;
@@ -64,6 +65,10 @@ export function AppDownloadSection() {
           <p className="text-base text-gray-300">
             Ride with ease using the Chaloji User App, or earn on your own schedule as a Driver Partner.
           </p>
+
+          <Shayari>
+            Phone uthao, Chaloji chalao — sawaari apni, tension bhulao!
+          </Shayari>
         </div>
 
         {/* Apps Grid */}
