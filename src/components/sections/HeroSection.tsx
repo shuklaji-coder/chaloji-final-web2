@@ -70,11 +70,11 @@ export function HeroSection() {
             className="absolute inset-0 w-full h-full object-cover scale-110 blur-2xl opacity-40 pointer-events-none select-none sm:hidden"
             draggable={false}
           />
-          {/* Main Image — mobile par pura photo visible */}
+          {/* Main Image — mobile par bada & immersive, desktop par full cover */}
           <img
             src={HERO_SLIDES[currentSlide]}
             alt={`Slide ${currentSlide + 1}`}
-            className="relative w-full h-full object-contain sm:object-cover"
+            className="relative w-full h-full object-cover object-center scale-[1.02] sm:scale-100"
             draggable={false}
           />
         </motion.div>
