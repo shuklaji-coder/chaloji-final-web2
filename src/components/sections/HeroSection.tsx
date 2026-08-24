@@ -74,7 +74,7 @@ export function HeroSection() {
           <img
             src={HERO_SLIDES[currentSlide]}
             alt={`Slide ${currentSlide + 1}`}
-            className="relative block w-full h-full object-cover object-center"
+            className="relative block w-full h-full object-cover object-[70%_center] sm:object-center"
             draggable={false}
           />
         </motion.div>
