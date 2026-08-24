@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-label="Chaloji Driver App Logo">
+  <defs>
+    <linearGradient id="cg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#10B981"/>
+      <stop offset=".55" stop-color="#06B6D4"/>
+      <stop offset="1" stop-color="#F97316"/>
+    </linearGradient>
+    <linearGradient id="dbg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#10141C"/>
+      <stop offset="1" stop-color="#08090C"/>
+    </linearGradient>
+  </defs>
+  <rect width="240" height="240" rx="54" fill="url(#dbg)"/>
+  <rect x="5" y="5" width="230" height="230" rx="50" fill="none" stroke="url(#cg)" stroke-width="5"/>
+  <text x="120" y="48" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="#34D399" letter-spacing="7">DRIVER</text>
+  <g>
+    <path d="M64 146 l17 -32 q4 -8 14 -8 h50 q10 0 14 8 l17 32 z" fill="url(#cg)" opacity=".92"/>
+    <rect x="78" y="114" width="34" height="24" rx="5" fill="#0D1117"/>
+    <rect x="128" y="114" width="34" height="24" rx="5" fill="#0D1117"/>
+    <rect x="52" y="144" width="136" height="36" rx="15" fill="url(#cg)"/>
+    <circle cx="186" cy="160" r="5" fill="#FCD34D"/>
+    <circle cx="86" cy="182" r="14" fill="#0D1117" stroke="#10B981" stroke-width="5"/>
+    <circle cx="154" cy="182" r="14" fill="#0D1117" stroke="#10B981" stroke-width="5"/>
+  </g>
+  <text x="120" y="222" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="900" fill="#FFFFFF" letter-spacing="3">CHALOJI</text>
+</svg>
