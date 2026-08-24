@@ -46,7 +46,7 @@ export function HeroSection() {
 
   return (
     <section
-      className="relative h-svh min-h-[420px] sm:min-h-[520px] w-full overflow-hidden bg-[#08090C]"
+      className="hero-fullbleed relative h-svh min-h-[100svh] sm:min-h-[520px] w-full overflow-hidden bg-[#08090C]"
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
     >
@@ -70,11 +70,11 @@ export function HeroSection() {
             className="absolute inset-0 w-full h-full object-cover scale-110 blur-2xl opacity-40 pointer-events-none select-none sm:hidden"
             draggable={false}
           />
-          {/* Main Image — mobile par bada & immersive, desktop par full cover */}
+          {/* Main Image — mobile par full-bleed immersive, desktop par waise hi */}
           <img
             src={HERO_SLIDES[currentSlide]}
             alt={`Slide ${currentSlide + 1}`}
-            className="relative w-full h-full object-cover object-center scale-[1.02] sm:scale-100"
+            className="relative block w-full h-full object-cover object-center"
             draggable={false}
           />
         </motion.div>
@@ -97,7 +97,7 @@ export function HeroSection() {
       </button>
 
       {/* Dot Indicators */}
-      <div className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 z-20 flex items-center space-x-3">
+      <div className="safe-bottom absolute left-1/2 -translate-x-1/2 z-20 flex items-center space-x-3">
         {HERO_SLIDES.map((_, idx) => (
           <button
             key={idx}

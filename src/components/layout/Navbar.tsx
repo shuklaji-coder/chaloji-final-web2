@@ -59,6 +59,8 @@ export function Navbar({ onInstantBook }: { onInstantBook: () => void }) {
           : "py-5 bg-transparent"
       }`}
     >
+      {/* Notch / status-bar safe area spacer */}
+      <div className="safe-area-top" aria-hidden />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           
