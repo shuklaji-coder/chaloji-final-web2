@@ -20,7 +20,7 @@ const REVIEWS_ROW_1: Review[] = [
     city: "Phoolpur",
     rating: 5,
     text: "Booked a cab from Phoolpur to Varanasi for a family pilgrimage. The driver arrived 5 mins early, cab was super clean, and zero surge pricing!",
-    avatar: "https://i.pravatar.cc/150?img=11",
+    avatar: "/team member 1.jpeg",
   },
   {
     name: "Ananya Sharma",
@@ -28,7 +28,7 @@ const REVIEWS_ROW_1: Review[] = [
     city: "Boring Road",
     rating: 5,
     text: "ChaloJi is a game changer in Uttar Pradesh! The live map tracking works seamlessly, and booking an instant sedan takes less than 10 seconds.",
-    avatar: "https://i.pravatar.cc/150?img=32",
+    avatar: "/team member 2.jpeg",
   },
   {
     name: "Rajesh Singh",
@@ -36,7 +36,7 @@ const REVIEWS_ROW_1: Review[] = [
     city: "Kankarbagh",
     rating: 5,
     text: "Joined as a driver 6 months ago. Daily UPI payouts and full support from the ChaloJi team. I earn over ₹65,000 every single month!",
-    avatar: "https://i.pravatar.cc/150?img=53",
+    avatar: "/founder.png",
   },
   {
     name: "Pooja Verma",
@@ -44,7 +44,7 @@ const REVIEWS_ROW_1: Review[] = [
     city: "Varanasi",
     rating: 5,
     text: "We booked 6 Fortuners and an Audi for our client's Baarat convoy. Synchronized drivers, flower decoration, and total royal treatment!",
-    avatar: "https://i.pravatar.cc/150?img=47",
+    avatar: "/team member 2.jpeg",
   },
 ];
 
@@ -55,7 +55,7 @@ const REVIEWS_ROW_2: Review[] = [
     city: "Varanasi Airport",
     rating: 5,
     text: "No hassle of bargaining with auto drivers at the airport anymore. Fixed rate, polite driver, and smooth luxury ride to home.",
-    avatar: "https://i.pravatar.cc/150?img=68",
+    avatar: "/team member 1.jpeg",
   },
   {
     name: "Sneha Prakash",
@@ -63,7 +63,7 @@ const REVIEWS_ROW_2: Review[] = [
     city: "Jaunpur",
     rating: 5,
     text: "The Express Bike option is incredibly fast for college runs! Super affordable and I always feel safe with live ride sharing with family.",
-    avatar: "https://i.pravatar.cc/150?img=26",
+    avatar: "/team member 2.jpeg",
   },
   {
     name: "Sunil Prasad",
@@ -71,7 +71,7 @@ const REVIEWS_ROW_2: Review[] = [
     city: "Prayagraj",
     rating: 5,
     text: "Hourly rental option allowed me to complete 5 business meetings across town in a single day without waiting for multiple rides.",
-    avatar: "https://i.pravatar.cc/150?img=59",
+    avatar: "/founder.png",
   },
   {
     name: "Ritu Kumari",
@@ -79,7 +79,7 @@ const REVIEWS_ROW_2: Review[] = [
     city: "Ayodhya",
     rating: 5,
     text: "The digital booking UI is futuristic! Loved the transparent fare breakdown and instantaneous driver allocation.",
-    avatar: "https://i.pravatar.cc/150?img=44",
+    avatar: "/team member 1.jpeg",
   },
 ];
 

@@ -4,17 +4,37 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-const HERO_SLIDES = [
+const DESKTOP_SLIDES = [
   "/home page1.png",
   "/home page2.png",
   "/homepage3.png",
   "/home page4.png",
 ];
 
+const MOBILE_SLIDES = [
+  "/ea8530f0-39ca-4eae-bde0-463c0b4773f0.png",
+  "/bf915cff-011f-4eb0-99cf-f0afdb56366a.png",
+  "/db893559-c633-450f-a2db-8a14d08140c5.png",
+];
+
 export function HeroSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [direction, setDirection] = useState(1);
   const [touchStartX, setTouchStartX] = useState<number | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  const HERO_SLIDES = isMobile ? MOBILE_SLIDES : DESKTOP_SLIDES;
+
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 639px)");
+    setIsMobile(mq.matches);
+    const handler = (e: MediaQueryListEvent) => {
+      setIsMobile(e.matches);
+      setCurrentSlide(0);
+    };
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, []);
 
   const goTo = (idx: number, dir: number) => {
     setDirection(dir);
@@ -28,7 +48,7 @@ export function HeroSection() {
       setCurrentSlide((slide) => (slide + 1) % HERO_SLIDES.length);
     }, 4000);
     return () => clearInterval(timer);
-  }, []);
+  }, [HERO_SLIDES.length]);
 
   // Touch Swipe Support
   const handleTouchStart = (e: React.TouchEvent) => {
