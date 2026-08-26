@@ -94,7 +94,7 @@ export function CTASection() {
                       <span>CHALOJI APP</span>
                       <span>5G ONLINE</span>
                     </div>
-                    <div className="h-32 rounded-xl bg-cover bg-center" style={{ backgroundImage: "url('/home page1.png')" }} />
+                    <div className="h-32 rounded-xl bg-cover bg-center" style={{ backgroundImage: "url('/Chaloji landing page photo .jpeg')" }} />
                   </div>
 
                   <div className="space-y-2 pt-2">

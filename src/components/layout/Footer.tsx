@@ -59,13 +59,21 @@ export function Footer() {
             </div>
 
             <div className="flex items-center space-x-3 pt-2">
-              {[Instagram, Twitter, Facebook, Linkedin].map((Icon, i) => (
+              {[
+                { icon: Instagram, href: "https://instagram.com/chaloji", label: "Instagram" },
+                { icon: Facebook, href: "https://facebook.com/chaloji", label: "Facebook" },
+                { icon: Twitter, href: "https://twitter.com/chaloji", label: "Twitter" },
+                { icon: Linkedin, href: "https://linkedin.com/company/chaloji", label: "LinkedIn" },
+              ].map((social, i) => (
                 <a
                   key={i}
-                  href="#"
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.label}
                   className="w-10 h-10 rounded-xl glass-panel flex items-center justify-center text-gray-400 hover:text-emerald-400 hover:border-emerald-500/40 transition-all duration-300 group"
                 >
-                  <Icon className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                  <social.icon className="w-4 h-4 group-hover:scale-110 transition-transform" />
                 </a>
               ))}
             </div>
@@ -78,7 +86,7 @@ export function Footer() {
               <span>Mobility Services</span>
             </h4>
             <ul className="space-y-2.5 text-sm text-gray-400">
-              {["Outstation Cabs", "Local Hourly Rental", "Airport Drop & Pickup", "Luxury Baarat Convoy", "Bike & Auto Express"].map((item, i) => (
+              {["Outstation Cabs", "Local Hourly Rental", "Airport Drop & Pickup", "Sedan & SUV Premium", "Bike & Auto Express"].map((item, i) => (
                 <li key={i}>
                   <a href="#app-download" className="hover:text-emerald-400 transition-colors flex items-center space-x-1 group">
                     <ArrowUpRight className="w-3.5 h-3.5 text-gray-600 group-hover:text-emerald-400 transition-colors" />
@@ -139,9 +147,9 @@ export function Footer() {
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-500">
           <p className="text-center md:text-left">© {new Date().getFullYear()} ChaloJi Next-Gen Mobility. All Rights Reserved.</p>
           <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
-            <a href="#" className="hover:text-gray-300 transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-gray-300 transition-colors">Terms of Service</a>
-            <a href="#" className="hover:text-gray-300 transition-colors">Driver Agreement</a>
+            <span className="hover:text-gray-300 transition-colors cursor-default">Privacy Policy</span>
+            <span className="hover:text-gray-300 transition-colors cursor-default">Terms of Service</span>
+            <span className="hover:text-gray-300 transition-colors cursor-default">Driver Agreement</span>
           </div>
         </div>
 

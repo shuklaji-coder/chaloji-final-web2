@@ -1,17 +1,12 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import motion from "framer-motion";
 import {
-  Sparkles,
   PhoneCall, 
-  ShieldCheck, 
-  HeartHandshake, 
   Menu, 
   X, 
   ChevronRight,
   Zap,
-  MapPin
 } from "lucide-react";
 
 export function Navbar({ onInstantBook }: { onInstantBook: () => void }) {
@@ -47,7 +42,7 @@ export function Navbar({ onInstantBook }: { onInstantBook: () => void }) {
   const navLinks = [
     { name: "Live Route", href: "#hero-route" },
     { name: "Get App", href: "#app-download" },
-    { name: "Baarat Convoy", href: "#baarat-showcase", badge: "HOT" },
+    { name: "Quotes", href: "#motivational-quotes", badge: "NEW" },
     { name: "Reviews", href: "#reviews" },
   ];
 

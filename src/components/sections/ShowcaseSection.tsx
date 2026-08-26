@@ -23,6 +23,7 @@ export function ShowcaseSection() {
           <img
             src="/image copy.png"
             alt="Chaloji Showcase"
+            loading="lazy"
             className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-[1.02]"
             draggable={false}
           />

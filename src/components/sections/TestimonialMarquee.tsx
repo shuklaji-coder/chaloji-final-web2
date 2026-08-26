@@ -122,6 +122,7 @@ export function TestimonialMarquee() {
                 <img
                   src={review.avatar}
                   alt={review.name}
+                  loading="lazy"
                   className="w-10 h-10 rounded-full object-cover border border-emerald-500/40"
                 />
                 <div className="flex flex-col text-left">
@@ -164,6 +165,7 @@ export function TestimonialMarquee() {
                 <img
                   src={review.avatar}
                   alt={review.name}
+                  loading="lazy"
                   className="w-10 h-10 rounded-full object-cover border border-cyan-500/40"
                 />
                 <div className="flex flex-col text-left">

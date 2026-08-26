@@ -79,7 +79,7 @@ const QUOTES_ROW_2: MotivationalQuote[] = [
 
 export function MotivationalQuotesMarquee() {
   return (
-    <section className="relative py-16 sm:py-28 z-10 overflow-hidden bg-[#07080B] border-t border-white/10">
+    <section id="motivational-quotes" className="relative py-16 sm:py-28 z-10 overflow-hidden bg-[#07080B] border-t border-white/10">
 
       {/* Background Lighting */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-gradient-to-r from-emerald-500/10 via-cyan-500/10 to-transparent blur-[140px] pointer-events-none" />

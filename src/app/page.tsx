@@ -16,6 +16,7 @@ import { TestimonialMarquee } from "@/components/sections/TestimonialMarquee";
 import { FaqSection } from "@/components/sections/FaqSection";
 import { CTASection } from "@/components/sections/CTASection";
 import { Footer } from "@/components/layout/Footer";
+import { ScrollToTop } from "@/components/layout/ScrollToTop";
 
 export default function Home() {
   const [bookingOpen, setBookingOpen] = useState(false);
@@ -50,6 +51,9 @@ export default function Home() {
 
         {/* Floating WhatsApp CTA */}
         <FloatingWhatsApp />
+
+        {/* Scroll to Top */}
+        <ScrollToTop />
       </main>
     </LenisProvider>
   );

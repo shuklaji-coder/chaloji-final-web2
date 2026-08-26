@@ -94,6 +94,7 @@ export function TeamSection() {
                 <img
                   src={member.photo}
                   alt={member.name}
+                  loading="lazy"
                   className="w-full h-full rounded-full object-cover border-4 border-[#08090C]"
                   draggable={false}
                 />
@@ -115,18 +116,20 @@ export function TeamSection() {
               {/* Socials */}
               <div className="flex items-center justify-center space-x-3 pt-2">
                 <a
-                  href="#"
-                  aria-label={`${member.name} LinkedIn`}
+                  href="https://wa.me/918087747774?text=Hi%20Chaloji!%20I%20want%20to%20connect%20with%20the%20team."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Contact ${member.name} on WhatsApp`}
                   className="w-9 h-9 rounded-xl glass-panel border border-white/10 flex items-center justify-center text-gray-400 hover:text-emerald-400 hover:border-emerald-500/50 transition-all duration-300"
                 >
-                  <Linkedin className="w-4 h-4" />
+                  <Mail className="w-4 h-4" />
                 </a>
                 <a
-                  href="#"
-                  aria-label={`${member.name} Email`}
+                  href="tel:8087747774"
+                  aria-label={`Call Chaloji for ${member.name}`}
                   className="w-9 h-9 rounded-xl glass-panel border border-white/10 flex items-center justify-center text-gray-400 hover:text-cyan-400 hover:border-cyan-500/50 transition-all duration-300"
                 >
-                  <Mail className="w-4 h-4" />
+                  <Users className="w-4 h-4" />
                 </a>
               </div>
 

@@ -90,6 +90,7 @@ export function AppDownloadSection() {
               <img
                 src={driverApp.icon}
                 alt="Chaloji Driver App"
+                loading="lazy"
                 className="w-40 h-40 sm:w-48 sm:h-48 rounded-3xl object-cover shadow-xl shadow-emerald-950/60 transition-transform duration-300 group-hover:scale-105"
               />
               <span className="absolute -top-2 -right-2 px-2.5 py-1 rounded-full bg-emerald-500 text-black text-[10px] font-extrabold uppercase tracking-wider">
@@ -138,6 +139,7 @@ export function AppDownloadSection() {
               <img
                 src={userApp.icon}
                 alt="Chaloji User App"
+                loading="lazy"
                 className="w-40 h-40 sm:w-48 sm:h-48 rounded-3xl object-cover shadow-xl shadow-cyan-950/60 transition-transform duration-300 group-hover:scale-105"
               />
               <span className="absolute -top-2 -right-2 px-2.5 py-1 rounded-full bg-cyan-500 text-black text-[10px] font-extrabold uppercase tracking-wider">
