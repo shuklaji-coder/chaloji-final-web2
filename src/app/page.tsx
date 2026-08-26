@@ -9,7 +9,7 @@ import { BookingModal } from "@/components/layout/BookingModal";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { AppDownloadSection } from "@/components/sections/AppDownloadSection";
 import { HighlightsMarquee } from "@/components/sections/HighlightsMarquee";
-import { BaraatConvoyCarousel } from "@/components/sections/BaraatConvoyCarousel";
+import { MotivationalQuotesMarquee } from "@/components/sections/MotivationalQuotesMarquee";
 import { ShowcaseSection } from "@/components/sections/ShowcaseSection";
 import { TeamSection } from "@/components/sections/TeamSection";
 import { TestimonialMarquee } from "@/components/sections/TestimonialMarquee";
@@ -37,7 +37,7 @@ export default function Home() {
           <HeroSection />
           <AppDownloadSection />
           <HighlightsMarquee />
-          <BaraatConvoyCarousel />
+          <MotivationalQuotesMarquee />
           <ShowcaseSection />
           <TeamSection />
           <TestimonialMarquee />
