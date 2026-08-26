@@ -62,23 +62,26 @@ export function HeroSection() {
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           className="absolute inset-0"
         >
-          {/* Blurred Fill Background (mobile par letterbox area bharne ke liye) */}
+          {/* Blurred Fill Background — depth layer */}
           <img
             src={HERO_SLIDES[currentSlide]}
             alt=""
             aria-hidden
-            className="absolute inset-0 w-full h-full object-cover scale-110 blur-2xl opacity-40 pointer-events-none select-none sm:hidden"
+            className="absolute inset-0 w-full h-full object-cover scale-110 blur-2xl opacity-30 pointer-events-none select-none"
             draggable={false}
           />
-          {/* Main Image — mobile par kam zoom + right focus, desktop full cover */}
+          {/* Main Image — full on mobile (contain), edge-to-edge on desktop (cover) */}
           <img
             src={HERO_SLIDES[currentSlide]}
             alt={`Slide ${currentSlide + 1}`}
-            className="relative block w-full h-full object-contain object-[85%_center] scale-[1.25] sm:object-cover sm:object-center sm:scale-100"
+            className="relative block w-full h-full object-contain sm:object-cover py-4 sm:py-0"
             draggable={false}
           />
         </motion.div>
       </AnimatePresence>
+
+      {/* Bottom gradient for shayari readability */}
+      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-black/70 via-black/30 to-transparent pointer-events-none z-10" />
 
       {/* Prev / Next Arrows */}
       <button

@@ -157,7 +157,6 @@ html {
 }
 
 /* ===== Mobile Full-Bleed Hero ===== */
-/* Kisi bhi parent constraint ke against bhi hero ko edge-to-edge rakhta hai */
 @media (max-width: 768px) {
   .hero-fullbleed {
     width: 100vw;
@@ -172,7 +171,6 @@ html {
     width: 100%;
     height: 100%;
     max-width: none;
-    object-fit: cover;
   }
 }
 
