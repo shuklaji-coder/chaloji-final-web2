@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { 
   Car, 
   MapPin, 
@@ -147,9 +148,15 @@ export function Footer() {
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-500">
           <p className="text-center md:text-left">© {new Date().getFullYear()} ChaloJi Next-Gen Mobility. All Rights Reserved.</p>
           <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
-            <span className="hover:text-gray-300 transition-colors cursor-default">Privacy Policy</span>
-            <span className="hover:text-gray-300 transition-colors cursor-default">Terms of Service</span>
-            <span className="hover:text-gray-300 transition-colors cursor-default">Driver Agreement</span>
+            <Link href="/privacy-policy" className="hover:text-emerald-400 transition-colors">
+              Privacy Policy
+            </Link>
+            <Link href="/terms-of-service" className="hover:text-emerald-400 transition-colors">
+              Terms of Service
+            </Link>
+            <Link href="/driver-agreement" className="hover:text-emerald-400 transition-colors">
+              Driver Agreement
+            </Link>
           </div>
         </div>
 
