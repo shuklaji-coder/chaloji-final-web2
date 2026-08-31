@@ -9,7 +9,7 @@ import {
   Zap,
 } from "lucide-react";
 
-export function Navbar({ onInstantBook }: { onInstantBook: () => void }) {
+export function Navbar({ onInstantBook }: { onInstantBook?: () => void }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -100,7 +100,13 @@ export function Navbar({ onInstantBook }: { onInstantBook: () => void }) {
 
             {/* Shimmer Light Sweep CTA */}
             <button
-              onClick={onInstantBook}
+              onClick={() => {
+                if (onInstantBook) {
+                  onInstantBook();
+                } else {
+                  window.location.href = "/#app-download";
+                }
+              }}
               className="relative group overflow-hidden rounded-xl bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 p-[1px] shadow-lg shadow-emerald-500/25 hover:shadow-emerald-500/50 transition-all duration-300"
               data-cursor-expand="true"
             >
@@ -149,7 +155,11 @@ export function Navbar({ onInstantBook }: { onInstantBook: () => void }) {
           <button
             onClick={() => {
               setMobileMenuOpen(false);
-              onInstantBook();
+              if (onInstantBook) {
+                onInstantBook();
+              } else {
+                window.location.href = "/#app-download";
+              }
             }}
             className="block w-full text-center py-3 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 text-black font-bold text-sm tracking-wide uppercase shadow-lg shadow-emerald-500/30"
           >

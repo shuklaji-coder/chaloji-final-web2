@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import { Navbar } from "@/components/layout/Navbar";
@@ -17,11 +19,6 @@ import {
   CheckCircle2, 
   ArrowLeft 
 } from "lucide-react";
-
-export const metadata = {
-  title: "Terms of Service | ChaloJi Mobility",
-  description: "Read the Terms of Service for using ChaloJi cab booking, rental, and mobility platform.",
-};
 
 export default function TermsOfServicePage() {
   return (

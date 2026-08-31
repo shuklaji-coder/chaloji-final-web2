@@ -1,5 +1,6 @@
+"use client";
+
 import React from "react";
-import Metadata from "next";
 import Link from "next/link";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -19,11 +20,6 @@ import {
   CheckCircle2, 
   ArrowLeft 
 } from "lucide-react";
-
-export const metadata = {
-  title: "Privacy Policy | ChaloJi Mobility",
-  description: "Learn how ChaloJi protects your data, privacy, and personal information across our cab booking and mobility services.",
-};
 
 export default function PrivacyPolicyPage() {
   return (

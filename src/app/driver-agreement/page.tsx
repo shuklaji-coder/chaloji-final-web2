@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import { Navbar } from "@/components/layout/Navbar";
@@ -15,11 +17,6 @@ import {
   Mail, 
   ArrowLeft 
 } from "lucide-react";
-
-export const metadata = {
-  title: "Driver Partner Agreement | ChaloJi Mobility",
-  description: "Terms, guidelines, and benefits for ChaloJi verified driver partners.",
-};
 
 export default function DriverAgreementPage() {
   return (
