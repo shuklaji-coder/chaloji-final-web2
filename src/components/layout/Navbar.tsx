@@ -69,7 +69,7 @@ export function Navbar({
           {/* Logo & Brand */}
           <a href="#" className="group flex items-center cursor-pointer">
             <img
-              src="/image.png"
+              src="/chaloji logo.png"
               alt="Chaloji Logo"
               className="w-auto h-11 sm:h-12 object-contain drop-shadow-lg shadow-emerald-500/20 group-hover:scale-105 transition-transform duration-300"
             />
