@@ -9,7 +9,13 @@ import {
   Zap,
 } from "lucide-react";
 
-export function Navbar({ onInstantBook }: { onInstantBook?: () => void }) {
+export function Navbar({ 
+  onInstantBook, 
+  onOpenEventModal 
+}: { 
+  onInstantBook?: () => void;
+  onOpenEventModal?: () => void;
+}) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -40,10 +46,11 @@ export function Navbar({ onInstantBook }: { onInstantBook?: () => void }) {
   }, []);
 
   const navLinks = [
-    { name: "Live Route", href: "#hero-route" },
-    { name: "Get App", href: "#app-download" },
-    { name: "Quotes", href: "#motivational-quotes", badge: "NEW" },
-    { name: "Reviews", href: "#reviews" },
+    { name: "Live Route", href: "/#hero-route" },
+    { name: "Driver Join", href: "/#driver-join", badge: "EARN" },
+    { name: "Baraat Fleet", href: "/#baarat-showcase" },
+    { name: "Launching Soon", href: "/launching-soon", badge: "SOON" },
+    { name: "Get App", href: "/#app-download" },
   ];
 
   return (

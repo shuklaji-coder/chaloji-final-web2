@@ -34,6 +34,8 @@ interface BookingModalProps {
 export function BookingModal({ open, onClose }: BookingModalProps) {
   const today = new Date().toISOString().slice(0, 10);
 
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
   const [pickup, setPickup] = useState("");
   const [drop, setDrop] = useState("");
   const [date, setDate] = useState(today);
@@ -67,13 +69,16 @@ export function BookingModal({ open, onClose }: BookingModalProps) {
       return;
     }
     const message = encodeURIComponent(
-      `🚖 *New Instant Ride Booking*\n\n` +
+      `🚖 *Instant Ride Booking - Chaloji*\n\n` +
+        `👤 *Name:* ${name.trim() || "Rider"}\n` +
+        `📞 *Phone:* ${phone.trim() || "Not specified"}\n` +
         `📍 *Pickup:* ${pickup.trim()}\n` +
         `🏁 *Drop:* ${drop.trim()}\n` +
         `📅 *Date:* ${date || "ASAP"}\n` +
         `🕐 *Time:* ${time || "ASAP"}\n` +
         `🔁 *Trip Type:* ${tripType}\n` +
-        `🚗 *Ride:* ${rideType}`
+        `🚗 *Vehicle:* ${rideType}\n\n` +
+        `Kripya gadi jaldi dispatch karein!`
     );
     window.open(
       `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`,
@@ -83,6 +88,8 @@ export function BookingModal({ open, onClose }: BookingModalProps) {
     setPickup("");
     setDrop("");
     setTime("");
+    setName("");
+    setPhone("");
     handleClose();
   };
 

@@ -144,6 +144,20 @@ export function FareEstimator() {
 
   const handleBook = () => {
     setBookingDone(true);
+
+    const message = encodeURIComponent(
+      `🚖 *Instant Ride Booking Request - Chaloji*\n\n` +
+        `🚗 *Vehicle Type:* ${selectedVehicle.name} (${selectedVehicle.category})\n` +
+        `📍 *Pickup:* ${pickup}\n` +
+        `🏁 *Drop:* ${drop}\n` +
+        `📏 *Distance:* ${distance.toFixed(1)} km\n` +
+        `💰 *Estimated Fare:* ₹${calculatedFare}\n` +
+        `⚡ *Rate:* ₹${selectedVehicle.baseFare} Base + ₹${selectedVehicle.perKm}/km\n\n` +
+        `Kripya gadi dispatch karein.`
+    );
+
+    window.open(`https://wa.me/918087747774?text=${message}`, "_blank", "noopener,noreferrer");
+
     setTimeout(() => setBookingDone(false), 4000);
   };
 

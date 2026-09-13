@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Smartphone, Download, ShieldCheck, Zap, X, Rocket, BellRing } from "lucide-react";
 import { Shayari } from "@/components/ui/Shayari";
+import { TiltCard } from "@/components/vfx/TiltCard";
 
 type AppType = {
   name: string;
@@ -75,102 +76,104 @@ export function AppDownloadSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-4xl mx-auto items-stretch">
 
           {/* Driver App Card */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            whileHover={{ y: -6 }}
-            className="glass-card p-8 rounded-3xl border border-white/10 shadow-2xl shadow-emerald-950/40 flex flex-col items-center text-center space-y-6 relative overflow-hidden group"
-            data-cursor-expand="true"
-          >
-            <div className="absolute -top-12 -left-12 w-32 h-32 bg-emerald-500/20 rounded-full blur-2xl pointer-events-none" />
-
-            <div className="relative">
-              <img
-                src={driverApp.icon}
-                alt="Chaloji Driver App"
-                loading="lazy"
-                className="w-40 h-40 sm:w-48 sm:h-48 rounded-3xl object-cover shadow-xl shadow-emerald-950/60 transition-transform duration-300 group-hover:scale-105"
-              />
-              <span className="absolute -top-2 -right-2 px-2.5 py-1 rounded-full bg-emerald-500 text-black text-[10px] font-extrabold uppercase tracking-wider">
-                Partner
-              </span>
-            </div>
-
-            <div className="space-y-2">
-              <h3 className="text-2xl font-black text-white font-display">Chaloji Driver App</h3>
-              <p className="text-sm text-gray-400 leading-relaxed">
-                Become a verified Chaloji partner. Accept rides, track live earnings &amp; grow your income every day.
-              </p>
-            </div>
-
-            <button
-              onClick={() => setSelectedApp(driverApp)}
-              className="relative mt-auto w-full group/btn overflow-hidden rounded-2xl bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 p-[1px] shadow-lg shadow-emerald-500/30 hover:shadow-emerald-500/60 transition-all duration-300 cursor-pointer"
+          <TiltCard tiltAmount={8} scaleOnHover={1.02} className="h-full">
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              className="glass-card p-8 rounded-3xl border border-white/10 shadow-2xl shadow-emerald-950/40 flex flex-col items-center text-center space-y-6 relative overflow-hidden group h-full"
+              data-cursor-expand="true"
             >
-              <div className="w-full py-3.5 bg-[#08090C] rounded-[15px] flex items-center justify-center space-x-2 transition-all duration-300 group-hover/btn:bg-transparent">
-                <Download className="w-5 h-5 text-emerald-400 group-hover/btn:text-black transition-colors" />
-                <span className="text-sm font-extrabold text-white group-hover/btn:text-black uppercase tracking-wider transition-colors">
-                  Download Driver App
+              <div className="absolute -top-12 -left-12 w-32 h-32 bg-emerald-500/20 rounded-full blur-2xl pointer-events-none" />
+
+              <div className="relative">
+                <img
+                  src={driverApp.icon}
+                  alt="Chaloji Driver App"
+                  loading="lazy"
+                  className="w-40 h-40 sm:w-48 sm:h-48 rounded-3xl object-cover shadow-xl shadow-emerald-950/60 transition-transform duration-300 group-hover:scale-105"
+                />
+                <span className="absolute -top-2 -right-2 px-2.5 py-1 rounded-full bg-emerald-500 text-black text-[10px] font-extrabold uppercase tracking-wider">
+                  Partner
                 </span>
               </div>
-            </button>
 
-            <div className="flex items-center justify-center space-x-2 text-[11px] text-gray-400">
-              <ShieldCheck className="w-4 h-4 text-emerald-400" />
-              <span>Free Registration • Daily Payouts • Full Support</span>
-            </div>
-          </motion.div>
+              <div className="space-y-2">
+                <h3 className="text-2xl font-black text-white font-display">Chaloji Driver App</h3>
+                <p className="text-sm text-gray-400 leading-relaxed">
+                  Become a verified Chaloji partner. Accept rides, track live earnings &amp; grow your income every day.
+                </p>
+              </div>
+
+              <button
+                onClick={() => setSelectedApp(driverApp)}
+                className="relative mt-auto w-full group/btn overflow-hidden rounded-2xl bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 p-[1px] shadow-lg shadow-emerald-500/30 hover:shadow-emerald-500/60 transition-all duration-300 cursor-pointer"
+              >
+                <div className="w-full py-3.5 bg-[#08090C] rounded-[15px] flex items-center justify-center space-x-2 transition-all duration-300 group-hover/btn:bg-transparent">
+                  <Download className="w-5 h-5 text-emerald-400 group-hover/btn:text-black transition-colors" />
+                  <span className="text-sm font-extrabold text-white group-hover/btn:text-black uppercase tracking-wider transition-colors">
+                    Download Driver App
+                  </span>
+                </div>
+              </button>
+
+              <div className="flex items-center justify-center space-x-2 text-[11px] text-gray-400">
+                <ShieldCheck className="w-4 h-4 text-emerald-400" />
+                <span>Free Registration • Daily Payouts • Full Support</span>
+              </div>
+            </motion.div>
+          </TiltCard>
 
           {/* User App Card */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-            whileHover={{ y: -6 }}
-            className="glass-card p-8 rounded-3xl border border-white/10 shadow-2xl shadow-cyan-950/40 flex flex-col items-center text-center space-y-6 relative overflow-hidden group"
-            data-cursor-expand="true"
-          >
-            <div className="absolute -bottom-12 -right-12 w-32 h-32 bg-cyan-500/20 rounded-full blur-2xl pointer-events-none" />
-
-            <div className="relative">
-              <img
-                src={userApp.icon}
-                alt="Chaloji User App"
-                loading="lazy"
-                className="w-40 h-40 sm:w-48 sm:h-48 rounded-3xl object-cover shadow-xl shadow-cyan-950/60 transition-transform duration-300 group-hover:scale-105"
-              />
-              <span className="absolute -top-2 -right-2 px-2.5 py-1 rounded-full bg-cyan-500 text-black text-[10px] font-extrabold uppercase tracking-wider">
-                Rider
-              </span>
-            </div>
-
-            <div className="space-y-2">
-              <h3 className="text-2xl font-black text-white font-display">Chaloji User App</h3>
-              <p className="text-sm text-gray-400 leading-relaxed">
-                Book your first zero-surge ride in seconds. Live tracking, transparent fares &amp; instant support.
-              </p>
-            </div>
-
-            <button
-              onClick={() => setSelectedApp(userApp)}
-              className="relative mt-auto w-full group/btn overflow-hidden rounded-2xl bg-gradient-to-r from-cyan-400 via-sky-500 to-blue-600 p-[1px] shadow-lg shadow-cyan-500/30 hover:shadow-cyan-500/60 transition-all duration-300 cursor-pointer"
+          <TiltCard tiltAmount={8} scaleOnHover={1.02} className="h-full">
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+              className="glass-card p-8 rounded-3xl border border-white/10 shadow-2xl shadow-cyan-950/40 flex flex-col items-center text-center space-y-6 relative overflow-hidden group h-full"
+              data-cursor-expand="true"
             >
-              <div className="w-full py-3.5 bg-[#08090C] rounded-[15px] flex items-center justify-center space-x-2 transition-all duration-300 group-hover/btn:bg-transparent">
-                <Download className="w-5 h-5 text-cyan-400 group-hover/btn:text-black transition-colors" />
-                <span className="text-sm font-extrabold text-white group-hover/btn:text-black uppercase tracking-wider transition-colors">
-                  Download User App
+              <div className="absolute -bottom-12 -right-12 w-32 h-32 bg-cyan-500/20 rounded-full blur-2xl pointer-events-none" />
+
+              <div className="relative">
+                <img
+                  src={userApp.icon}
+                  alt="Chaloji User App"
+                  loading="lazy"
+                  className="w-40 h-40 sm:w-48 sm:h-48 rounded-3xl object-cover shadow-xl shadow-cyan-950/60 transition-transform duration-300 group-hover:scale-105"
+                />
+                <span className="absolute -top-2 -right-2 px-2.5 py-1 rounded-full bg-cyan-500 text-black text-[10px] font-extrabold uppercase tracking-wider">
+                  Rider
                 </span>
               </div>
-            </button>
 
-            <div className="flex items-center justify-center space-x-2 text-[11px] text-gray-400">
-              <Smartphone className="w-4 h-4 text-cyan-400" />
-              <span>Android &amp; iOS Supported</span>
-            </div>
-          </motion.div>
+              <div className="space-y-2">
+                <h3 className="text-2xl font-black text-white font-display">Chaloji User App</h3>
+                <p className="text-sm text-gray-400 leading-relaxed">
+                  Book your first zero-surge ride in seconds. Live tracking, transparent fares &amp; instant support.
+                </p>
+              </div>
+
+              <button
+                onClick={() => setSelectedApp(userApp)}
+                className="relative mt-auto w-full group/btn overflow-hidden rounded-2xl bg-gradient-to-r from-cyan-400 via-sky-500 to-blue-600 p-[1px] shadow-lg shadow-cyan-500/30 hover:shadow-cyan-500/60 transition-all duration-300 cursor-pointer"
+              >
+                <div className="w-full py-3.5 bg-[#08090C] rounded-[15px] flex items-center justify-center space-x-2 transition-all duration-300 group-hover/btn:bg-transparent">
+                  <Download className="w-5 h-5 text-cyan-400 group-hover/btn:text-black transition-colors" />
+                  <span className="text-sm font-extrabold text-white group-hover/btn:text-black uppercase tracking-wider transition-colors">
+                    Download User App
+                  </span>
+                </div>
+              </button>
+
+              <div className="flex items-center justify-center space-x-2 text-[11px] text-gray-400">
+                <Smartphone className="w-4 h-4 text-cyan-400" />
+                <span>Android &amp; iOS Supported</span>
+              </div>
+            </motion.div>
+          </TiltCard>
 
         </div>
 

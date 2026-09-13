@@ -148,6 +148,9 @@ export function Footer() {
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-500">
           <p className="text-center md:text-left">© {new Date().getFullYear()} ChaloJi Next-Gen Mobility. All Rights Reserved.</p>
           <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+            <Link href="/launching-soon" className="text-emerald-400 font-semibold hover:underline transition-colors flex items-center space-x-1">
+              <span>🚀 Launching Soon</span>
+            </Link>
             <Link href="/privacy-policy" className="hover:text-emerald-400 transition-colors">
               Privacy Policy
             </Link>

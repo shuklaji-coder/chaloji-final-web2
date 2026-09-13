@@ -6,11 +6,14 @@ import { CyberBackground } from "@/components/vfx/CyberBackground";
 import { Navbar } from "@/components/layout/Navbar";
 import { FloatingWhatsApp } from "@/components/layout/FloatingWhatsApp";
 import { BookingModal } from "@/components/layout/BookingModal";
+import { EventBookingModal } from "@/components/layout/EventBookingModal";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { AppDownloadSection } from "@/components/sections/AppDownloadSection";
 import { HighlightsMarquee } from "@/components/sections/HighlightsMarquee";
 import { MotivationalQuotesMarquee } from "@/components/sections/MotivationalQuotesMarquee";
 import { ShowcaseSection } from "@/components/sections/ShowcaseSection";
+import { BaraatConvoyCarousel } from "@/components/sections/BaraatConvoyCarousel";
+import { DriverJoinSection } from "@/components/sections/DriverJoinSection";
 import { TeamSection } from "@/components/sections/TeamSection";
 import { TestimonialMarquee } from "@/components/sections/TestimonialMarquee";
 import { FaqSection } from "@/components/sections/FaqSection";
@@ -20,6 +23,7 @@ import { ScrollToTop } from "@/components/layout/ScrollToTop";
 
 export default function Home() {
   const [bookingOpen, setBookingOpen] = useState(false);
+  const [eventModalOpen, setEventModalOpen] = useState(false);
 
   return (
     <LenisProvider>
@@ -28,10 +32,16 @@ export default function Home() {
         <CyberBackground />
 
         {/* Global Navigation */}
-        <Navbar onInstantBook={() => setBookingOpen(true)} />
+        <Navbar 
+          onInstantBook={() => setBookingOpen(true)} 
+          onOpenEventModal={() => setEventModalOpen(true)}
+        />
 
         {/* Instant Ride Booking Modal */}
         <BookingModal open={bookingOpen} onClose={() => setBookingOpen(false)} />
+
+        {/* Wedding & Outstation Package Request Modal */}
+        <EventBookingModal open={eventModalOpen} onClose={() => setEventModalOpen(false)} />
 
         {/* Main Content Blueprint */}
         <div className="relative z-10 space-y-0">
@@ -39,7 +49,9 @@ export default function Home() {
           <AppDownloadSection />
           <HighlightsMarquee />
           <MotivationalQuotesMarquee />
+          <BaraatConvoyCarousel onOpenEventModal={() => setEventModalOpen(true)} />
           <ShowcaseSection />
+          <DriverJoinSection />
           <TeamSection />
           <TestimonialMarquee />
           <FaqSection />

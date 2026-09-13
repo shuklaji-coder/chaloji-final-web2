@@ -4,6 +4,8 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Smartphone, Apple, Zap, ArrowRight, ShieldCheck, Star } from "lucide-react";
 import { Shayari } from "@/components/ui/Shayari";
+import { AnimatedText } from "@/components/vfx/AnimatedText";
+import { MagneticButton } from "@/components/vfx/MagneticButton";
 
 export function CTASection() {
   return (
@@ -28,8 +30,8 @@ export function CTASection() {
               </div>
 
               <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight font-display leading-[1.1]">
-                Book Your Ride in <br />
-                <span className="text-gradient-emerald">Under 10 Seconds.</span>
+                <AnimatedText text="Book Your Ride in" gradientWords={[]} /> <br />
+                <AnimatedText text="Under 10 Seconds." gradientWords={["Under", "10", "Seconds."]} />
               </h2>
 
               <p className="text-base text-gray-300 max-w-xl leading-relaxed">
@@ -40,31 +42,35 @@ export function CTASection() {
                 Ab der kis baat ki, gaadi khadi hai — Chaloji keh raha, safar azma ke dekhi!
               </Shayari>
 
-              {/* App Store / Play Store Buttons */}
+              {/* App Store / Play Store Buttons with Magnetic Hover */}
               <div className="flex flex-wrap items-center gap-4 pt-2">
-                <a
-                  href="#"
-                  className="px-6 py-3.5 rounded-2xl glass-panel border border-white/15 hover:border-emerald-500/50 flex items-center space-x-3 text-white transition-all duration-300 hover:scale-105"
-                  data-cursor-expand="true"
-                >
-                  <Apple className="w-7 h-7 text-emerald-400" />
-                  <div className="flex flex-col text-left">
-                    <span className="text-[10px] text-gray-400 uppercase tracking-widest font-semibold">Download on</span>
-                    <span className="text-sm font-bold font-display">App Store</span>
-                  </div>
-                </a>
+                <MagneticButton>
+                  <a
+                    href="#"
+                    className="px-6 py-3.5 rounded-2xl glass-panel border border-white/15 hover:border-emerald-500/50 flex items-center space-x-3 text-white transition-all duration-300 shadow-lg shadow-emerald-500/10"
+                    data-cursor-expand="true"
+                  >
+                    <Apple className="w-7 h-7 text-emerald-400" />
+                    <div className="flex flex-col text-left">
+                      <span className="text-[10px] text-gray-400 uppercase tracking-widest font-semibold">Download on</span>
+                      <span className="text-sm font-bold font-display">App Store</span>
+                    </div>
+                  </a>
+                </MagneticButton>
 
-                <a
-                  href="#"
-                  className="px-6 py-3.5 rounded-2xl glass-panel border border-white/15 hover:border-cyan-500/50 flex items-center space-x-3 text-white transition-all duration-300 hover:scale-105"
-                  data-cursor-expand="true"
-                >
-                  <Smartphone className="w-7 h-7 text-cyan-400" />
-                  <div className="flex flex-col text-left">
-                    <span className="text-[10px] text-gray-400 uppercase tracking-widest font-semibold">GET IT ON</span>
-                    <span className="text-sm font-bold font-display">Google Play</span>
-                  </div>
-                </a>
+                <MagneticButton>
+                  <a
+                    href="#"
+                    className="px-6 py-3.5 rounded-2xl glass-panel border border-white/15 hover:border-cyan-500/50 flex items-center space-x-3 text-white transition-all duration-300 shadow-lg shadow-cyan-500/10"
+                    data-cursor-expand="true"
+                  >
+                    <Smartphone className="w-7 h-7 text-cyan-400" />
+                    <div className="flex flex-col text-left">
+                      <span className="text-[10px] text-gray-400 uppercase tracking-widest font-semibold">GET IT ON</span>
+                      <span className="text-sm font-bold font-display">Google Play</span>
+                    </div>
+                  </a>
+                </MagneticButton>
               </div>
 
               <div className="flex items-center space-x-6 pt-4 text-xs font-semibold text-gray-400">
@@ -80,9 +86,13 @@ export function CTASection() {
 
             </div>
 
-            {/* Right Mobile Phone Showcase Graphic */}
+            {/* Right Mobile Phone Showcase Graphic with Floating Animation */}
             <div className="lg:col-span-5 flex justify-center">
-              <div className="relative w-52 h-[360px] sm:w-64 sm:h-[440px] rounded-[40px] bg-[#0A0D14] border-4 border-white/15 shadow-2xl p-4 overflow-hidden flex flex-col justify-between group">
+              <motion.div
+                animate={{ y: [-8, 8, -8] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                className="relative w-52 h-[360px] sm:w-64 sm:h-[440px] rounded-[40px] bg-[#0A0D14] border-4 border-white/15 shadow-2xl p-4 overflow-hidden flex flex-col justify-between group"
+              >
                 
                 {/* Phone Notch */}
                 <div className="w-24 h-4 bg-white/10 rounded-full mx-auto mb-2" />
@@ -102,13 +112,13 @@ export function CTASection() {
                       <span>Nearest Sedan:</span>
                       <span>1.2 km away</span>
                     </div>
-                    <div className="w-full py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 text-black font-bold text-center text-xs uppercase">
+                    <div className="w-full py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 text-black font-bold text-center text-xs uppercase shadow-md">
                       Confirm Ride
                     </div>
                   </div>
                 </div>
 
-              </div>
+              </motion.div>
             </div>
 
           </div>
@@ -119,3 +129,4 @@ export function CTASection() {
     </section>
   );
 }
+
