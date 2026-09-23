@@ -10,6 +10,7 @@ type AppType = {
   name: string;
   icon: string;
   accent: string;
+  playStoreUrl: string;
 };
 
 export function AppDownloadSection() {
@@ -19,12 +20,14 @@ export function AppDownloadSection() {
     name: "Chaloji Driver App",
     icon: "/icon.png",
     accent: "emerald",
+    playStoreUrl: "https://play.google.com/store/apps/details?id=com.chaloji.driver&pcampaignid=web_share",
   };
 
   const userApp: AppType = {
     name: "Chaloji User App",
     icon: "/icon%20copy.png",
     accent: "cyan",
+    playStoreUrl: "https://play.google.com/store/apps/details?id=com.rohan3543.chaloji&pcampaignid=web_share",
   };
 
   // Lock body scroll while modal is open
@@ -106,17 +109,19 @@ export function AppDownloadSection() {
                 </p>
               </div>
 
-              <button
-                onClick={() => setSelectedApp(driverApp)}
-                className="relative mt-auto w-full group/btn overflow-hidden rounded-2xl bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 p-[1px] shadow-lg shadow-emerald-500/30 hover:shadow-emerald-500/60 transition-all duration-300 cursor-pointer"
+              <a
+                href={driverApp.playStoreUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative mt-auto w-full group/btn overflow-hidden rounded-2xl bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 p-[1px] shadow-lg shadow-emerald-500/30 hover:shadow-emerald-500/60 transition-all duration-300 cursor-pointer text-center block"
               >
                 <div className="w-full py-3.5 bg-[#08090C] rounded-[15px] flex items-center justify-center space-x-2 transition-all duration-300 group-hover/btn:bg-transparent">
                   <Download className="w-5 h-5 text-emerald-400 group-hover/btn:text-black transition-colors" />
                   <span className="text-sm font-extrabold text-white group-hover/btn:text-black uppercase tracking-wider transition-colors">
-                    Download Driver App
+                    Download Driver App (Play Store)
                   </span>
                 </div>
-              </button>
+              </a>
 
               <div className="flex items-center justify-center space-x-2 text-[11px] text-gray-400">
                 <ShieldCheck className="w-4 h-4 text-emerald-400" />
@@ -156,17 +161,19 @@ export function AppDownloadSection() {
                 </p>
               </div>
 
-              <button
-                onClick={() => setSelectedApp(userApp)}
-                className="relative mt-auto w-full group/btn overflow-hidden rounded-2xl bg-gradient-to-r from-cyan-400 via-sky-500 to-blue-600 p-[1px] shadow-lg shadow-cyan-500/30 hover:shadow-cyan-500/60 transition-all duration-300 cursor-pointer"
+              <a
+                href={userApp.playStoreUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative mt-auto w-full group/btn overflow-hidden rounded-2xl bg-gradient-to-r from-cyan-400 via-sky-500 to-blue-600 p-[1px] shadow-lg shadow-cyan-500/30 hover:shadow-cyan-500/60 transition-all duration-300 cursor-pointer text-center block"
               >
                 <div className="w-full py-3.5 bg-[#08090C] rounded-[15px] flex items-center justify-center space-x-2 transition-all duration-300 group-hover/btn:bg-transparent">
                   <Download className="w-5 h-5 text-cyan-400 group-hover/btn:text-black transition-colors" />
                   <span className="text-sm font-extrabold text-white group-hover/btn:text-black uppercase tracking-wider transition-colors">
-                    Download User App
+                    Download User App (Play Store)
                   </span>
                 </div>
-              </button>
+              </a>
 
               <div className="flex items-center justify-center space-x-2 text-[11px] text-gray-400">
                 <Smartphone className="w-4 h-4 text-cyan-400" />

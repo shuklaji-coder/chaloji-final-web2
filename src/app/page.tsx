@@ -9,13 +9,16 @@ import { BookingModal } from "@/components/layout/BookingModal";
 import { EventBookingModal } from "@/components/layout/EventBookingModal";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { AppDownloadSection } from "@/components/sections/AppDownloadSection";
+import { FareEstimator } from "@/components/sections/FareEstimator";
 import { HighlightsMarquee } from "@/components/sections/HighlightsMarquee";
 import { MotivationalQuotesMarquee } from "@/components/sections/MotivationalQuotesMarquee";
 import { ShowcaseSection } from "@/components/sections/ShowcaseSection";
 import { BaraatConvoyCarousel } from "@/components/sections/BaraatConvoyCarousel";
 import { DriverJoinSection } from "@/components/sections/DriverJoinSection";
+import { EarningsCalculator } from "@/components/sections/EarningsCalculator";
 import { TeamSection } from "@/components/sections/TeamSection";
 import { TestimonialMarquee } from "@/components/sections/TestimonialMarquee";
+import { SafetyTrustSection } from "@/components/sections/SafetyTrustSection";
 import { FaqSection } from "@/components/sections/FaqSection";
 import { CTASection } from "@/components/sections/CTASection";
 import { Footer } from "@/components/layout/Footer";
@@ -47,11 +50,14 @@ export default function Home() {
         <div className="relative z-10 space-y-0">
           <HeroSection />
           <AppDownloadSection />
+          <FareEstimator />
           <HighlightsMarquee />
           <MotivationalQuotesMarquee />
           <BaraatConvoyCarousel onOpenEventModal={() => setEventModalOpen(true)} />
           <ShowcaseSection />
           <DriverJoinSection />
+          <EarningsCalculator />
+          <SafetyTrustSection />
           <TeamSection />
           <TestimonialMarquee />
           <FaqSection />

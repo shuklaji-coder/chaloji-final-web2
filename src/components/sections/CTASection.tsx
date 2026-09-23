@@ -60,7 +60,9 @@ export function CTASection() {
 
                 <MagneticButton>
                   <a
-                    href="#"
+                    href="https://play.google.com/store/apps/details?id=com.rohan3543.chaloji&pcampaignid=web_share"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="px-6 py-3.5 rounded-2xl glass-panel border border-white/15 hover:border-cyan-500/50 flex items-center space-x-3 text-white transition-all duration-300 shadow-lg shadow-cyan-500/10"
                     data-cursor-expand="true"
                   >

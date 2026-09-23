@@ -45,8 +45,104 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLdLocalBusiness = {
+    "@context": "https://schema.org",
+    "@type": "TaxiService",
+    "name": "ChaloJi Mobility",
+    "image": "https://chaloji.com/Chaloji%20landing%20page%20photo%20.jpeg",
+    "@id": "https://chaloji.com/#organization",
+    "url": "https://chaloji.com",
+    "telephone": "+918087747774",
+    "priceRange": "₹₹",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Main Market, Phoolpur",
+      "addressLocality": "Phoolpur",
+      "addressRegion": "Uttar Pradesh",
+      "postalCode": "212402",
+      "addressCountry": "IN"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 25.5517,
+      "longitude": 82.0911
+    },
+    "areaServed": [
+      { "@type": "City", "name": "Phoolpur" },
+      { "@type": "City", "name": "Prayagraj" },
+      { "@type": "City", "name": "Varanasi" },
+      { "@type": "City", "name": "Jaunpur" },
+      { "@type": "State", "name": "Uttar Pradesh" }
+    ],
+    "serviceType": ["Cab Booking", "Auto Rental", "Outstation Taxi", "Bike Taxi", "Wedding Baarat Convoy"],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "ChaloJi Mobility Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Instant Cab Booking Phoolpur",
+            "description": "Zero surge pricing AC Sedan and SUV cab booking in Phoolpur & Prayagraj."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Outstation Taxi Service",
+            "description": "Outstation cabs from Phoolpur to Varanasi Airport, Sangam Ghat, Ayodhya & Lucknow."
+          }
+        }
+      ]
+    }
+  };
+
+  const jsonLdUserApp = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "ChaloJi User App",
+    "operatingSystem": "ANDROID",
+    "applicationCategory": "TravelApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "INR"
+    },
+    "installUrl": "https://play.google.com/store/apps/details?id=com.rohan3543.chaloji&pcampaignid=web_share"
+  };
+
+  const jsonLdDriverApp = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "ChaloJi Driver App",
+    "operatingSystem": "ANDROID",
+    "applicationCategory": "BusinessApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "INR"
+    },
+    "installUrl": "https://play.google.com/store/apps/details?id=com.chaloji.driver&pcampaignid=web_share"
+  };
+
   return (
     <html lang="en" className="dark">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdLocalBusiness) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdUserApp) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdDriverApp) }}
+        />
+      </head>
       <body className="bg-[#08090C] text-[#E2E8F0] antialiased selection:bg-emerald-400 selection:text-black">
         {children}
       </body>
