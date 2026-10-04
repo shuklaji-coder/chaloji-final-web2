@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Users, Linkedin, Mail } from "lucide-react";
 import { Shayari } from "@/components/ui/Shayari";
 import { TiltCard } from "@/components/vfx/TiltCard";
+import { AnimatedSection } from "@/components/vfx/AnimatedSection";
 
 const TEAM = [
   {
@@ -34,25 +35,27 @@ export function TeamSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
-          <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full glass-panel border border-emerald-500/30 text-emerald-300 text-xs font-bold uppercase tracking-wider">
-            <Users className="w-3.5 h-3.5 text-emerald-400" />
-            <span>MEET THE TEAM</span>
+        <AnimatedSection animation="fade-up">
+          <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
+            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full glass-panel border border-emerald-500/30 text-emerald-300 text-xs font-bold uppercase tracking-wider">
+              <Users className="w-3.5 h-3.5 text-emerald-400" />
+              <span>MEET THE TEAM</span>
+            </div>
+
+            <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight font-display">
+              The Minds Behind <br />
+              <span className="text-gradient-emerald">Chaloji.</span>
+            </h2>
+
+            <p className="text-base text-gray-300">
+              A passionate crew on a mission to redefine mobility across Uttar Pradesh &amp; beyond.
+            </p>
+
+            <Shayari>
+              Mehnat hamara zewar, muskaan aapka inaam — yahi hai Chaloji ki pehchaan!
+            </Shayari>
           </div>
-
-          <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight font-display">
-            The Minds Behind <br />
-            <span className="text-gradient-emerald">Chaloji.</span>
-          </h2>
-
-          <p className="text-base text-gray-300">
-            A passionate crew on a mission to redefine mobility across Uttar Pradesh &amp; beyond.
-          </p>
-
-          <Shayari>
-            Mehnat hamara zewar, muskaan aapka inaam — yahi hai Chaloji ki pehchaan!
-          </Shayari>
-        </div>
+        </AnimatedSection>
 
         {/* Team Cards Grid - Sliding in from Left to Center */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto items-start">

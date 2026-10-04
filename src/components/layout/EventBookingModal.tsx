@@ -151,19 +151,21 @@ export function EventBookingModal({ open, onClose, defaultPackage = "baraat" }: 
                 </label>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
                   {PACKAGE_TYPES.map((pkg) => (
-                    <button
+                    <motion.button
                       key={pkg.id}
                       type="button"
+                      whileHover={{ scale: 1.04 }}
+                      whileTap={{ scale: 0.96 }}
                       onClick={() => setPackageType(pkg.id)}
                       className={`p-3 rounded-xl border text-left transition-all ${
                         packageType === pkg.id
-                          ? "bg-amber-500/20 border-amber-500 text-white shadow-lg shadow-amber-500/20"
+                          ? "bg-amber-500/20 border-amber-500 text-white shadow-lg shadow-amber-500/20 ring-1 ring-amber-500/40"
                           : "bg-white/5 border-white/10 text-gray-400 hover:text-white"
                       }`}
                     >
                       <span className="text-lg block mb-1">{pkg.icon}</span>
                       <span className="text-xs font-bold font-display block text-white leading-tight">{pkg.label}</span>
-                    </button>
+                    </motion.button>
                   ))}
                 </div>
               </div>
@@ -266,13 +268,15 @@ export function EventBookingModal({ open, onClose, defaultPackage = "baraat" }: 
               {error && <p className="text-xs font-semibold text-rose-400">{error}</p>}
 
               {/* Submit Button */}
-              <button
+              <motion.button
                 type="submit"
-                className="w-full py-4 rounded-xl bg-gradient-to-r from-amber-400 via-orange-500 to-rose-500 text-black text-sm font-black uppercase tracking-wider shadow-lg shadow-amber-500/30 hover:shadow-amber-500/60 hover:scale-[1.01] active:scale-[0.99] transition-all flex items-center justify-center space-x-2"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="w-full py-4 rounded-xl bg-gradient-to-r from-amber-400 via-orange-500 to-rose-500 text-black text-sm font-black uppercase tracking-wider shadow-lg shadow-amber-500/30 hover:shadow-amber-500/60 transition-all flex items-center justify-center space-x-2"
               >
                 <MessageSquare className="w-5 h-5" />
                 <span>Get Instant Quote on WhatsApp</span>
-              </button>
+              </motion.button>
 
               <p className="text-center text-[11px] text-gray-400 flex items-center justify-center space-x-1">
                 <ShieldCheck className="w-3.5 h-3.5 text-amber-400" />

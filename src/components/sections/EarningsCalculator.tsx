@@ -66,18 +66,20 @@ export function EarningsCalculator() {
                     { id: "suv", label: "SUV", rate: "₹480/hr" },
                   ] as const
                 ).map((v) => (
-                  <button
+                  <motion.button
                     key={v.id}
+                    whileHover={{ scale: 1.04, y: -2 }}
+                    whileTap={{ scale: 0.96 }}
                     onClick={() => setVehicleType(v.id)}
                     className={`py-3 px-4 rounded-xl border text-left transition-all duration-200 ${
                       vehicleType === v.id
-                        ? "bg-emerald-500/20 border-emerald-500 text-white shadow-lg shadow-emerald-500/20"
+                        ? "bg-gradient-to-r from-emerald-500/20 to-teal-500/20 border-emerald-500 text-white shadow-lg shadow-emerald-500/30 ring-1 ring-emerald-500/40"
                         : "bg-white/5 border-white/5 text-gray-400 hover:text-white"
                     }`}
                   >
                     <span className="block text-sm font-bold font-display">{v.label}</span>
                     <span className="block text-[10px] text-emerald-400 font-mono">{v.rate}</span>
-                  </button>
+                  </motion.button>
                 ))}
               </div>
             </div>

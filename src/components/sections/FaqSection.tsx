@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MessageSquareText, Plus } from "lucide-react";
 import { Shayari } from "@/components/ui/Shayari";
+import { AnimatedSection } from "@/components/vfx/AnimatedSection";
 
 interface FaqItem {
   question: string;
@@ -57,25 +58,27 @@ export function FaqSection() {
       <div className="absolute bottom-0 left-1/4 w-[400px] h-[300px] bg-cyan-500/10 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center max-w-3xl mx-auto space-y-4 mb-14">
-          <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full glass-panel border border-emerald-500/30 text-emerald-300 text-xs font-bold uppercase tracking-wider">
-            <MessageSquareText className="w-3.5 h-3.5 text-emerald-400" />
-            <span>STILL HAVE QUESTIONS?</span>
+        <AnimatedSection animation="fade-up">
+          <div className="text-center max-w-3xl mx-auto space-y-4 mb-14">
+            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full glass-panel border border-emerald-500/30 text-emerald-300 text-xs font-bold uppercase tracking-wider">
+              <MessageSquareText className="w-3.5 h-3.5 text-emerald-400" />
+              <span>STILL HAVE QUESTIONS?</span>
+            </div>
+
+            <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight font-display">
+              Frequently Asked <br />
+              <span className="text-gradient-emerald">Questions.</span>
+            </h2>
+
+            <p className="text-base text-gray-300">
+              Everything about bookings, fares, safety & payments — answered.
+            </p>
+
+            <Shayari>
+              Sawaal aapke, jawaab humari zubaani — bharosa hi hai Chaloji ki shaan!
+            </Shayari>
           </div>
-
-          <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight font-display">
-            Frequently Asked <br />
-            <span className="text-gradient-emerald">Questions.</span>
-          </h2>
-
-          <p className="text-base text-gray-300">
-            Everything about bookings, fares, safety & payments — answered.
-          </p>
-
-          <Shayari>
-            Sawaal aapke, jawaab humari zubaani — bharosa hi hai Chaloji ki shaan!
-          </Shayari>
-        </div>
+        </AnimatedSection>
 
         <div className="space-y-4">
           {FAQS.map((faq, idx) => {

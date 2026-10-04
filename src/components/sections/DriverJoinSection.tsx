@@ -19,6 +19,7 @@ import { Shayari } from "@/components/ui/Shayari";
 import { TiltCard } from "@/components/vfx/TiltCard";
 import { AnimatedText } from "@/components/vfx/AnimatedText";
 import { MagneticButton } from "@/components/vfx/MagneticButton";
+import { AnimatedSection } from "@/components/vfx/AnimatedSection";
 
 const VEHICLE_TYPES = [
   { id: "auto", label: "Auto Rickshaw", icon: "/Auto.png" },
@@ -57,25 +58,27 @@ export function DriverJoinSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-4 mb-14">
-          <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full glass-panel border border-emerald-500/30 text-emerald-300 text-xs font-bold uppercase tracking-wider">
-            <Zap className="w-3.5 h-3.5 text-emerald-400 animate-pulse" />
-            <span>JOIN AS DRIVER PARTNER</span>
+        <AnimatedSection animation="fade-up">
+          <div className="text-center max-w-3xl mx-auto space-y-4 mb-14">
+            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full glass-panel border border-emerald-500/30 text-emerald-300 text-xs font-bold uppercase tracking-wider">
+              <Zap className="w-3.5 h-3.5 text-emerald-400 animate-pulse" />
+              <span>JOIN AS DRIVER PARTNER</span>
+            </div>
+
+            <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight font-display">
+              <AnimatedText text="Chaloji Driver Banein," gradientWords={[]} /> <br />
+              <AnimatedText text="Har Din Zyaada Kamaayein!" gradientWords={["Har", "Din", "Zyaada", "Kamaayein!"]} />
+            </h2>
+
+            <p className="text-base text-gray-300">
+              0% Commission offer, Instant UPI Payouts &amp; 24x7 Support. Bas 1 minute me form bharein!
+            </p>
+
+            <Shayari>
+              Aapki gadi, aapki mehnat — Chaloji ke saath badhegi aapki aamdani aur izzat!
+            </Shayari>
           </div>
-
-          <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight font-display">
-            <AnimatedText text="Chaloji Driver Banein," gradientWords={[]} /> <br />
-            <AnimatedText text="Har Din Zyaada Kamaayein!" gradientWords={["Har", "Din", "Zyaada", "Kamaayein!"]} />
-          </h2>
-
-          <p className="text-base text-gray-300">
-            0% Commission offer, Instant UPI Payouts &amp; 24x7 Support. Bas 1 minute me form bharein!
-          </p>
-
-          <Shayari>
-            Aapki gadi, aapki mehnat — Chaloji ke saath badhegi aapki aamdani aur izzat!
-          </Shayari>
-        </div>
+        </AnimatedSection>
 
         {/* Main Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center max-w-6xl mx-auto">

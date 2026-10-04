@@ -295,13 +295,15 @@ export function FareEstimator() {
                 </span>
                 <div className="flex flex-wrap gap-2">
                   {POPULAR_ROUTES.map((route, i) => (
-                    <button
+                    <motion.button
                       key={i}
+                      whileHover={{ scale: 1.04, y: -2 }}
+                      whileTap={{ scale: 0.96 }}
                       onClick={() => handleRouteSelect(route)}
-                      className="px-3 py-1.5 rounded-lg bg-white/5 hover:bg-emerald-500/10 border border-white/5 hover:border-emerald-500/30 text-xs text-gray-300 hover:text-emerald-300 transition-all text-left"
+                      className="px-3 py-1.5 rounded-lg bg-white/5 hover:bg-emerald-500/15 border border-white/10 hover:border-emerald-500/40 text-xs text-gray-300 hover:text-emerald-300 transition-all text-left shadow-sm"
                     >
                       {route.from.split(" ")[0]} ➔ {route.to.split(" ")[0]} ({route.dist}km)
-                    </button>
+                    </motion.button>
                   ))}
                 </div>
               </div>

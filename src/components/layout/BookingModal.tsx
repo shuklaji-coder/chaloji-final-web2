@@ -203,9 +203,11 @@ export function BookingModal({ open, onClose }: BookingModalProps) {
                 </label>
                 <div className="flex flex-wrap gap-2">
                   {TRIP_TYPES.map((t) => (
-                    <button
+                    <motion.button
                       key={t}
                       type="button"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
                       onClick={() => setTripType(t)}
                       className={`px-4 py-2 rounded-xl text-xs font-bold border transition-all duration-200 ${
                         tripType === t
@@ -214,7 +216,7 @@ export function BookingModal({ open, onClose }: BookingModalProps) {
                       }`}
                     >
                       {t}
-                    </button>
+                    </motion.button>
                   ))}
                 </div>
               </div>
@@ -226,9 +228,11 @@ export function BookingModal({ open, onClose }: BookingModalProps) {
                 </label>
                 <div className="flex flex-wrap gap-2">
                   {RIDE_TYPES.map((r) => (
-                    <button
+                    <motion.button
                       key={r}
                       type="button"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
                       onClick={() => setRideType(r)}
                       className={`px-4 py-2 rounded-xl text-xs font-bold border transition-all duration-200 ${
                         rideType === r
@@ -237,7 +241,7 @@ export function BookingModal({ open, onClose }: BookingModalProps) {
                       }`}
                     >
                       {r}
-                    </button>
+                    </motion.button>
                   ))}
                 </div>
               </div>
@@ -246,14 +250,16 @@ export function BookingModal({ open, onClose }: BookingModalProps) {
                 <p className="text-xs font-semibold text-rose-400">{error}</p>
               )}
 
-              <button
+              <motion.button
                 type="submit"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
                 data-cursor-expand="true"
-                className="group relative w-full py-4 rounded-2xl bg-gradient-to-r from-emerald-500 via-green-500 to-emerald-600 text-black font-black text-sm tracking-wide uppercase shadow-xl shadow-emerald-500/30 hover:shadow-emerald-500/50 hover:scale-[1.01] active:scale-[0.99] transition-all duration-200 flex items-center justify-center space-x-2"
+                className="group relative w-full py-4 rounded-2xl bg-gradient-to-r from-emerald-500 via-green-500 to-emerald-600 text-black font-black text-sm tracking-wide uppercase shadow-xl shadow-emerald-500/30 hover:shadow-emerald-500/50 transition-all duration-200 flex items-center justify-center space-x-2"
               >
                 <Zap className="w-4 h-4 fill-black" />
                 <span>Confirm & Send on WhatsApp</span>
-              </button>
+              </motion.button>
 
               <p className="text-center text-[11px] text-gray-500">
                 Zero surge • Free cancellation • 24x7 support

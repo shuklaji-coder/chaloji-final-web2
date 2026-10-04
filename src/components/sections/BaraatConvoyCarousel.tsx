@@ -165,24 +165,28 @@ export function BaraatConvoyCarousel({ onOpenEventModal }: BaraatConvoyCarouselP
 
         {/* Action Button & Autoplay Toggle */}
         <div className="flex items-center space-x-3 shrink-0">
-          <button
+          <motion.button
+            whileHover={{ scale: 1.05, y: -2 }}
+            whileTap={{ scale: 0.95 }}
             onClick={(e) => {
               triggerConfettiSparks(e);
               if (onOpenEventModal) onOpenEventModal();
             }}
-            className="px-6 py-3 rounded-2xl bg-gradient-to-r from-amber-500 via-orange-500 to-rose-500 text-black font-black text-xs uppercase tracking-wider shadow-lg shadow-amber-500/30 hover:scale-[1.04] active:scale-[0.96] transition-all flex items-center space-x-2"
+            className="px-6 py-3 rounded-2xl bg-gradient-to-r from-amber-500 via-orange-500 to-rose-500 text-black font-black text-xs uppercase tracking-wider shadow-lg shadow-amber-500/40 hover:shadow-amber-500/70 transition-all flex items-center space-x-2"
           >
-            <Sparkles className="w-4 h-4 text-black" />
+            <Sparkles className="w-4 h-4 text-black animate-spin" style={{ animationDuration: "6s" }} />
             <span>Reserve Wedding Convoy</span>
-          </button>
+          </motion.button>
 
-          <button
+          <motion.button
+            whileHover={{ scale: 1.08 }}
+            whileTap={{ scale: 0.92 }}
             onClick={() => setIsAutoPlaying(!isAutoPlaying)}
             className="p-3 rounded-2xl bg-white/10 border border-white/20 text-white hover:bg-white/20 transition-all"
             title={isAutoPlaying ? "Pause Autoplay" : "Play Autoplay"}
           >
             {isAutoPlaying ? <Pause className="w-4 h-4 text-amber-400" /> : <Play className="w-4 h-4 text-amber-400" />}
-          </button>
+          </motion.button>
         </div>
 
         {/* Thumbnail Preview Strip */}

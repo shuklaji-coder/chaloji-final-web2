@@ -91,13 +91,18 @@ export function AppDownloadSection() {
               <div className="absolute -top-12 -left-12 w-32 h-32 bg-emerald-500/20 rounded-full blur-2xl pointer-events-none" />
 
               <div className="relative">
-                <img
-                  src={driverApp.icon}
-                  alt="Chaloji Driver App"
-                  loading="lazy"
-                  className="w-40 h-40 sm:w-48 sm:h-48 rounded-3xl object-cover shadow-xl shadow-emerald-950/60 transition-transform duration-300 group-hover:scale-105"
-                />
-                <span className="absolute -top-2 -right-2 px-2.5 py-1 rounded-full bg-emerald-500 text-black text-[10px] font-extrabold uppercase tracking-wider">
+                <motion.div
+                  animate={{ y: [-4, 4, -4] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  <img
+                    src={driverApp.icon}
+                    alt="Chaloji Driver App"
+                    loading="lazy"
+                    className="w-40 h-40 sm:w-48 sm:h-48 rounded-3xl object-cover shadow-2xl shadow-emerald-950/60 transition-transform duration-300 group-hover:scale-105"
+                  />
+                </motion.div>
+                <span className="absolute -top-2 -right-2 px-3 py-1 rounded-full bg-emerald-500 text-black text-[10px] font-extrabold uppercase tracking-wider shadow-lg shadow-emerald-500/40 animate-pulse">
                   Partner
                 </span>
               </div>
@@ -143,13 +148,18 @@ export function AppDownloadSection() {
               <div className="absolute -bottom-12 -right-12 w-32 h-32 bg-cyan-500/20 rounded-full blur-2xl pointer-events-none" />
 
               <div className="relative">
-                <img
-                  src={userApp.icon}
-                  alt="Chaloji User App"
-                  loading="lazy"
-                  className="w-40 h-40 sm:w-48 sm:h-48 rounded-3xl object-cover shadow-xl shadow-cyan-950/60 transition-transform duration-300 group-hover:scale-105"
-                />
-                <span className="absolute -top-2 -right-2 px-2.5 py-1 rounded-full bg-cyan-500 text-black text-[10px] font-extrabold uppercase tracking-wider">
+                <motion.div
+                  animate={{ y: [4, -4, 4] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                >
+                  <img
+                    src={userApp.icon}
+                    alt="Chaloji User App"
+                    loading="lazy"
+                    className="w-40 h-40 sm:w-48 sm:h-48 rounded-3xl object-cover shadow-2xl shadow-cyan-950/60 transition-transform duration-300 group-hover:scale-105"
+                  />
+                </motion.div>
+                <span className="absolute -top-2 -right-2 px-3 py-1 rounded-full bg-cyan-500 text-black text-[10px] font-extrabold uppercase tracking-wider shadow-lg shadow-cyan-500/40 animate-pulse">
                   Rider
                 </span>
               </div>
