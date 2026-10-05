@@ -13,6 +13,14 @@ export const metadata: Metadata = {
   description: "Book instant cabs, outstation rides & airport transfers with zero surge pricing. Verified drivers, live GPS tracking & 24/7 support. Download the ChaloJi app now!",
   keywords: ["ChaloJi", "Cab Booking Phoolpur", "Outstation Cab Uttar Pradesh", "Airport Cab", "Zero Surge Pricing", "Live Ride Tracking", "Bike Taxi", "Auto Rental", "Sedan Booking", "SUV Rental"],
   authors: [{ name: "ChaloJi Mobility" }],
+  alternates: {
+    canonical: "https://chaloji.com",
+  },
+  icons: {
+    icon: "/icon.png",
+    shortcut: "/icon.png",
+    apple: "/icon.png",
+  },
   openGraph: {
     type: "website",
     locale: "en_IN",
@@ -54,6 +62,14 @@ export default function RootLayout({
     "url": "https://chaloji.com",
     "telephone": "+918087747774",
     "priceRange": "₹₹",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "ratingCount": "1420",
+      "reviewCount": "1420",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Main Market, Phoolpur",

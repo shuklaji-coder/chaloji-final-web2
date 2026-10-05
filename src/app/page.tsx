@@ -9,7 +9,6 @@ import { BookingModal } from "@/components/layout/BookingModal";
 import { EventBookingModal } from "@/components/layout/EventBookingModal";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { AppDownloadSection } from "@/components/sections/AppDownloadSection";
-import { FareEstimator } from "@/components/sections/FareEstimator";
 import { HighlightsMarquee } from "@/components/sections/HighlightsMarquee";
 import { MotivationalQuotesMarquee } from "@/components/sections/MotivationalQuotesMarquee";
 import { ShowcaseSection } from "@/components/sections/ShowcaseSection";
@@ -50,7 +49,6 @@ export default function Home() {
         <div className="relative z-10 space-y-0">
           <HeroSection />
           <AppDownloadSection />
-          <FareEstimator />
           <HighlightsMarquee />
           <MotivationalQuotesMarquee />
           <BaraatConvoyCarousel onOpenEventModal={() => setEventModalOpen(true)} />
