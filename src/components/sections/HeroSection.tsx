@@ -17,7 +17,9 @@ const MOBILE_SLIDES = [
   "/db893559-c633-450f-a2db-8a14d08140c5.png",
 ];
 
-export function HeroSection() {
+import { HeroBookingCard } from "./HeroBookingCard";
+
+export function HeroSection({ onInstantBook }: { onInstantBook?: (pickup?: string, drop?: string) => void }) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [direction, setDirection] = useState(1);
   const [touchStartX, setTouchStartX] = useState<number | null>(null);
@@ -126,16 +128,20 @@ export function HeroSection() {
         <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
       </motion.button>
 
-      {/* Shayari Overlay with gentle float animation */}
-      <motion.div 
-        animate={{ y: [-3, 3, -3] }}
-        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-        className="safe-bottom mb-14 sm:mb-16 absolute left-1/2 -translate-x-1/2 z-20 w-full max-w-md px-4"
-      >
-        <p className="text-center glass-panel rounded-full border border-emerald-500/40 px-4 py-2.5 text-xs sm:text-sm italic text-white/90 shadow-xl shadow-emerald-950/40 backdrop-blur-md">
-          ❝ Manzil aap ki, zimmedari hamari — <span className="text-gradient-emerald font-semibold">Chaloji</span> ke saath har safar suhaana! ❞
-        </p>
-      </motion.div>
+      {/* Hero Content Overlay: Shayari & Embedded Instant Booking Card */}
+      <div className="absolute inset-0 z-20 flex flex-col items-center justify-center px-4 pt-20 pb-8 pointer-events-none">
+        <div className="w-full max-w-lg space-y-4 pointer-events-auto">
+          <motion.p 
+            animate={{ y: [-2, 2, -2] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            className="text-center glass-panel rounded-full border border-emerald-500/40 px-4 py-2 text-xs sm:text-sm italic text-white/90 shadow-xl shadow-emerald-950/40 backdrop-blur-md w-full"
+          >
+            ❝ Manzil aap ki, zimmedari hamari — <span className="text-gradient-emerald font-semibold">Chaloji</span> ke saath har safar suhaana! ❞
+          </motion.p>
+
+          <HeroBookingCard onOpenModal={onInstantBook} />
+        </div>
+      </div>
 
       {/* Dot Indicators with spring active pill */}
       <div className="safe-bottom absolute left-1/2 -translate-x-1/2 z-20 flex items-center space-x-3">

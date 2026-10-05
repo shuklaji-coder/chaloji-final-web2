@@ -23,6 +23,8 @@ import { CTASection } from "@/components/sections/CTASection";
 import { Footer } from "@/components/layout/Footer";
 import { ScrollToTop } from "@/components/layout/ScrollToTop";
 
+import { HeroBookingCard } from "@/components/sections/HeroBookingCard";
+
 export default function Home() {
   const [bookingOpen, setBookingOpen] = useState(false);
   const [eventModalOpen, setEventModalOpen] = useState(false);
@@ -47,7 +49,8 @@ export default function Home() {
 
         {/* Main Content Blueprint */}
         <div className="relative z-10 space-y-0">
-          <HeroSection />
+          <HeroSection onInstantBook={() => setBookingOpen(true)} />
+
           <AppDownloadSection />
           <HighlightsMarquee />
           <MotivationalQuotesMarquee />
