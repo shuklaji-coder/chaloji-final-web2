@@ -209,10 +209,11 @@ export function BookingModal({ open, onClose }: BookingModalProps) {
       });
 
       setCurrentRideId(rideId);
-    } catch (err) {
-      console.error("Realtime dispatch failed:", err);
-      // Fallback to WhatsApp
-      handleWhatsAppDispatch();
+    } catch (err: any) {
+      console.error("Realtime dispatch error:", err);
+      setError(err?.message || "Driver siren alert dispatch failed. Retrying...");
+      // Still show searching view so driver siren alert stays active
+      setView("SEARCHING");
     }
   };
 

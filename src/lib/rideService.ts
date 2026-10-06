@@ -1,4 +1,4 @@
-import { db } from "./firebase";
+import { db, auth, functions, signInAnonymously, httpsCallable } from "./firebase";
 import {
   collection,
   addDoc,
@@ -39,7 +39,43 @@ export interface RideStatus {
  * Driver App listens to rides with status === 'SEARCHING' and rings siren!
  */
 export async function createDirectRideRequest(payload: BookingPayload): Promise<string> {
+  // Ensure anonymous auth session if user is not signed in
+  if (!auth.currentUser) {
+    try {
+      await signInAnonymously(auth);
+    } catch (authErr) {
+      console.warn("Anonymous auth failed, proceeding as guest:", authErr);
+    }
+  }
+
+  // 1. Try Firebase Callable Function first
+  try {
+    const createRideCallable = httpsCallable<any, any>(functions, "createRide");
+    const result = await createRideCallable({
+      clientRequestId: `web-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`,
+      riderName: payload.riderName || "Web Passenger",
+      riderPhone: payload.riderPhone,
+      pickup: { address: payload.pickup },
+      drop: { address: payload.drop },
+      pickupAddress: payload.pickup,
+      dropAddress: payload.drop,
+      vehicleType: (payload.rideType || "cab").toLowerCase().replace(/\s+/g, "_"),
+      date: payload.date || "ASAP",
+      time: payload.time || "ASAP",
+      tripType: payload.tripType,
+      source: "WEB_DIRECT",
+    });
+
+    if (result.data && result.data.rideId) {
+      return result.data.rideId;
+    }
+  } catch (fnError) {
+    console.warn("Cloud function createRide call failed, attempting direct Firestore dispatch:", fnError);
+  }
+
+  // 2. Direct Firestore fallback write to 'rides' collection
   const rideData = {
+    passengerId: auth.currentUser?.uid || "web_guest",
     riderName: payload.riderName || "Web Passenger",
     riderPhone: payload.riderPhone || "Not specified",
     pickupLocation: {
