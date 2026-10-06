@@ -6,6 +6,7 @@ import {
   onSnapshot,
   serverTimestamp,
   updateDoc,
+  Timestamp,
 } from "firebase/firestore";
 
 export interface BookingPayload {
@@ -83,11 +84,23 @@ export async function createDirectRideRequest(payload: BookingPayload): Promise<
     console.warn("Cloud function createRide call failed, attempting direct Firestore dispatch:", fnError);
   }
 
-  // 2. Direct Firestore fallback write to 'rides' collection
+  // 2. Direct Firestore fallback write to 'rides' collection matching full Driver App schema
+  const requestExpiresAt = Timestamp.fromMillis(Date.now() + 120 * 1000); // 120 seconds in future
+
   const rideData = {
     passengerId: auth.currentUser?.uid || "web_guest",
     riderName: payload.riderName || "Web Passenger",
     riderPhone: payload.riderPhone || "Not specified",
+    pickup: {
+      address: payload.pickup,
+      latitude: 25.3176,
+      longitude: 82.9739,
+    },
+    drop: {
+      address: payload.drop,
+      latitude: 25.3216,
+      longitude: 82.9876,
+    },
     pickupLocation: {
       address: payload.pickup,
       latitude: 25.3176,
@@ -100,13 +113,21 @@ export async function createDirectRideRequest(payload: BookingPayload): Promise<
     },
     pickupAddress: payload.pickup,
     dropAddress: payload.drop,
+    fare: payload.estimatedFare || 150,
+    originalFare: payload.estimatedFare || 150,
+    distance: 8.5,
+    duration: 18,
     date: payload.date || "ASAP",
     time: payload.time || "ASAP",
-    tripType: payload.tripType,
+    tripType: payload.tripType || "ONE_WAY",
     vehicleType: normalizedVehicle, // 'bike' | 'auto' | 'car' | 'jeep'
     status: "requested", // Matches Driver App query: .where('status', '==', 'requested')
+    paymentMethod: "cash",
+    paymentStatus: "pending",
+    isScheduled: false,
+    requestExpiresAt,
     source: "WEB_DIRECT",
-    createdAt: serverTimestamp(),
+    createdAt: Timestamp.now(),
     updatedAt: serverTimestamp(),
   };
 
