@@ -34,11 +34,21 @@ export interface RideStatus {
   createdAt?: any;
 }
 
+export function normalizeVehicleType(type?: string): string {
+  const t = (type || "").toLowerCase().trim();
+  if (t.includes("bike") || t.includes("express")) return "bike";
+  if (t.includes("auto")) return "auto";
+  if (t.includes("suv") || t.includes("jeep") || t.includes("baarat")) return "jeep";
+  return "car"; // cab, sedan
+}
+
 /**
  * Creates a real-time ride request in Firestore 'rides' collection
- * Driver App listens to rides with status === 'SEARCHING' and rings siren!
+ * Driver App listens to rides with status === 'requested' and vehicleType === ('bike'|'auto'|'car'|'jeep')!
  */
 export async function createDirectRideRequest(payload: BookingPayload): Promise<string> {
+  const normalizedVehicle = normalizeVehicleType(payload.rideType);
+
   // Ensure anonymous auth session if user is not signed in
   if (!auth.currentUser) {
     try {
@@ -55,11 +65,11 @@ export async function createDirectRideRequest(payload: BookingPayload): Promise<
       clientRequestId: `web-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`,
       riderName: payload.riderName || "Web Passenger",
       riderPhone: payload.riderPhone,
-      pickup: { address: payload.pickup },
-      drop: { address: payload.drop },
+      pickup: { address: payload.pickup, latitude: 25.3176, longitude: 82.9739 },
+      drop: { address: payload.drop, latitude: 25.3216, longitude: 82.9876 },
       pickupAddress: payload.pickup,
       dropAddress: payload.drop,
-      vehicleType: (payload.rideType || "cab").toLowerCase().replace(/\s+/g, "_"),
+      vehicleType: normalizedVehicle,
       date: payload.date || "ASAP",
       time: payload.time || "ASAP",
       tripType: payload.tripType,
@@ -80,17 +90,21 @@ export async function createDirectRideRequest(payload: BookingPayload): Promise<
     riderPhone: payload.riderPhone || "Not specified",
     pickupLocation: {
       address: payload.pickup,
+      latitude: 25.3176,
+      longitude: 82.9739,
     },
     dropLocation: {
       address: payload.drop,
+      latitude: 25.3216,
+      longitude: 82.9876,
     },
     pickupAddress: payload.pickup,
     dropAddress: payload.drop,
     date: payload.date || "ASAP",
     time: payload.time || "ASAP",
     tripType: payload.tripType,
-    vehicleType: payload.rideType,
-    status: "SEARCHING",
+    vehicleType: normalizedVehicle, // 'bike' | 'auto' | 'car' | 'jeep'
+    status: "requested", // Matches Driver App query: .where('status', '==', 'requested')
     source: "WEB_DIRECT",
     createdAt: serverTimestamp(),
     updatedAt: serverTimestamp(),
@@ -115,9 +129,19 @@ export function subscribeToRide(
     (snapshot) => {
       if (snapshot.exists()) {
         const data = snapshot.data();
+        const rawStatus = (data.status || "requested").toUpperCase();
+        let normalizedStatus: RideStatus["status"] = "SEARCHING";
+
+        if (["ACCEPTED", "ACCEPT"].includes(rawStatus)) normalizedStatus = "ACCEPTED";
+        else if (["ARRIVING", "ARRIVED"].includes(rawStatus)) normalizedStatus = "ARRIVING";
+        else if (["IN_PROGRESS", "ONGOING"].includes(rawStatus)) normalizedStatus = "IN_PROGRESS";
+        else if (["COMPLETED"].includes(rawStatus)) normalizedStatus = "COMPLETED";
+        else if (["CANCELLED"].includes(rawStatus)) normalizedStatus = "CANCELLED";
+        else normalizedStatus = "SEARCHING";
+
         onUpdate({
           id: snapshot.id,
-          status: data.status || "SEARCHING",
+          status: normalizedStatus,
           driverName: data.driverName || data.driver?.name || "Verified Partner Driver",
           driverPhone: data.driverPhone || data.driver?.phone || "8087747774",
           driverPhoto: data.driverPhoto || data.driver?.photo,
