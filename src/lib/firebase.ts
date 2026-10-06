@@ -15,7 +15,8 @@ const firebaseConfig = {
 const app = getApps().length > 0 ? getApp() : initializeApp(firebaseConfig);
 export const db = getFirestore(app);
 export const auth = getAuth(app);
-export const functions = getFunctions(app, "asia-south1");
+export const functions = getFunctions(app); // Default region (us-central1)
+export const functionsAsia = getFunctions(app, "asia-south1");
 
 export { signInAnonymously, httpsCallable };
 

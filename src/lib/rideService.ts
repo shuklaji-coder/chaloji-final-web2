@@ -1,4 +1,4 @@
-import { db, auth, functions, signInAnonymously, httpsCallable } from "./firebase";
+import { db, auth, functions, functionsAsia, signInAnonymously, httpsCallable } from "./firebase";
 import {
   collection,
   addDoc,
@@ -59,29 +59,43 @@ export async function createDirectRideRequest(payload: BookingPayload): Promise<
     }
   }
 
-  // 1. Try Firebase Callable Function first
+  const bookingPayload = {
+    clientRequestId: `web-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`,
+    riderName: payload.riderName || "Web Passenger",
+    riderPhone: payload.riderPhone,
+    pickup: { address: payload.pickup, latitude: 25.3176, longitude: 82.9739 },
+    drop: { address: payload.drop, latitude: 25.3216, longitude: 82.9876 },
+    pickupAddress: payload.pickup,
+    dropAddress: payload.drop,
+    vehicleType: normalizedVehicle,
+    date: payload.date || "ASAP",
+    time: payload.time || "ASAP",
+    tripType: payload.tripType,
+    source: "WEB_DIRECT",
+  };
+
+  // 1. Try Firebase Callable Function (default region)
   try {
     const createRideCallable = httpsCallable<any, any>(functions, "createRide");
-    const result = await createRideCallable({
-      clientRequestId: `web-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`,
-      riderName: payload.riderName || "Web Passenger",
-      riderPhone: payload.riderPhone,
-      pickup: { address: payload.pickup, latitude: 25.3176, longitude: 82.9739 },
-      drop: { address: payload.drop, latitude: 25.3216, longitude: 82.9876 },
-      pickupAddress: payload.pickup,
-      dropAddress: payload.drop,
-      vehicleType: normalizedVehicle,
-      date: payload.date || "ASAP",
-      time: payload.time || "ASAP",
-      tripType: payload.tripType,
-      source: "WEB_DIRECT",
-    });
-
+    const result = await createRideCallable(bookingPayload);
     if (result.data && result.data.rideId) {
+      console.log("[WEB_BOOKING] Cloud function (us-central1) created ride:", result.data.rideId);
       return result.data.rideId;
     }
   } catch (fnError) {
-    console.warn("Cloud function createRide call failed, attempting direct Firestore dispatch:", fnError);
+    console.warn("Cloud function (default region) failed, trying asia-south1:", fnError);
+  }
+
+  // 2. Try Firebase Callable Function (asia-south1 region)
+  try {
+    const createRideAsiaCallable = httpsCallable<any, any>(functionsAsia, "createRide");
+    const result = await createRideAsiaCallable(bookingPayload);
+    if (result.data && result.data.rideId) {
+      console.log("[WEB_BOOKING] Cloud function (asia-south1) created ride:", result.data.rideId);
+      return result.data.rideId;
+    }
+  } catch (asiaErr) {
+    console.warn("Cloud function (asia-south1) failed, executing direct Firestore write:", asiaErr);
   }
 
   // 2. Direct Firestore fallback write to 'rides' collection matching full Driver App schema
