@@ -30,8 +30,8 @@ import {
   TrendingUp,
 } from "lucide-react";
 
-// Target launch date: 30 days from fixed reference date or dynamically set target date
-const TARGET_LAUNCH_DATE = new Date("2026-10-15T00:00:00").getTime();
+// Target launch date: Diwali 2026 (November 8, 2026)
+const TARGET_LAUNCH_DATE = new Date("2026-11-08T00:00:00").getTime();
 
 export default function LaunchingSoonPage() {
   const [bookingOpen, setBookingOpen] = useState(false);
