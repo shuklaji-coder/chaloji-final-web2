@@ -13,7 +13,6 @@ import { MotivationalQuotesMarquee } from "@/components/sections/MotivationalQuo
 import { ShowcaseSection } from "@/components/sections/ShowcaseSection";
 import { BaraatConvoyCarousel } from "@/components/sections/BaraatConvoyCarousel";
 import { DriverJoinSection } from "@/components/sections/DriverJoinSection";
-import { EarningsCalculator } from "@/components/sections/EarningsCalculator";
 import { TeamSection } from "@/components/sections/TeamSection";
 import { TestimonialMarquee } from "@/components/sections/TestimonialMarquee";
 import { SafetyTrustSection } from "@/components/sections/SafetyTrustSection";
@@ -58,7 +57,6 @@ export default function Home() {
           <BaraatConvoyCarousel onOpenEventModal={() => setEventModalOpen(true)} />
           <ShowcaseSection />
           <DriverJoinSection />
-          <EarningsCalculator />
           <SafetyTrustSection />
           <TeamSection />
           <TestimonialMarquee />
