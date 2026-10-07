@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Zap } from "lucide-react";
 
 const DESKTOP_SLIDES = [
   "/home page1.png",
@@ -17,7 +17,6 @@ const MOBILE_SLIDES = [
   "/db893559-c633-450f-a2db-8a14d08140c5.png",
 ];
 
-import { HeroBookingCard } from "./HeroBookingCard";
 
 export function HeroSection({ onInstantBook }: { onInstantBook?: (pickup?: string, drop?: string) => void }) {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -139,7 +138,19 @@ export function HeroSection({ onInstantBook }: { onInstantBook?: (pickup?: strin
             ❝ Manzil aap ki, zimmedari hamari — <span className="text-gradient-emerald font-semibold">Chaloji</span> ke saath har safar suhaana! ❞
           </motion.p>
 
-          <HeroBookingCard onOpenModal={onInstantBook} />
+          <motion.div 
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+            className="pt-2 flex justify-center w-full"
+          >
+            <button
+              onClick={() => onInstantBook && onInstantBook()}
+              className="w-full sm:w-auto px-10 py-4 rounded-2xl bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 text-black font-black text-sm sm:text-base uppercase tracking-wider shadow-2xl shadow-emerald-500/50 hover:shadow-emerald-400/70 flex items-center justify-center space-x-3 transition-all cursor-pointer"
+            >
+              <Zap className="w-5 h-5 fill-black text-black" />
+              <span>BOOK RIDE NOW</span>
+            </button>
+          </motion.div>
         </div>
       </div>
 
