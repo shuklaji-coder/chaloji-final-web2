@@ -23,19 +23,21 @@ type Highlight = {
 };
 
 const HIGHLIGHTS_ROW_1: Highlight[] = [
-  { icon: <BadgeIndianRupee className="w-5 h-5" />, text: "Zero Surge Pricing", accent: "text-emerald-400 bg-emerald-500/10 border-emerald-500/30" },
+  { icon: <MapPin className="w-5 h-5 text-emerald-400" />, text: "Now Live in Mumbai", accent: "text-emerald-400 bg-emerald-500/10 border-emerald-500/30" },
+  { icon: <MapPin className="w-5 h-5 text-cyan-400" />, text: "Now Live in Bengaluru", accent: "text-cyan-400 bg-cyan-500/10 border-cyan-500/30" },
+  { icon: <MapPin className="w-5 h-5 text-amber-400" />, text: "Now Live in Chennai", accent: "text-amber-400 bg-amber-500/10 border-amber-500/30" },
+  { icon: <BadgeIndianRupee className="w-5 h-5" />, text: "Zero Surge Pricing Nationwide", accent: "text-emerald-400 bg-emerald-500/10 border-emerald-500/30" },
   { icon: <ShieldCheck className="w-5 h-5" />, text: "Background Verified Drivers", accent: "text-cyan-400 bg-cyan-500/10 border-cyan-500/30" },
-  { icon: <MapPin className="w-5 h-5" />, text: "Live Ride Tracking", accent: "text-teal-400 bg-teal-500/10 border-teal-500/30" },
   { icon: <Headset className="w-5 h-5" />, text: "24/7 Customer Support", accent: "text-emerald-400 bg-emerald-500/10 border-emerald-500/30" },
 ];
 
 const HIGHLIGHTS_ROW_2: Highlight[] = [
+  { icon: <MapPin className="w-5 h-5 text-teal-400" />, text: "Varanasi & Phoolpur Express", accent: "text-teal-400 bg-teal-500/10 border-teal-500/30" },
   { icon: <Crown className="w-5 h-5" />, text: "Baraat & Convoy Bookings", accent: "text-cyan-400 bg-cyan-500/10 border-cyan-500/30" },
-  { icon: <Route className="w-5 h-5" />, text: "Outstation Rides", accent: "text-emerald-400 bg-emerald-500/10 border-emerald-500/30" },
-  { icon: <Bike className="w-5 h-5" />, text: "Express Bikes", accent: "text-teal-400 bg-teal-500/10 border-teal-500/30" },
-  { icon: <Clock className="w-5 h-5" />, text: "Hourly Rentals", accent: "text-cyan-400 bg-cyan-500/10 border-cyan-500/30" },
+  { icon: <Route className="w-5 h-5" />, text: "Intercity & Outstation Rides", accent: "text-emerald-400 bg-emerald-500/10 border-emerald-500/30" },
+  { icon: <Bike className="w-5 h-5" />, text: "Express Bike Taxis", accent: "text-teal-400 bg-teal-500/10 border-teal-500/30" },
+  { icon: <Clock className="w-5 h-5" />, text: "Hourly City Rentals", accent: "text-cyan-400 bg-cyan-500/10 border-cyan-500/30" },
   { icon: <Wallet className="w-5 h-5" />, text: "Daily Driver Payouts", accent: "text-emerald-400 bg-emerald-500/10 border-emerald-500/30" },
-  { icon: <CarTaxiFront className="w-5 h-5" />, text: "Clean & Sanitized Cabs", accent: "text-teal-400 bg-teal-500/10 border-teal-500/30" },
 ];
 
 function PillCard({ item }: { item: Highlight }) {

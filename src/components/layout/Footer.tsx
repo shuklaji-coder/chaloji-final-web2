@@ -102,10 +102,10 @@ export function Footer() {
           <div className="space-y-4">
             <h4 className="text-sm font-bold text-white uppercase tracking-wider font-display flex items-center space-x-2">
               <MapPin className="w-4 h-4 text-cyan-400" />
-              <span>Top Destinations</span>
+              <span>Operational Cities</span>
             </h4>
             <ul className="space-y-2.5 text-sm text-gray-400">
-              {["Phoolpur to Varanasi", "Phoolpur to Prayagraj", "Phoolpur to Jaunpur", "Phoolpur to Ayodhya", "Phoolpur to Lucknow"].map((city, i) => (
+              {["Mumbai • Maharashtra", "Bengaluru • Karnataka", "Chennai • Tamil Nadu", "Varanasi • Uttar Pradesh", "Phoolpur • Local Express", "PAN-India Outstation"].map((city, i) => (
                 <li key={i}>
                   <a href="#app-download" className="hover:text-cyan-400 transition-colors flex items-center space-x-1 group">
                     <ArrowUpRight className="w-3.5 h-3.5 text-gray-600 group-hover:text-cyan-400 transition-colors" />
