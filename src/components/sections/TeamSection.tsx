@@ -11,16 +11,9 @@ const TEAM = [
   {
     name: "Rohan Shukla",
     role: "Founder & CEO",
-    tagline: "Building Phoolpur's most trusted mobility platform from the ground up.",
+    tagline: "Building Phoolpur & India's most trusted 0% surge mobility platform from the ground up.",
     photo: "/founder.png",
     founder: true,
-  },
-  {
-    name: "Ayaan Mirza",
-    role: "Marketing Head",
-    tagline: "Driving Chaloji's brand across campuses, cities & communities.",
-    photo: "/team member 2.jpeg",
-    founder: false,
   },
 ];
 
@@ -39,16 +32,16 @@ export function TeamSection() {
           <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
             <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full glass-panel border border-emerald-500/30 text-emerald-300 text-xs font-bold uppercase tracking-wider">
               <Users className="w-3.5 h-3.5 text-emerald-400" />
-              <span>MEET THE TEAM</span>
+              <span>MEET THE FOUNDER</span>
             </div>
 
             <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight font-display">
-              The Minds Behind <br />
+              The Mind Behind <br />
               <span className="text-gradient-emerald">Chaloji.</span>
             </h2>
 
             <p className="text-base text-gray-300">
-              A passionate crew on a mission to redefine mobility across Uttar Pradesh &amp; beyond.
+              A passionate vision on a mission to redefine mobility across Uttar Pradesh, Mumbai, Bengaluru, Chennai &amp; beyond.
             </p>
 
             <Shayari>
@@ -57,8 +50,8 @@ export function TeamSection() {
           </div>
         </AnimatedSection>
 
-        {/* Team Cards Grid - Sliding in from Left to Center */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto items-start">
+        {/* Team Cards Grid - Centered Founder Card */}
+        <div className="max-w-md mx-auto">
 
           {TEAM.map((member, idx) => (
             <TiltCard key={member.name} tiltAmount={10} scaleOnHover={1.03} className="h-full">
