@@ -5,7 +5,6 @@ import { LenisProvider } from "@/components/vfx/LenisProvider";
 import { CyberBackground } from "@/components/vfx/CyberBackground";
 import { Navbar } from "@/components/layout/Navbar";
 import { FloatingWhatsApp } from "@/components/layout/FloatingWhatsApp";
-import { BookingModal } from "@/components/layout/BookingModal";
 import { EventBookingModal } from "@/components/layout/EventBookingModal";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { AppDownloadSection } from "@/components/sections/AppDownloadSection";
@@ -23,11 +22,16 @@ import { CTASection } from "@/components/sections/CTASection";
 import { Footer } from "@/components/layout/Footer";
 import { ScrollToTop } from "@/components/layout/ScrollToTop";
 
-import { HeroBookingCard } from "@/components/sections/HeroBookingCard";
-
 export default function Home() {
-  const [bookingOpen, setBookingOpen] = useState(false);
   const [eventModalOpen, setEventModalOpen] = useState(false);
+
+  const handleInstantBook = () => {
+    window.open(
+      "https://wa.me/918087747774?text=🚖%20Hi%20Chaloji%2C%20I%20want%20to%20book%20a%20ride!",
+      "_blank",
+      "noopener,noreferrer"
+    );
+  };
 
   return (
     <LenisProvider>
@@ -37,19 +41,16 @@ export default function Home() {
 
         {/* Global Navigation */}
         <Navbar 
-          onInstantBook={() => setBookingOpen(true)} 
+          onInstantBook={handleInstantBook} 
           onOpenEventModal={() => setEventModalOpen(true)}
         />
-
-        {/* Instant Ride Booking Modal */}
-        <BookingModal open={bookingOpen} onClose={() => setBookingOpen(false)} />
 
         {/* Wedding & Outstation Package Request Modal */}
         <EventBookingModal open={eventModalOpen} onClose={() => setEventModalOpen(false)} />
 
         {/* Main Content Blueprint */}
         <div className="relative z-10 space-y-0">
-          <HeroSection onInstantBook={() => setBookingOpen(true)} />
+          <HeroSection onInstantBook={handleInstantBook} />
 
           <AppDownloadSection />
           <HighlightsMarquee />
