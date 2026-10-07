@@ -49,7 +49,7 @@ export function Navbar({
     { name: "Live Route", href: "/#hero-route" },
     { name: "Driver Join", href: "/#driver-join", badge: "EARN" },
     { name: "Baraat Fleet", href: "/#baarat-showcase" },
-    { name: "Launching Soon", href: "/launching-soon", badge: "SOON" },
+    { name: "Post-Diwali Launch", href: "/launching-soon", badge: "DIWALI 🪔" },
     { name: "Get App", href: "/#app-download" },
   ];
 

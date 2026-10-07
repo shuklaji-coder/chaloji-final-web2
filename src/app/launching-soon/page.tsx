@@ -126,22 +126,22 @@ export default function LaunchingSoonPage() {
           {/* HERO SECTION */}
           <div className="text-center space-y-6 max-w-4xl mx-auto">
             {/* Pulsing Status Tag */}
-            <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-emerald-500/10 via-teal-500/10 to-cyan-500/10 border border-emerald-500/30 backdrop-blur-md text-emerald-300 text-xs font-semibold tracking-wider uppercase shadow-lg shadow-emerald-950/50 animate-pulse">
-              <Rocket className="w-4 h-4 text-emerald-400" />
-              <span>Chaloji Grand Launch is Approaching</span>
+            <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-amber-500/20 via-emerald-500/20 to-cyan-500/20 border border-amber-500/40 backdrop-blur-md text-amber-300 text-xs font-bold tracking-wider uppercase shadow-lg shadow-amber-950/50 animate-pulse">
+              <Rocket className="w-4 h-4 text-amber-400" />
+              <span>🪔 GRAND POST-DIWALI LAUNCH 🪔</span>
             </div>
 
             {/* Main Headline */}
             <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold text-white tracking-tight leading-[1.1]">
               Safar Ka Naya Andaaz <br />
-              <span className="bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 bg-clip-text text-transparent drop-shadow-sm">
-                Launching Very Soon!
+              <span className="bg-gradient-to-r from-amber-400 via-emerald-300 to-cyan-400 bg-clip-text text-transparent drop-shadow-sm">
+                Launching Post-Diwali! 🪔
               </span>
             </h1>
 
             {/* Description */}
             <p className="text-base sm:text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed">
-              Get ready for India&apos;s next-generation ride booking app. <strong>0% Driver Commission</strong>, lightning-fast AI routing, transparent fares, and premium EV cabs coming straight to your city.
+              Get ready for India&apos;s next-generation 0% surge ride platform. Launching right after Diwali across <strong>Mumbai, Bengaluru, Chennai, Varanasi, Phoolpur & PAN-India</strong>!
             </p>
           </div>
 
