@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, Zap } from "lucide-react";
 
 const DESKTOP_SLIDES = [
+  "/home page7.png",
   "/image copy 2.png",
   "/home page.png",
   "/home page1.png",
@@ -14,6 +15,7 @@ const DESKTOP_SLIDES = [
 ];
 
 const MOBILE_SLIDES = [
+  "/home page7.png",
   "/image copy 2.png",
   "/home page.png",
   "/ea8530f0-39ca-4eae-bde0-463c0b4773f0.png",
