@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight, Zap } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const DESKTOP_SLIDES = [
   "/home page7.png",
@@ -22,7 +22,6 @@ const MOBILE_SLIDES = [
   "/bf915cff-011f-4eb0-99cf-f0afdb56366a.png",
   "/db893559-c633-450f-a2db-8a14d08140c5.png",
 ];
-
 
 export function HeroSection({ onInstantBook }: { onInstantBook?: (pickup?: string, drop?: string) => void }) {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -73,7 +72,7 @@ export function HeroSection({ onInstantBook }: { onInstantBook?: (pickup?: strin
 
   return (
     <section
-      className="hero-fullbleed relative h-svh min-h-[100svh] sm:min-h-[520px] w-full overflow-hidden bg-[#08090C]"
+      className="hero-fullbleed relative h-svh min-h-[100svh] sm:min-h-[520px] w-full overflow-hidden bg-[#041611]"
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
     >
@@ -94,7 +93,7 @@ export function HeroSection({ onInstantBook }: { onInstantBook?: (pickup?: strin
             src={HERO_SLIDES[currentSlide]}
             alt=""
             aria-hidden
-            className="absolute inset-0 w-full h-full object-cover scale-110 blur-2xl opacity-30 pointer-events-none select-none"
+            className="absolute inset-0 w-full h-full object-cover scale-110 blur-2xl opacity-35 pointer-events-none select-none"
             draggable={false}
           />
           {/* Main Image — full-screen cover on all devices, smart position on mobile */}
@@ -111,7 +110,7 @@ export function HeroSection({ onInstantBook }: { onInstantBook?: (pickup?: strin
       </AnimatePresence>
 
       {/* Bottom gradient for shayari readability */}
-      <div className="absolute bottom-0 left-0 right-0 h-44 bg-gradient-to-t from-black/80 via-black/40 to-transparent pointer-events-none z-10" />
+      <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#041611] via-[#041611]/60 to-transparent pointer-events-none z-10" />
 
       {/* Prev / Next Arrows */}
       <motion.button
@@ -119,7 +118,7 @@ export function HeroSection({ onInstantBook }: { onInstantBook?: (pickup?: strin
         whileTap={{ scale: 0.9 }}
         onClick={() => goTo(currentSlide - 1, -1)}
         aria-label="Previous slide"
-        className="absolute left-3 sm:left-8 top-1/2 -translate-y-1/2 z-20 w-11 h-11 sm:w-12 sm:h-12 rounded-full glass-panel border border-white/20 flex items-center justify-center text-white hover:text-emerald-400 hover:border-emerald-500/60 shadow-lg shadow-black/40 transition-all duration-300"
+        className="absolute left-3 sm:left-8 top-1/2 -translate-y-1/2 z-20 w-11 h-11 sm:w-12 sm:h-12 rounded-full glass-panel border border-[#DFC993]/30 flex items-center justify-center text-[#F7EBD2] hover:text-[#10B981] hover:border-[#10B981]/70 shadow-lg shadow-black/50 transition-all duration-300"
       >
         <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
       </motion.button>
@@ -128,11 +127,10 @@ export function HeroSection({ onInstantBook }: { onInstantBook?: (pickup?: strin
         whileTap={{ scale: 0.9 }}
         onClick={() => goTo(currentSlide + 1, 1)}
         aria-label="Next slide"
-        className="absolute right-3 sm:right-8 top-1/2 -translate-y-1/2 z-20 w-11 h-11 sm:w-12 sm:h-12 rounded-full glass-panel border border-white/20 flex items-center justify-center text-white hover:text-emerald-400 hover:border-emerald-500/60 shadow-lg shadow-black/40 transition-all duration-300"
+        className="absolute right-3 sm:right-8 top-1/2 -translate-y-1/2 z-20 w-11 h-11 sm:w-12 sm:h-12 rounded-full glass-panel border border-[#DFC993]/30 flex items-center justify-center text-[#F7EBD2] hover:text-[#10B981] hover:border-[#10B981]/70 shadow-lg shadow-black/50 transition-all duration-300"
       >
         <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
       </motion.button>
-
 
       {/* Dot Indicators with spring active pill */}
       <div className="safe-bottom absolute left-1/2 -translate-x-1/2 z-20 flex items-center space-x-3">
@@ -143,8 +141,8 @@ export function HeroSection({ onInstantBook }: { onInstantBook?: (pickup?: strin
             aria-label={`Go to slide ${idx + 1}`}
             className={`relative h-2.5 rounded-full transition-all duration-300 after:absolute after:-inset-2.5 after:content-[''] ${
               currentSlide === idx
-                ? "w-10 bg-emerald-400 shadow-lg shadow-emerald-400/60 ring-2 ring-emerald-400/30"
-                : "w-2.5 bg-white/40 hover:bg-white/70"
+                ? "w-10 bg-gradient-to-r from-[#DFC993] to-[#10B981] shadow-lg shadow-[#DFC993]/50 ring-2 ring-[#DFC993]/30"
+                : "w-2.5 bg-white/40 hover:bg-[#DFC993]/70"
             }`}
           />
         ))}

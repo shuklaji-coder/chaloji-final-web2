@@ -3,17 +3,12 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  Sparkles,
   X,
   MapPin,
   Calendar,
-  Clock,
   Car,
-  Users,
-  Phone,
   MessageSquare,
   ShieldCheck,
-  Plane,
   HeartHandshake
 } from "lucide-react";
 
@@ -114,21 +109,21 @@ export function EventBookingModal({ open, onClose, defaultPackage = "baraat" }: 
             exit={{ opacity: 0, scale: 0.92, y: 40 }}
             transition={{ type: "spring", stiffness: 300, damping: 26 }}
             onClick={(e) => e.stopPropagation()}
-            className="relative w-full max-w-xl max-h-[92dvh] overflow-y-auto rounded-3xl glass-card border border-amber-500/40 shadow-2xl shadow-amber-950/40"
+            className="relative w-full max-w-xl max-h-[92dvh] overflow-y-auto rounded-3xl glass-card border border-[#DFC993]/40 shadow-2xl shadow-emerald-950/60"
           >
-            <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-amber-500/20 via-rose-500/10 to-transparent blur-[80px] pointer-events-none" />
+            <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-[#DFC993]/20 via-emerald-500/10 to-transparent blur-[80px] pointer-events-none" />
 
             {/* Header */}
             <div className="relative flex items-center justify-between px-6 sm:px-8 pt-6 pb-2">
               <div className="flex items-center space-x-3">
-                <span className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center shadow-lg shadow-amber-500/30">
-                  <HeartHandshake className="w-5 h-5 text-black" />
+                <span className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#DFC993] to-[#B58E4A] flex items-center justify-center shadow-lg shadow-[#DFC993]/30">
+                  <HeartHandshake className="w-5 h-5 text-[#041611]" />
                 </span>
                 <div>
                   <h3 className="text-lg sm:text-xl font-black text-white font-display">
                     Wedding &amp; Outstation Quote
                   </h3>
-                  <p className="text-[11px] text-amber-300 font-bold uppercase tracking-wider">
+                  <p className="text-[11px] text-[#DFC993] font-bold uppercase tracking-wider">
                     Special Package Rates &amp; Dedicated Fleet
                   </p>
                 </div>
@@ -136,7 +131,7 @@ export function EventBookingModal({ open, onClose, defaultPackage = "baraat" }: 
               <button
                 onClick={handleClose}
                 aria-label="Close event modal"
-                className="p-2 rounded-xl glass-panel border border-white/10 text-gray-400 hover:text-white transition-colors"
+                className="p-2 rounded-xl glass-panel border border-[#DFC993]/20 text-gray-400 hover:text-white transition-colors"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -146,7 +141,7 @@ export function EventBookingModal({ open, onClose, defaultPackage = "baraat" }: 
               
               {/* Package Type Selector */}
               <div className="space-y-2">
-                <label className="text-[11px] font-bold uppercase tracking-widest text-gray-300 block">
+                <label className="text-[11px] font-bold uppercase tracking-widest text-[#DFC993] block">
                   Select Package Category:
                 </label>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
@@ -159,7 +154,7 @@ export function EventBookingModal({ open, onClose, defaultPackage = "baraat" }: 
                       onClick={() => setPackageType(pkg.id)}
                       className={`p-3 rounded-xl border text-left transition-all ${
                         packageType === pkg.id
-                          ? "bg-amber-500/20 border-amber-500 text-white shadow-lg shadow-amber-500/20 ring-1 ring-amber-500/40"
+                          ? "bg-[#DFC993]/20 border-[#DFC993] text-white shadow-lg shadow-[#DFC993]/20 ring-1 ring-[#DFC993]/40"
                           : "bg-white/5 border-white/10 text-gray-400 hover:text-white"
                       }`}
                     >
@@ -182,7 +177,7 @@ export function EventBookingModal({ open, onClose, defaultPackage = "baraat" }: 
                     value={contactName}
                     onChange={(e) => setContactName(e.target.value)}
                     placeholder="e.g. Anand Pandey"
-                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white text-sm placeholder-gray-500 focus:outline-none focus:border-amber-500"
+                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white text-sm placeholder-gray-500 focus:outline-none focus:border-[#DFC993] focus:ring-1 focus:ring-[#DFC993]/40"
                   />
                 </div>
                 <div className="space-y-1.5">
@@ -196,7 +191,7 @@ export function EventBookingModal({ open, onClose, defaultPackage = "baraat" }: 
                     value={contactPhone}
                     onChange={(e) => setContactPhone(e.target.value)}
                     placeholder="e.g. 9876543210"
-                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white text-sm placeholder-gray-500 focus:outline-none focus:border-amber-500 font-mono"
+                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white text-sm placeholder-gray-500 focus:outline-none focus:border-[#DFC993] focus:ring-1 focus:ring-[#DFC993]/40 font-mono"
                   />
                 </div>
               </div>
@@ -205,7 +200,7 @@ export function EventBookingModal({ open, onClose, defaultPackage = "baraat" }: 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-1.5">
                   <label className="text-[11px] font-bold uppercase tracking-widest text-gray-300 flex items-center space-x-1">
-                    <MapPin className="w-3.5 h-3.5 text-amber-400" />
+                    <MapPin className="w-3.5 h-3.5 text-[#DFC993]" />
                     <span>Pickup City / Area:</span>
                   </label>
                   <input
@@ -214,12 +209,12 @@ export function EventBookingModal({ open, onClose, defaultPackage = "baraat" }: 
                     value={pickupCity}
                     onChange={(e) => setPickupCity(e.target.value)}
                     placeholder="e.g. Phoolpur, Prayagraj"
-                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white text-sm placeholder-gray-500 focus:outline-none focus:border-amber-500"
+                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white text-sm placeholder-gray-500 focus:outline-none focus:border-[#DFC993] focus:ring-1 focus:ring-[#DFC993]/40"
                   />
                 </div>
                 <div className="space-y-1.5">
                   <label className="text-[11px] font-bold uppercase tracking-widest text-gray-300 flex items-center space-x-1">
-                    <MapPin className="w-3.5 h-3.5 text-rose-400" />
+                    <MapPin className="w-3.5 h-3.5 text-emerald-400" />
                     <span>Destination / Venue:</span>
                   </label>
                   <input
@@ -227,7 +222,7 @@ export function EventBookingModal({ open, onClose, defaultPackage = "baraat" }: 
                     value={destinationCity}
                     onChange={(e) => setDestinationCity(e.target.value)}
                     placeholder="e.g. Varanasi / Lawn Venue"
-                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white text-sm placeholder-gray-500 focus:outline-none focus:border-amber-500"
+                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white text-sm placeholder-gray-500 focus:outline-none focus:border-[#DFC993] focus:ring-1 focus:ring-[#DFC993]/40"
                   />
                 </div>
               </div>
@@ -236,7 +231,7 @@ export function EventBookingModal({ open, onClose, defaultPackage = "baraat" }: 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-1.5">
                   <label className="text-[11px] font-bold uppercase tracking-widest text-gray-300 flex items-center space-x-1">
-                    <Calendar className="w-3.5 h-3.5 text-amber-400" />
+                    <Calendar className="w-3.5 h-3.5 text-[#DFC993]" />
                     <span>Event Date:</span>
                   </label>
                   <input
@@ -244,18 +239,18 @@ export function EventBookingModal({ open, onClose, defaultPackage = "baraat" }: 
                     value={eventDate}
                     min={today}
                     onChange={(e) => setEventDate(e.target.value)}
-                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white text-sm focus:outline-none focus:border-amber-500 [color-scheme:dark]"
+                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white text-sm focus:outline-none focus:border-[#DFC993] [color-scheme:dark]"
                   />
                 </div>
                 <div className="space-y-1.5">
                   <label className="text-[11px] font-bold uppercase tracking-widest text-gray-300 flex items-center space-x-1">
-                    <Car className="w-3.5 h-3.5 text-amber-400" />
+                    <Car className="w-3.5 h-3.5 text-[#DFC993]" />
                     <span>Cars / Vehicles Needed:</span>
                   </label>
                   <select
                     value={vehiclesNeeded}
                     onChange={(e) => setVehiclesNeeded(e.target.value)}
-                    className="w-full px-4 py-3 rounded-xl bg-[#111319] border border-white/10 text-white text-sm focus:outline-none focus:border-amber-500"
+                    className="w-full px-4 py-3 rounded-xl bg-[#072019] border border-[#DFC993]/20 text-white text-sm focus:outline-none focus:border-[#DFC993]"
                   >
                     <option value="1 Luxury Sedan">1 Luxury Sedan / SUV</option>
                     <option value="3 Cars Convoy">3 Cars Convoy (Small Baraat)</option>
@@ -272,14 +267,14 @@ export function EventBookingModal({ open, onClose, defaultPackage = "baraat" }: 
                 type="submit"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full py-4 rounded-xl bg-gradient-to-r from-amber-400 via-orange-500 to-rose-500 text-black text-sm font-black uppercase tracking-wider shadow-lg shadow-amber-500/30 hover:shadow-amber-500/60 transition-all flex items-center justify-center space-x-2"
+                className="w-full py-4 rounded-xl bg-gradient-to-r from-[#DFC993] via-[#34D399] to-[#10B981] text-[#041611] text-sm font-black uppercase tracking-wider shadow-lg shadow-[#DFC993]/30 hover:shadow-emerald-500/50 transition-all flex items-center justify-center space-x-2"
               >
-                <MessageSquare className="w-5 h-5" />
+                <MessageSquare className="w-5 h-5 text-[#041611]" />
                 <span>Get Instant Quote on WhatsApp</span>
               </motion.button>
 
-              <p className="text-center text-[11px] text-gray-400 flex items-center justify-center space-x-1">
-                <ShieldCheck className="w-3.5 h-3.5 text-amber-400" />
+              <p className="text-center text-[11px] text-[#DFC993]/80 flex items-center justify-center space-x-1">
+                <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
                 <span>Uniformed Drivers • Clean Vehicles • Dedicated Booking Manager</span>
               </p>
 

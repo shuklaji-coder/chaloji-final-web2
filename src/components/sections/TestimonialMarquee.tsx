@@ -85,10 +85,10 @@ const REVIEWS_ROW_2: Review[] = [
 
 export function TestimonialMarquee() {
   return (
-    <section id="reviews" className="relative py-16 sm:py-28 z-10 overflow-hidden bg-[#07080B] border-t border-white/10">
+    <section id="reviews" className="relative py-16 sm:py-28 z-10 overflow-hidden bg-[#041611] border-t border-[#DFC993]/20">
       
       {/* Background Lighting */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-gradient-to-r from-emerald-500/10 via-cyan-500/10 to-transparent blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-gradient-to-r from-emerald-500/15 via-[#DFC993]/15 to-transparent blur-[140px] pointer-events-none" />
 
       {/* Reviews Shayari Header */}
       <div className="relative z-10 text-center mb-10 px-4">
@@ -103,18 +103,18 @@ export function TestimonialMarquee() {
           {[...REVIEWS_ROW_1, ...REVIEWS_ROW_1].map((review, i) => (
             <div
               key={i}
-              className="w-[82vw] sm:w-[380px] shrink-0 glass-card p-6 rounded-3xl border border-white/10 space-y-4 whitespace-normal"
+              className="w-[82vw] sm:w-[380px] shrink-0 glass-card p-6 rounded-3xl border border-[#DFC993]/20 space-y-4 whitespace-normal shadow-lg shadow-emerald-950/30"
             >
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-1">
                   {Array.from({ length: review.rating }).map((_, idx) => (
-                    <Star key={idx} className="w-4 h-4 text-amber-400 fill-amber-400" />
+                    <Star key={idx} className="w-4 h-4 text-[#DFC993] fill-[#DFC993]" />
                   ))}
                 </div>
-                <Quote className="w-6 h-6 text-white/10" />
+                <Quote className="w-6 h-6 text-[#DFC993]/25" />
               </div>
 
-              <p className="text-sm text-gray-300 leading-relaxed font-normal">
+              <p className="text-sm text-gray-200 leading-relaxed font-normal">
                 &ldquo;{review.text}&rdquo;
               </p>
 
@@ -123,14 +123,14 @@ export function TestimonialMarquee() {
                   src={review.avatar}
                   alt={review.name}
                   loading="lazy"
-                  className="w-10 h-10 rounded-full object-cover border border-emerald-500/40"
+                  className="w-10 h-10 rounded-full object-cover border border-[#DFC993]/40 ring-2 ring-[#DFC993]/20"
                 />
                 <div className="flex flex-col text-left">
                   <span className="text-sm font-bold text-white font-display flex items-center space-x-1">
                     <span>{review.name}</span>
                     <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
                   </span>
-                  <span className="text-[11px] text-gray-400">
+                  <span className="text-[11px] text-[#DFC993]/80">
                     {review.role} • {review.city}
                   </span>
                 </div>
@@ -146,18 +146,18 @@ export function TestimonialMarquee() {
           {[...REVIEWS_ROW_2, ...REVIEWS_ROW_2].map((review, i) => (
             <div
               key={i}
-              className="w-[82vw] sm:w-[380px] shrink-0 glass-card p-6 rounded-3xl border border-white/10 space-y-4 whitespace-normal"
+              className="w-[82vw] sm:w-[380px] shrink-0 glass-card p-6 rounded-3xl border border-[#DFC993]/20 space-y-4 whitespace-normal shadow-lg shadow-emerald-950/30"
             >
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-1">
                   {Array.from({ length: review.rating }).map((_, idx) => (
-                    <Star key={idx} className="w-4 h-4 text-amber-400 fill-amber-400" />
+                    <Star key={idx} className="w-4 h-4 text-[#DFC993] fill-[#DFC993]" />
                   ))}
                 </div>
-                <Quote className="w-6 h-6 text-white/10" />
+                <Quote className="w-6 h-6 text-emerald-400/25" />
               </div>
 
-              <p className="text-sm text-gray-300 leading-relaxed font-normal">
+              <p className="text-sm text-gray-200 leading-relaxed font-normal">
                 &ldquo;{review.text}&rdquo;
               </p>
 
@@ -166,14 +166,14 @@ export function TestimonialMarquee() {
                   src={review.avatar}
                   alt={review.name}
                   loading="lazy"
-                  className="w-10 h-10 rounded-full object-cover border border-cyan-500/40"
+                  className="w-10 h-10 rounded-full object-cover border border-emerald-500/40 ring-2 ring-emerald-500/20"
                 />
                 <div className="flex flex-col text-left">
                   <span className="text-sm font-bold text-white font-display flex items-center space-x-1">
                     <span>{review.name}</span>
-                    <CheckCircle2 className="w-3.5 h-3.5 text-cyan-400" />
+                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
                   </span>
-                  <span className="text-[11px] text-gray-400">
+                  <span className="text-[11px] text-[#DFC993]/80">
                     {review.role} • {review.city}
                   </span>
                 </div>

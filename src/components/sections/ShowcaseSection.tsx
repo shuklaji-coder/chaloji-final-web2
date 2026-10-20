@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
 import { Shayari } from "@/components/ui/Shayari";
 import { AnimatedSection } from "@/components/vfx/AnimatedSection";
 
@@ -11,11 +10,11 @@ export function ShowcaseSection() {
 
       {/* Glow Orbs */}
       <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-[#DFC993]/10 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <AnimatedSection animation="zoom-in" duration={0.7}>
-          <div className="relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl shadow-emerald-950/50 group">
+          <div className="relative rounded-3xl overflow-hidden border border-[#DFC993]/20 shadow-2xl shadow-emerald-950/50 group">
             <img
               src="/image copy.png"
               alt="Chaloji Showcase"
@@ -23,7 +22,7 @@ export function ShowcaseSection() {
               className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-[1.02]"
               draggable={false}
             />
-            <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#08090C]/80 to-transparent pointer-events-none" />
+            <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#041611]/90 to-transparent pointer-events-none" />
           </div>
         </AnimatedSection>
 
@@ -36,4 +35,3 @@ export function ShowcaseSection() {
     </section>
   );
 }
-

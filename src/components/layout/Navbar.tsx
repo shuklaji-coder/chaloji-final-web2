@@ -57,7 +57,7 @@ export function Navbar({
     <header
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
         scrolled
-          ? "py-3 bg-[#08090C]/80 backdrop-blur-xl border-b border-white/10 shadow-2xl shadow-emerald-950/20"
+          ? "py-3 bg-[#041611]/85 backdrop-blur-xl border-b border-[#DFC993]/20 shadow-2xl shadow-emerald-950/40"
           : "py-5 bg-transparent"
       }`}
     >
@@ -71,26 +71,26 @@ export function Navbar({
             <img
               src="/chaloji logo.png"
               alt="Chaloji Logo"
-              className="w-auto h-11 sm:h-12 object-contain drop-shadow-lg shadow-emerald-500/20 group-hover:scale-105 transition-transform duration-300"
+              className="w-auto h-11 sm:h-12 object-contain drop-shadow-lg shadow-emerald-500/20 group-hover:scale-105 group-hover:drop-shadow-[0_0_15px_rgba(223,201,147,0.4)] transition-all duration-300"
             />
           </a>
 
           {/* Desktop Nav Links */}
-          <nav className="hidden md:flex items-center space-x-1 glass-pill px-4 py-1.5 rounded-full border border-white/10">
+          <nav className="hidden md:flex items-center space-x-1 glass-pill px-4 py-1.5 rounded-full border border-[#DFC993]/20">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="relative px-3.5 py-1.5 text-xs font-semibold text-gray-300 hover:text-white transition-colors duration-200 flex items-center space-x-1.5 group"
+                className="relative px-3.5 py-1.5 text-xs font-semibold text-[#F7EBD2]/80 hover:text-white transition-colors duration-200 flex items-center space-x-1.5 group"
                 data-cursor-expand="true"
               >
                 <span>{link.name}</span>
                 {link.badge && (
-                  <span className="text-[9px] font-bold px-1.5 py-0.2 rounded-full bg-gradient-to-r from-amber-500 to-rose-500 text-white animate-pulse">
+                  <span className="text-[9px] font-bold px-1.5 py-0.2 rounded-full bg-gradient-to-r from-[#DFC993] to-[#B58E4A] text-[#041611] animate-pulse">
                     {link.badge}
                   </span>
                 )}
-                <span className="absolute bottom-0 left-3 right-3 h-[2px] bg-emerald-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 rounded-full" />
+                <span className="absolute bottom-0 left-3 right-3 h-[2px] bg-gradient-to-r from-[#DFC993] to-[#10B981] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 rounded-full" />
               </a>
             ))}
           </nav>
@@ -99,9 +99,9 @@ export function Navbar({
           <div className="hidden lg:flex items-center space-x-3">
             <a
               href="tel:8087747774"
-              className="flex items-center space-x-2 text-xs font-medium text-gray-300 hover:text-emerald-400 px-3 py-2 rounded-xl transition-colors"
+              className="flex items-center space-x-2 text-xs font-medium text-[#F7EBD2] hover:text-[#10B981] px-3 py-2 rounded-xl transition-colors"
             >
-              <PhoneCall className="w-3.5 h-3.5 text-emerald-400 animate-bounce" />
+              <PhoneCall className="w-3.5 h-3.5 text-[#DFC993] animate-bounce" />
               <span>24x7 Helpline</span>
             </a>
 
@@ -114,15 +114,15 @@ export function Navbar({
                   window.location.href = "/#app-download";
                 }
               }}
-              className="relative group overflow-hidden rounded-xl bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 p-[1px] shadow-lg shadow-emerald-500/25 hover:shadow-emerald-500/50 transition-all duration-300"
+              className="relative group overflow-hidden rounded-xl bg-gradient-to-r from-[#DFC993] via-[#34D399] to-[#10B981] p-[1px] shadow-lg shadow-[#DFC993]/20 hover:shadow-emerald-500/40 transition-all duration-300"
               data-cursor-expand="true"
             >
-              <div className="relative px-5 py-2.5 bg-[#08090C] rounded-[11px] flex items-center space-x-2 transition-all duration-300 group-hover:bg-transparent">
-                <Zap className="w-4 h-4 text-emerald-400 group-hover:text-black transition-colors" />
-                <span className="text-xs font-bold text-white group-hover:text-black tracking-wide uppercase">
+              <div className="relative px-5 py-2.5 bg-[#041611] rounded-[11px] flex items-center space-x-2 transition-all duration-300 group-hover:bg-gradient-to-r group-hover:from-[#DFC993] group-hover:to-[#10B981]">
+                <Zap className="w-4 h-4 text-[#DFC993] group-hover:text-[#041611] transition-colors" />
+                <span className="text-xs font-bold text-[#F4F7F5] group-hover:text-[#041611] tracking-wide uppercase">
                   Book Instant Ride
                 </span>
-                <ChevronRight className="w-3.5 h-3.5 text-emerald-400 group-hover:text-black group-hover:translate-x-0.5 transition-all" />
+                <ChevronRight className="w-3.5 h-3.5 text-[#DFC993] group-hover:text-[#041611] group-hover:translate-x-0.5 transition-all" />
               </div>
               <div className="absolute inset-0 w-1/2 h-full bg-gradient-to-r from-transparent via-white/30 to-transparent transform -skew-x-12 -translate-x-full group-hover:animate-shimmer-sweep" />
             </button>
@@ -132,7 +132,7 @@ export function Navbar({
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-xl glass-panel text-gray-300 hover:text-white"
+              className="p-2 rounded-xl glass-panel border border-[#DFC993]/20 text-[#F7EBD2] hover:text-white"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -143,17 +143,17 @@ export function Navbar({
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden glass-panel border-b border-white/10 px-6 py-6 space-y-4 max-h-[calc(100dvh-90px)] overflow-y-auto">
+        <div className="md:hidden glass-panel border-b border-[#DFC993]/20 px-6 py-6 space-y-4 max-h-[calc(100dvh-90px)] overflow-y-auto bg-[#041611]/95">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
               onClick={() => setMobileMenuOpen(false)}
-              className="block text-sm font-semibold text-gray-200 hover:text-emerald-400 py-2 border-b border-white/5 flex items-center justify-between"
+              className="block text-sm font-semibold text-[#F7EBD2] hover:text-[#10B981] py-2 border-b border-white/5 flex items-center justify-between"
             >
               <span>{link.name}</span>
               {link.badge && (
-                <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-500 text-white">
+                <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-gradient-to-r from-[#DFC993] to-[#B58E4A] text-[#041611]">
                   {link.badge}
                 </span>
               )}
@@ -168,15 +168,15 @@ export function Navbar({
                 window.location.href = "/#app-download";
               }
             }}
-            className="block w-full text-center py-3 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 text-black font-bold text-sm tracking-wide uppercase shadow-lg shadow-emerald-500/30"
+            className="block w-full text-center py-3 rounded-xl bg-gradient-to-r from-[#DFC993] via-[#34D399] to-[#10B981] text-[#041611] font-bold text-sm tracking-wide uppercase shadow-lg shadow-[#DFC993]/30"
           >
             Book Instant Ride
           </button>
           <a
             href="tel:8087747774"
-            className="flex items-center justify-center space-x-2 py-3 rounded-xl glass-panel border border-white/10 text-sm font-semibold text-gray-200"
+            className="flex items-center justify-center space-x-2 py-3 rounded-xl glass-panel border border-[#DFC993]/20 text-sm font-semibold text-[#F7EBD2]"
           >
-            <PhoneCall className="w-4 h-4 text-emerald-400" />
+            <PhoneCall className="w-4 h-4 text-[#DFC993]" />
             <span>24x7 Helpline</span>
           </a>
         </div>

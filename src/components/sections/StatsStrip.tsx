@@ -89,7 +89,7 @@ function CountUpNumber({ endValue, isFloat = false }: { endValue: number; isFloa
 
 export function StatsStrip() {
   return (
-    <section className="relative py-20 z-10 overflow-hidden bg-gradient-to-b from-[#08090C] via-[#0E111A] to-[#08090C] border-y border-white/10">
+    <section className="relative py-20 z-10 overflow-hidden bg-gradient-to-b from-[#041611] via-[#072019] to-[#041611] border-y border-[#DFC993]/20">
       
       {/* Background ambient light */}
       <div className="absolute inset-0 bg-grid-pattern opacity-15" />
@@ -98,10 +98,10 @@ export function StatsStrip() {
         
         {/* Pulsing Glowing Header Badge */}
         <div className="flex justify-center mb-12">
-          <div className="inline-flex items-center space-x-2.5 px-4 py-2 rounded-full glass-panel border border-emerald-500/40 text-emerald-300 text-xs font-bold uppercase tracking-widest shadow-lg shadow-emerald-500/20">
+          <div className="inline-flex items-center space-x-2.5 px-4 py-2 rounded-full glass-panel border border-[#DFC993]/40 text-[#DFC993] text-xs font-bold uppercase tracking-widest shadow-lg shadow-emerald-500/20">
             <span className="relative flex h-2.5 w-2.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#DFC993] opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#DFC993]"></span>
             </span>
             <span>CHALOJI PLATFORM MILESTONES</span>
           </div>
@@ -119,14 +119,14 @@ export function StatsStrip() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.15 }}
-                className="relative group rounded-3xl glass-card p-6 border border-white/10 hover:border-emerald-500/40 transition-all duration-300"
+                className="relative group rounded-3xl glass-card p-6 border border-[#DFC993]/20 hover:border-[#DFC993]/50 transition-all duration-300"
               >
                 {/* Glowing Aura Ring */}
                 <div className={`absolute -top-3 -right-3 w-16 h-16 bg-gradient-to-br ${stat.color} opacity-20 rounded-full blur-xl group-hover:opacity-60 transition-opacity`} />
 
                 <div className="flex items-center space-x-4 mb-4">
                   <div className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${stat.color} p-[1px] ${stat.glow} shadow-lg`}>
-                    <div className="w-full h-full bg-[#08090C] rounded-[15px] flex items-center justify-center">
+                    <div className="w-full h-full bg-[#041611] rounded-[15px] flex items-center justify-center">
                       <Icon className="w-6 h-6 text-white group-hover:scale-110 transition-transform duration-300" />
                     </div>
                   </div>

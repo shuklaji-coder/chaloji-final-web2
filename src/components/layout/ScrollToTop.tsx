@@ -25,9 +25,9 @@ export function ScrollToTop() {
           whileTap={{ scale: 0.9 }}
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           aria-label="Scroll to top"
-          className="fixed bottom-20 right-5 sm:bottom-24 sm:right-7 z-50 w-11 h-11 rounded-full bg-gradient-to-br from-emerald-500 to-cyan-500 flex items-center justify-center text-black shadow-lg shadow-emerald-500/30 hover:shadow-emerald-500/50 transition-shadow duration-300"
+          className="fixed bottom-20 right-5 sm:bottom-24 sm:right-7 z-50 w-11 h-11 rounded-full bg-gradient-to-br from-[#DFC993] to-[#10B981] flex items-center justify-center text-[#041611] shadow-lg shadow-[#DFC993]/30 hover:shadow-emerald-500/50 transition-shadow duration-300"
         >
-          <ArrowUp className="w-5 h-5" />
+          <ArrowUp className="w-5 h-5 stroke-[2.5]" />
         </motion.button>
       )}
     </AnimatePresence>

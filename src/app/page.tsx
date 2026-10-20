@@ -34,7 +34,7 @@ export default function Home() {
 
   return (
     <LenisProvider>
-      <main className="relative min-h-screen bg-[#08090C] text-[#E2E8F0] overflow-x-hidden selection:bg-emerald-400 selection:text-black">
+      <main className="relative min-h-screen bg-[#041611] text-[#F4F7F5] overflow-x-hidden selection:bg-[#DFC993] selection:text-[#041611]">
         {/* Global VFX & Cursors */}
         <CyberBackground />
 

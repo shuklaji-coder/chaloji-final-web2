@@ -7,7 +7,6 @@ import {
   MapPin,
   Calendar,
   Clock,
-  Car,
   Phone,
   CheckCircle2,
   LocateFixed,
@@ -173,21 +172,21 @@ export const BookingModal: React.FC<BookingModalProps> = ({
             exit={{ opacity: 0, scale: 0.94, y: 30 }}
             transition={{ type: "spring", stiffness: 320, damping: 28 }}
             onClick={(e) => e.stopPropagation()}
-            className="relative w-full max-w-lg max-h-[90dvh] overflow-y-auto rounded-3xl glass-card border border-emerald-500/30 shadow-2xl shadow-black/60"
+            className="relative w-full max-w-lg max-h-[90dvh] overflow-y-auto rounded-3xl glass-card border border-[#DFC993]/35 shadow-2xl shadow-emerald-950/60"
           >
-            <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-emerald-500/20 to-transparent blur-[80px] pointer-events-none" />
+            <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-[#DFC993]/20 via-emerald-500/10 to-transparent blur-[80px] pointer-events-none" />
 
             {/* Modal Header */}
             <div className="relative flex items-center justify-between px-6 sm:px-8 pt-6 pb-2">
               <div className="flex items-center space-x-3">
-                <span className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-cyan-500 flex items-center justify-center shadow-lg shadow-emerald-500/30">
-                  <Zap className="w-5 h-5 text-black" />
+                <span className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#DFC993] to-[#B58E4A] flex items-center justify-center shadow-lg shadow-[#DFC993]/30">
+                  <Zap className="w-5 h-5 text-[#041611]" />
                 </span>
                 <div>
                   <h3 className="text-lg sm:text-xl font-black text-white font-display">
                     {submitted ? "Booking Confirmed!" : "Book Ride Instantly"}
                   </h3>
-                  <p className="text-[11px] text-gray-400 font-medium uppercase tracking-wider">
+                  <p className="text-[11px] text-[#DFC993]/80 font-medium uppercase tracking-wider">
                     {submitted ? "Connecting on WhatsApp..." : "Instant Cab Dispatch to Driver Partner"}
                   </p>
                 </div>
@@ -195,7 +194,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
               <button
                 onClick={handleClose}
                 aria-label="Close booking form"
-                className="p-2 rounded-xl glass-panel border border-white/10 text-gray-400 hover:text-white hover:border-white/25 transition-colors"
+                className="p-2 rounded-xl glass-panel border border-[#DFC993]/20 text-gray-400 hover:text-white hover:border-[#DFC993]/40 transition-colors"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -206,7 +205,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 {/* Rider Contact Info */}
                 <div className="grid grid-cols-2 gap-3">
                   <div className="space-y-1">
-                    <label className="text-[10px] font-bold uppercase tracking-widest text-gray-400">
+                    <label className="text-[10px] font-bold uppercase tracking-widest text-[#DFC993]">
                       Your Name
                     </label>
                     <input
@@ -214,11 +213,11 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                       placeholder="e.g. Rahul Sharma"
-                      className="w-full px-3.5 py-2.5 rounded-xl bg-white/5 border border-white/10 text-sm text-white placeholder:text-gray-500 focus:outline-none focus:border-emerald-500 transition-colors"
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-white/5 border border-white/10 text-sm text-white placeholder:text-gray-500 focus:outline-none focus:border-[#DFC993] transition-colors"
                     />
                   </div>
                   <div className="space-y-1">
-                    <label className="text-[10px] font-bold uppercase tracking-widest text-gray-400">
+                    <label className="text-[10px] font-bold uppercase tracking-widest text-[#DFC993]">
                       Mobile No <span className="text-rose-400">*</span>
                     </label>
                     <input
@@ -227,7 +226,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
                       placeholder="+91 98765 43210"
-                      className="w-full px-3.5 py-2.5 rounded-xl bg-white/5 border border-white/10 text-sm text-white placeholder:text-gray-500 focus:outline-none focus:border-emerald-500 transition-colors"
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-white/5 border border-white/10 text-sm text-white placeholder:text-gray-500 focus:outline-none focus:border-[#DFC993] transition-colors font-mono"
                     />
                   </div>
                 </div>
@@ -235,8 +234,8 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 {/* Pickup Location */}
                 <div className="space-y-1">
                   <div className="flex items-center justify-between">
-                    <label className="text-[11px] font-bold uppercase tracking-widest text-gray-400 flex items-center space-x-1.5">
-                      <MapPin className="w-3.5 h-3.5 text-emerald-400" />
+                    <label className="text-[11px] font-bold uppercase tracking-widest text-gray-300 flex items-center space-x-1.5">
+                      <MapPin className="w-3.5 h-3.5 text-[#DFC993]" />
                       <span>Pickup Location</span>
                     </label>
                     <button
@@ -255,14 +254,14 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                     value={pickup}
                     onChange={(e) => setPickup(e.target.value)}
                     placeholder="Enter pickup address in Phoolpur / Varanasi"
-                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-sm text-white placeholder:text-gray-500 focus:outline-none focus:border-emerald-500 transition-colors"
+                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-sm text-white placeholder:text-gray-500 focus:outline-none focus:border-[#DFC993] transition-colors"
                   />
                 </div>
 
                 {/* Drop Location */}
                 <div className="space-y-1">
-                  <label className="text-[11px] font-bold uppercase tracking-widest text-gray-400 flex items-center space-x-1.5">
-                    <MapPin className="w-3.5 h-3.5 text-rose-400" />
+                  <label className="text-[11px] font-bold uppercase tracking-widest text-gray-300 flex items-center space-x-1.5">
+                    <MapPin className="w-3.5 h-3.5 text-emerald-400" />
                     <span>Drop Destination</span>
                   </label>
                   <input
@@ -271,7 +270,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                     value={drop}
                     onChange={(e) => setDrop(e.target.value)}
                     placeholder="Where do you want to go?"
-                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-sm text-white placeholder:text-gray-500 focus:outline-none focus:border-emerald-500 transition-colors"
+                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-sm text-white placeholder:text-gray-500 focus:outline-none focus:border-[#DFC993] transition-colors"
                   />
                 </div>
 
@@ -282,7 +281,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                       key={idx}
                       type="button"
                       onClick={() => handleQuickRoute(route)}
-                      className="text-[10px] px-2.5 py-1 rounded-lg bg-white/5 hover:bg-emerald-500/20 text-gray-300 hover:text-emerald-300 border border-white/10 hover:border-emerald-500/30 transition-all"
+                      className="text-[10px] px-2.5 py-1 rounded-lg bg-white/5 hover:bg-[#DFC993]/15 text-gray-300 hover:text-[#DFC993] border border-white/10 hover:border-[#DFC993]/30 transition-all"
                     >
                       ⚡ {route.from} ➔ {route.to}
                     </button>
@@ -302,7 +301,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                         onClick={() => setTripType("ONE_WAY")}
                         className={`py-1.5 text-xs font-bold rounded-lg transition-all ${
                           tripType === "ONE_WAY"
-                            ? "bg-emerald-500 text-black shadow-md"
+                            ? "bg-gradient-to-r from-[#DFC993] to-[#B58E4A] text-[#041611] shadow-md"
                             : "text-gray-400 hover:text-white"
                         }`}
                       >
@@ -313,7 +312,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                         onClick={() => setTripType("ROUND_TRIP")}
                         className={`py-1.5 text-xs font-bold rounded-lg transition-all ${
                           tripType === "ROUND_TRIP"
-                            ? "bg-emerald-500 text-black shadow-md"
+                            ? "bg-gradient-to-r from-[#DFC993] to-[#B58E4A] text-[#041611] shadow-md"
                             : "text-gray-400 hover:text-white"
                         }`}
                       >
@@ -330,10 +329,10 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                     <select
                       value={rideType}
                       onChange={(e) => setRideType(e.target.value)}
-                      className="w-full px-3 py-2 rounded-xl bg-white/5 border border-white/10 text-xs font-bold text-white focus:outline-none focus:border-emerald-500 transition-colors"
+                      className="w-full px-3 py-2 rounded-xl bg-[#072019] border border-[#DFC993]/20 text-xs font-bold text-white focus:outline-none focus:border-[#DFC993] transition-colors"
                     >
                       {VEHICLE_TYPES.map((v) => (
-                        <option key={v.id} value={v.id} className="bg-slate-900 text-white">
+                        <option key={v.id} value={v.id} className="bg-[#041611] text-white">
                           {v.icon} {v.name}
                         </option>
                       ))}
@@ -345,26 +344,26 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 <div className="grid grid-cols-2 gap-3">
                   <div className="space-y-1">
                     <label className="text-[10px] font-bold uppercase tracking-widest text-gray-400 flex items-center space-x-1">
-                      <Calendar className="w-3 h-3 text-cyan-400" />
+                      <Calendar className="w-3 h-3 text-[#DFC993]" />
                       <span>Date (Optional)</span>
                     </label>
                     <input
                       type="date"
                       value={date}
                       onChange={(e) => setDate(e.target.value)}
-                      className="w-full px-3 py-2 rounded-xl bg-white/5 border border-white/10 text-xs text-white focus:outline-none focus:border-emerald-500"
+                      className="w-full px-3 py-2 rounded-xl bg-white/5 border border-white/10 text-xs text-white focus:outline-none focus:border-[#DFC993]"
                     />
                   </div>
                   <div className="space-y-1">
                     <label className="text-[10px] font-bold uppercase tracking-widest text-gray-400 flex items-center space-x-1">
-                      <Clock className="w-3 h-3 text-amber-400" />
+                      <Clock className="w-3 h-3 text-emerald-400" />
                       <span>Time (Optional)</span>
                     </label>
                     <input
                       type="time"
                       value={time}
                       onChange={(e) => setTime(e.target.value)}
-                      className="w-full px-3 py-2 rounded-xl bg-white/5 border border-white/10 text-xs text-white focus:outline-none focus:border-emerald-500"
+                      className="w-full px-3 py-2 rounded-xl bg-white/5 border border-white/10 text-xs text-white focus:outline-none focus:border-[#DFC993]"
                     />
                   </div>
                 </div>
@@ -379,17 +378,17 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 <div className="pt-2 space-y-2">
                   <button
                     type="submit"
-                    className="w-full py-3.5 px-6 rounded-2xl bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 text-black font-black text-sm sm:text-base hover:opacity-95 transition-all shadow-xl shadow-emerald-500/25 flex items-center justify-center space-x-2"
+                    className="w-full py-3.5 px-6 rounded-2xl bg-gradient-to-r from-[#DFC993] via-[#34D399] to-[#10B981] text-[#041611] font-black text-sm sm:text-base hover:opacity-95 transition-all shadow-xl shadow-[#DFC993]/30 flex items-center justify-center space-x-2"
                   >
-                    <MessageSquare className="w-5 h-5 fill-black" />
+                    <MessageSquare className="w-5 h-5 fill-[#041611]" />
                     <span>BOOK INSTANT RIDE ON WHATSAPP</span>
                   </button>
 
                   <a
                     href="tel:8087747774"
-                    className="w-full py-3 px-6 rounded-2xl bg-white/5 hover:bg-white/10 text-white font-bold text-xs sm:text-sm border border-white/10 transition-all flex items-center justify-center space-x-2"
+                    className="w-full py-3 px-6 rounded-2xl bg-white/5 hover:bg-white/10 text-white font-bold text-xs sm:text-sm border border-[#DFC993]/20 transition-all flex items-center justify-center space-x-2"
                   >
-                    <Phone className="w-4 h-4 text-emerald-400" />
+                    <Phone className="w-4 h-4 text-[#DFC993]" />
                     <span>OR CALL FOR IMMEDIATE CAB: 8087747774</span>
                   </a>
                 </div>
@@ -414,7 +413,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                   </button>
                   <a
                     href="tel:8087747774"
-                    className="px-6 py-2.5 rounded-xl bg-emerald-500 text-black font-bold text-xs hover:bg-emerald-400 flex items-center space-x-1"
+                    className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-[#DFC993] to-[#10B981] text-[#041611] font-bold text-xs hover:brightness-110 flex items-center space-x-1"
                   >
                     <Phone className="w-3.5 h-3.5" />
                     <span>Call 8087747774</span>

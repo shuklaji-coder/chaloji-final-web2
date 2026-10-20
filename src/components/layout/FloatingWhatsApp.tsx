@@ -24,13 +24,13 @@ export function FloatingWhatsApp() {
       data-cursor-expand="true"
     >
       <span className="hidden sm:flex max-w-0 overflow-hidden group-hover:max-w-[220px] transition-all duration-500 ease-out items-center">
-        <span className="whitespace-nowrap ml-2 mr-[-8px] px-4 py-2.5 rounded-2xl rounded-br-sm glass-card border border-emerald-400/30 text-xs font-bold text-white shadow-xl shadow-black/40">
+        <span className="whitespace-nowrap ml-2 mr-[-8px] px-4 py-2.5 rounded-2xl rounded-br-sm glass-card border border-[#DFC993]/30 text-xs font-bold text-[#F7EBD2] shadow-xl shadow-black/40">
           Chat with us on WhatsApp
         </span>
       </span>
 
-      <span className="relative flex w-14 h-14 sm:w-16 sm:h-16 items-center justify-center rounded-full bg-gradient-to-br from-emerald-400 via-green-500 to-emerald-600 shadow-2xl shadow-emerald-500/40">
-        <span className="absolute inset-0 rounded-full bg-emerald-400 opacity-50 animate-ping" />
+      <span className="relative flex w-14 h-14 sm:w-16 sm:h-16 items-center justify-center rounded-full bg-gradient-to-br from-emerald-500 via-emerald-600 to-teal-700 shadow-2xl shadow-emerald-500/40">
+        <span className="absolute inset-0 rounded-full bg-emerald-400 opacity-40 animate-ping" />
 
         <svg
           viewBox="0 0 32 32"
@@ -42,8 +42,8 @@ export function FloatingWhatsApp() {
         </svg>
 
         <span className="absolute -top-0.5 -right-0.5 flex h-4 w-4">
-          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-300 opacity-70" />
-          <span className="relative inline-flex rounded-full h-4 w-4 border-2 border-[#08090C] bg-emerald-400" />
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#DFC993] opacity-75" />
+          <span className="relative inline-flex rounded-full h-4 w-4 border-2 border-[#041611] bg-[#DFC993]" />
         </span>
       </span>
     </motion.a>

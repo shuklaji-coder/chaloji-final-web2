@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { ArrowLeft, Trash2, ShieldAlert, CheckCircle2, Phone, Mail, Car } from "lucide-react";
+import { ArrowLeft, Trash2, ShieldAlert, CheckCircle2, Phone, Mail } from "lucide-react";
 
 export default function AccountDeletionPage() {
   const [submitted, setSubmitted] = useState(false);
@@ -27,24 +27,24 @@ export default function AccountDeletionPage() {
   };
 
   return (
-    <main className="min-h-screen bg-[#08090C] text-[#E2E8F0] selection:bg-emerald-400 selection:text-black py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <main className="min-h-screen bg-[#041611] text-[#F4F7F5] selection:bg-[#DFC993] selection:text-[#041611] py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       
       {/* Background glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-gradient-to-b from-rose-500/10 via-emerald-500/5 to-transparent blur-[120px] pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-gradient-to-b from-rose-500/10 via-[#DFC993]/10 to-transparent blur-[120px] pointer-events-none" />
 
       <div className="max-w-2xl mx-auto relative z-10 space-y-8">
         
         {/* Navigation */}
         <Link
           href="/"
-          className="inline-flex items-center space-x-2 text-xs font-semibold text-gray-400 hover:text-emerald-400 transition-colors"
+          className="inline-flex items-center space-x-2 text-xs font-semibold text-[#DFC993] hover:text-white transition-colors"
         >
           <ArrowLeft className="w-4 h-4" />
           <span>Back to Home</span>
         </Link>
 
         {/* Header */}
-        <div className="space-y-3 border-b border-white/10 pb-6">
+        <div className="space-y-3 border-b border-[#DFC993]/20 pb-6">
           <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-rose-500/10 border border-rose-500/30 text-rose-400 text-xs font-bold uppercase tracking-wider">
             <Trash2 className="w-3.5 h-3.5" />
             <span>Google Play Compliance</span>
@@ -52,14 +52,14 @@ export default function AccountDeletionPage() {
           <h1 className="text-3xl sm:text-4xl font-black text-white tracking-tight font-display">
             Account &amp; Data Deletion Request
           </h1>
-          <p className="text-sm text-gray-400 leading-relaxed">
+          <p className="text-sm text-gray-300 leading-relaxed">
             In compliance with Google Play Developer Policies, ChaloJi riders and driver partners can request complete deletion of their account and associated personal data at any time.
           </p>
         </div>
 
         {/* Info Banner */}
-        <div className="glass-card p-5 rounded-2xl border border-amber-500/30 bg-amber-500/5 space-y-2">
-          <div className="flex items-center space-x-2 text-amber-400 font-bold text-sm">
+        <div className="glass-card p-5 rounded-2xl border border-[#DFC993]/30 bg-[#DFC993]/5 space-y-2">
+          <div className="flex items-center space-x-2 text-[#DFC993] font-bold text-sm">
             <ShieldAlert className="w-4 h-4 shrink-0" />
             <span>What happens when you delete your account?</span>
           </div>
@@ -88,10 +88,10 @@ export default function AccountDeletionPage() {
             </button>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="glass-card p-6 sm:p-8 rounded-3xl border border-white/10 space-y-6">
+          <form onSubmit={handleSubmit} className="glass-card p-6 sm:p-8 rounded-3xl border border-[#DFC993]/20 space-y-6">
             
             <div className="space-y-2">
-              <label className="text-xs font-bold uppercase tracking-wider text-gray-400 block">
+              <label className="text-xs font-bold uppercase tracking-wider text-[#DFC993] block">
                 Select App Account Type
               </label>
               <div className="grid grid-cols-2 gap-3">
@@ -100,7 +100,7 @@ export default function AccountDeletionPage() {
                   onClick={() => setAppType("user")}
                   className={`py-3 px-4 rounded-xl text-xs font-bold border transition-all ${
                     appType === "user"
-                      ? "bg-gradient-to-r from-emerald-500 to-cyan-500 text-black border-transparent shadow-lg shadow-emerald-500/20"
+                      ? "bg-gradient-to-r from-[#DFC993] to-[#10B981] text-[#041611] border-transparent shadow-lg shadow-[#DFC993]/20"
                       : "glass-panel border-white/10 text-gray-300 hover:text-white"
                   }`}
                 >
@@ -111,7 +111,7 @@ export default function AccountDeletionPage() {
                   onClick={() => setAppType("driver")}
                   className={`py-3 px-4 rounded-xl text-xs font-bold border transition-all ${
                     appType === "driver"
-                      ? "bg-gradient-to-r from-emerald-500 to-cyan-500 text-black border-transparent shadow-lg shadow-emerald-500/20"
+                      ? "bg-gradient-to-r from-[#DFC993] to-[#10B981] text-[#041611] border-transparent shadow-lg shadow-[#DFC993]/20"
                       : "glass-panel border-white/10 text-gray-300 hover:text-white"
                   }`}
                 >
@@ -121,7 +121,7 @@ export default function AccountDeletionPage() {
             </div>
 
             <div className="space-y-2">
-              <label className="text-xs font-bold uppercase tracking-wider text-gray-400 block">
+              <label className="text-xs font-bold uppercase tracking-wider text-gray-300 block">
                 Registered Mobile Number <span className="text-rose-400">*</span>
               </label>
               <input
@@ -130,12 +130,12 @@ export default function AccountDeletionPage() {
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 placeholder="+91 98765 43210"
-                className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white text-sm focus:outline-none focus:border-emerald-500 transition-colors"
+                className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white text-sm focus:outline-none focus:border-[#DFC993] transition-colors font-mono"
               />
             </div>
 
             <div className="space-y-2">
-              <label className="text-xs font-bold uppercase tracking-wider text-gray-400 block">
+              <label className="text-xs font-bold uppercase tracking-wider text-gray-300 block">
                 Reason for Account Deletion (Optional)
               </label>
               <textarea
@@ -143,7 +143,7 @@ export default function AccountDeletionPage() {
                 value={reason}
                 onChange={(e) => setReason(e.target.value)}
                 placeholder="Let us know why you are leaving..."
-                className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white text-sm focus:outline-none focus:border-emerald-500 transition-colors"
+                className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white text-sm focus:outline-none focus:border-[#DFC993] transition-colors"
               />
             </div>
 
@@ -158,9 +158,9 @@ export default function AccountDeletionPage() {
         )}
 
         {/* Support contact info */}
-        <div className="text-center pt-4 border-t border-white/10 text-xs text-gray-400 space-y-2">
+        <div className="text-center pt-4 border-t border-[#DFC993]/15 text-xs text-gray-400 space-y-2">
           <p>Alternatively, email your account deletion request directly to:</p>
-          <div className="flex items-center justify-center space-x-4 font-medium text-emerald-400">
+          <div className="flex items-center justify-center space-x-4 font-medium text-[#DFC993]">
             <a href="mailto:support@chaloji.com" className="flex items-center space-x-1.5 hover:underline">
               <Mail className="w-3.5 h-3.5" />
               <span>support@chaloji.com</span>

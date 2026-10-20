@@ -55,19 +55,19 @@ export function FaqSection() {
   return (
     <section id="faq" className="relative py-16 sm:py-24 z-10 overflow-hidden">
       <div className="absolute top-1/4 right-1/4 w-[500px] h-[400px] bg-emerald-500/10 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-0 left-1/4 w-[400px] h-[300px] bg-cyan-500/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 left-1/4 w-[400px] h-[300px] bg-[#DFC993]/10 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <AnimatedSection animation="fade-up">
           <div className="text-center max-w-3xl mx-auto space-y-4 mb-14">
-            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full glass-panel border border-emerald-500/30 text-emerald-300 text-xs font-bold uppercase tracking-wider">
-              <MessageSquareText className="w-3.5 h-3.5 text-emerald-400" />
+            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full glass-panel border border-[#DFC993]/40 text-[#DFC993] text-xs font-bold uppercase tracking-wider">
+              <MessageSquareText className="w-3.5 h-3.5 text-[#DFC993]" />
               <span>STILL HAVE QUESTIONS?</span>
             </div>
 
             <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight font-display">
               Frequently Asked <br />
-              <span className="text-gradient-emerald">Questions.</span>
+              <span className="text-gradient-dual">Questions.</span>
             </h2>
 
             <p className="text-base text-gray-300">
@@ -91,7 +91,7 @@ export function FaqSection() {
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.5, delay: idx * 0.06, ease: [0.16, 1, 0.3, 1] }}
                 className={`rounded-2xl glass-card overflow-hidden transition-colors duration-300 ${
-                  isOpen ? "border-emerald-500/40 shadow-lg shadow-emerald-950/40" : "border-white/10"
+                  isOpen ? "border-[#DFC993]/50 shadow-lg shadow-emerald-950/40" : "border-[#DFC993]/15"
                 }`}
               >
                 <button
@@ -102,7 +102,7 @@ export function FaqSection() {
                 >
                   <span
                     className={`text-sm sm:text-base font-bold font-display transition-colors duration-200 ${
-                      isOpen ? "text-emerald-300" : "text-white group-hover:text-emerald-300"
+                      isOpen ? "text-[#DFC993]" : "text-white group-hover:text-[#DFC993]"
                     }`}
                   >
                     {faq.question}
@@ -112,8 +112,8 @@ export function FaqSection() {
                     transition={{ duration: 0.25 }}
                     className={`shrink-0 w-8 h-8 rounded-xl flex items-center justify-center border transition-colors duration-300 ${
                       isOpen
-                        ? "bg-gradient-to-br from-emerald-500 to-cyan-500 border-transparent text-black"
-                        : "glass-panel border-white/10 text-gray-400"
+                        ? "bg-gradient-to-br from-[#DFC993] to-[#10B981] border-transparent text-[#041611]"
+                        : "glass-panel border-[#DFC993]/20 text-[#DFC993]"
                     }`}
                   >
                     <Plus className="w-4 h-4" />

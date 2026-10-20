@@ -38,7 +38,7 @@ export function EarningsCalculator() {
   const gaugePercent = Math.min(Math.max((monthlyEarnings / maxPossible) * 100, 10), 100);
 
   return (
-    <section id="driver-earnings" className="relative py-24 z-10 overflow-hidden bg-[#08090C]">
+    <section id="driver-earnings" className="relative py-24 z-10 overflow-hidden bg-[#041611]">
       
       {/* Background ambient lighting */}
       <div className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-[140px] pointer-events-none" />
@@ -219,7 +219,7 @@ export function EarningsCalculator() {
                 className="block relative group overflow-hidden rounded-2xl bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 p-[1px] shadow-xl shadow-emerald-500/30 hover:shadow-emerald-500/60 transition-all duration-300"
                 data-cursor-expand="true"
               >
-                <div className="w-full py-4 bg-[#08090C] rounded-[15px] flex items-center justify-center space-x-2 transition-all duration-300 group-hover:bg-transparent">
+                <div className="w-full py-4 bg-[#041611] rounded-[15px] flex items-center justify-center space-x-2 transition-all duration-300 group-hover:bg-transparent">
                   <Zap className="w-5 h-5 text-emerald-400 group-hover:text-black" />
                   <span className="text-base font-bold text-white group-hover:text-black uppercase tracking-wider">
                     Register as Driver Partner

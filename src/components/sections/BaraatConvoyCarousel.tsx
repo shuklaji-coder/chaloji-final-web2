@@ -3,8 +3,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import confetti from "canvas-confetti";
-import { Crown, Sparkles, ChevronLeft, ChevronRight, Play, Pause } from "lucide-react";
-import { Shayari } from "@/components/ui/Shayari";
+import { ChevronLeft, ChevronRight, Play, Pause, Sparkles } from "lucide-react";
 
 interface SlideItem {
   id: string;
@@ -90,22 +89,26 @@ export function BaraatConvoyCarousel({ onOpenEventModal }: BaraatConvoyCarouselP
     const y = (rect.top + rect.height / 2) / window.innerHeight;
 
     confetti({
-      particleCount: 60,
+      particleCount: 65,
       spread: 80,
       origin: { x, y },
-      colors: ["#F59E0B", "#F97316", "#EC4899", "#10B981", "#3B82F6"],
+      colors: ["#DFC993", "#10B981", "#F7EBD2", "#059669", "#B58E4A"],
     });
   };
 
   return (
     <section 
       id="baarat-showcase" 
-      className="relative w-full h-screen min-h-[650px] z-10 overflow-hidden bg-[#07080B] flex flex-col justify-between"
+      className="relative w-full h-screen min-h-[650px] z-10 overflow-hidden bg-[#041611] flex flex-col justify-between"
       onMouseEnter={() => setIsAutoPlaying(false)}
       onMouseLeave={() => setIsAutoPlaying(true)}
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
     >
+      {/* Ambient background glows */}
+      <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-[#DFC993]/10 rounded-full blur-[160px] pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-emerald-500/10 rounded-full blur-[160px] pointer-events-none" />
+
       {/* FULL SCREEN CRISP IMAGE CANVAS (DEFAULT FULL SCREEN) */}
       <div className="absolute inset-0 z-0 flex items-center justify-center p-2 sm:p-6 pt-12 pb-32">
         <AnimatePresence mode="wait">
@@ -130,7 +133,7 @@ export function BaraatConvoyCarousel({ onOpenEventModal }: BaraatConvoyCarouselP
       {/* FULL-SCREEN EDGE NAVIGATION ARROWS */}
       <button
         onClick={handlePrev}
-        className="absolute left-3 sm:left-8 top-1/2 -translate-y-1/2 z-30 w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-black/80 border border-amber-500/30 text-white hover:text-amber-400 hover:border-amber-400 hover:scale-110 transition-all duration-300 flex items-center justify-center shadow-2xl active:scale-95"
+        className="absolute left-3 sm:left-8 top-1/2 -translate-y-1/2 z-30 w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-[#041611]/80 border border-[#DFC993]/35 text-[#F7EBD2] hover:text-[#DFC993] hover:border-[#10B981] hover:scale-110 transition-all duration-300 flex items-center justify-center shadow-2xl active:scale-95"
         aria-label="Previous Slide"
       >
         <ChevronLeft className="w-7 h-7 sm:w-9 sm:h-9" />
@@ -138,19 +141,19 @@ export function BaraatConvoyCarousel({ onOpenEventModal }: BaraatConvoyCarouselP
 
       <button
         onClick={handleNext}
-        className="absolute right-3 sm:right-8 top-1/2 -translate-y-1/2 z-30 w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-black/80 border border-amber-500/30 text-white hover:text-amber-400 hover:border-amber-400 hover:scale-110 transition-all duration-300 flex items-center justify-center shadow-2xl active:scale-95"
+        className="absolute right-3 sm:right-8 top-1/2 -translate-y-1/2 z-30 w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-[#041611]/80 border border-[#DFC993]/35 text-[#F7EBD2] hover:text-[#DFC993] hover:border-[#10B981] hover:scale-110 transition-all duration-300 flex items-center justify-center shadow-2xl active:scale-95"
         aria-label="Next Slide"
       >
         <ChevronRight className="w-7 h-7 sm:w-9 sm:h-9" />
       </button>
 
       {/* BOTTOM FLOATING CONTROLS & THUMBNAIL BAR */}
-      <div className="relative z-20 pb-6 sm:pb-8 px-4 sm:px-8 max-w-7xl mx-auto w-full flex flex-col md:flex-row items-center justify-between gap-4 bg-black/40 backdrop-blur-md p-4 sm:p-6 rounded-3xl border border-white/10 shadow-2xl">
+      <div className="relative z-20 pb-6 sm:pb-8 px-4 sm:px-8 max-w-7xl mx-auto w-full flex flex-col md:flex-row items-center justify-between gap-4 bg-[#041611]/80 backdrop-blur-md p-4 sm:p-6 rounded-3xl border border-[#DFC993]/20 shadow-2xl">
         
         {/* Slide Title & CTA */}
         <div className="space-y-1.5 max-w-lg text-center md:text-left">
           <div className="inline-block">
-            <span className="px-3 py-1 rounded-full bg-amber-500/20 border border-amber-500/40 text-amber-300 text-[10px] sm:text-xs font-bold tracking-wider uppercase">
+            <span className="px-3 py-1 rounded-full bg-[#DFC993]/20 border border-[#DFC993]/40 text-[#F7EBD2] text-[10px] sm:text-xs font-bold tracking-wider uppercase">
               {BAARAAT_SLIDES[activeIndex].tag}
             </span>
           </div>
@@ -172,9 +175,9 @@ export function BaraatConvoyCarousel({ onOpenEventModal }: BaraatConvoyCarouselP
               triggerConfettiSparks(e);
               if (onOpenEventModal) onOpenEventModal();
             }}
-            className="px-6 py-3 rounded-2xl bg-gradient-to-r from-amber-500 via-orange-500 to-rose-500 text-black font-black text-xs uppercase tracking-wider shadow-lg shadow-amber-500/40 hover:shadow-amber-500/70 transition-all flex items-center space-x-2"
+            className="px-6 py-3 rounded-2xl bg-gradient-to-r from-[#DFC993] via-[#F3E1BD] to-[#C8A463] text-[#041611] font-black text-xs uppercase tracking-wider shadow-lg shadow-[#DFC993]/40 hover:shadow-emerald-500/50 transition-all flex items-center space-x-2"
           >
-            <Sparkles className="w-4 h-4 text-black animate-spin" style={{ animationDuration: "6s" }} />
+            <Sparkles className="w-4 h-4 text-[#041611] animate-spin" style={{ animationDuration: "6s" }} />
             <span>Reserve Wedding Convoy</span>
           </motion.button>
 
@@ -182,10 +185,10 @@ export function BaraatConvoyCarousel({ onOpenEventModal }: BaraatConvoyCarouselP
             whileHover={{ scale: 1.08 }}
             whileTap={{ scale: 0.92 }}
             onClick={() => setIsAutoPlaying(!isAutoPlaying)}
-            className="p-3 rounded-2xl bg-white/10 border border-white/20 text-white hover:bg-white/20 transition-all"
+            className="p-3 rounded-2xl bg-white/10 border border-[#DFC993]/20 text-[#F7EBD2] hover:bg-white/20 transition-all"
             title={isAutoPlaying ? "Pause Autoplay" : "Play Autoplay"}
           >
-            {isAutoPlaying ? <Pause className="w-4 h-4 text-amber-400" /> : <Play className="w-4 h-4 text-amber-400" />}
+            {isAutoPlaying ? <Pause className="w-4 h-4 text-[#DFC993]" /> : <Play className="w-4 h-4 text-[#DFC993]" />}
           </motion.button>
         </div>
 
@@ -200,7 +203,7 @@ export function BaraatConvoyCarousel({ onOpenEventModal }: BaraatConvoyCarouselP
                   onClick={() => setActiveIndex(idx)}
                   className={`relative rounded-xl overflow-hidden transition-all duration-300 shrink-0 border-2 bg-black ${
                     isActive
-                      ? "border-amber-400 scale-105 shadow-xl ring-2 ring-amber-400/40"
+                      ? "border-[#DFC993] scale-105 shadow-xl ring-2 ring-[#DFC993]/40"
                       : "border-white/20 opacity-60 hover:opacity-100"
                   }`}
                 >
@@ -210,14 +213,14 @@ export function BaraatConvoyCarousel({ onOpenEventModal }: BaraatConvoyCarouselP
                     className="w-16 h-12 sm:w-20 sm:h-14 object-contain p-0.5"
                   />
                   {isActive && (
-                    <div className="absolute bottom-1 right-1 w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
+                    <div className="absolute bottom-1 right-1 w-2 h-2 rounded-full bg-[#DFC993] animate-pulse" />
                   )}
                 </button>
               );
             })}
           </div>
 
-          <span className="text-xs font-mono font-bold text-amber-300 bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/30">
+          <span className="text-xs font-mono font-bold text-[#F7EBD2] bg-[#DFC993]/15 px-3 py-1 rounded-full border border-[#DFC993]/30">
             0{activeIndex + 1} / 0{BAARAAT_SLIDES.length}
           </span>
         </div>
@@ -226,7 +229,3 @@ export function BaraatConvoyCarousel({ onOpenEventModal }: BaraatConvoyCarouselP
     </section>
   );
 }
-
-
-
-

@@ -1,19 +1,16 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion } from "framer-motion";
 import { 
   Car, 
   Phone, 
   User, 
   MapPin, 
-  Send, 
   CheckCircle2, 
   MessageSquare, 
   ShieldCheck, 
   Zap,
   Sparkles,
-  TrendingUp
 } from "lucide-react";
 import { Shayari } from "@/components/ui/Shayari";
 import { TiltCard } from "@/components/vfx/TiltCard";
@@ -50,18 +47,18 @@ export function DriverJoinSection() {
   };
 
   return (
-    <section id="driver-join" className="relative py-20 sm:py-28 z-10 overflow-hidden bg-[#08090C]">
+    <section id="driver-join" className="relative py-20 sm:py-28 z-10 overflow-hidden bg-[#041611]">
       {/* Background Orbs */}
       <div className="absolute top-1/3 left-10 w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-10 right-10 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-10 right-10 w-[500px] h-[500px] bg-[#DFC993]/10 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header */}
         <AnimatedSection animation="fade-up">
           <div className="text-center max-w-3xl mx-auto space-y-4 mb-14">
-            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full glass-panel border border-emerald-500/30 text-emerald-300 text-xs font-bold uppercase tracking-wider">
-              <Zap className="w-3.5 h-3.5 text-emerald-400 animate-pulse" />
+            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full glass-panel border border-[#DFC993]/40 text-[#DFC993] text-xs font-bold uppercase tracking-wider">
+              <Zap className="w-3.5 h-3.5 text-[#DFC993] animate-pulse" />
               <span>JOIN AS DRIVER PARTNER</span>
             </div>
 
@@ -86,9 +83,9 @@ export function DriverJoinSection() {
           {/* Left Feature Bullet Cards */}
           <div className="lg:col-span-5 space-y-6">
             <TiltCard tiltAmount={8} scaleOnHover={1.01}>
-              <div className="glass-card p-6 rounded-3xl border border-white/10 space-y-5 shadow-2xl">
+              <div className="glass-card p-6 rounded-3xl border border-[#DFC993]/20 space-y-5 shadow-2xl">
                 <h3 className="text-xl font-black text-white font-display flex items-center space-x-2">
-                  <Sparkles className="w-5 h-5 text-emerald-400" />
+                  <Sparkles className="w-5 h-5 text-[#DFC993]" />
                   <span>Kyu Chunein Chaloji?</span>
                 </h3>
 
@@ -101,21 +98,21 @@ export function DriverJoinSection() {
                     </div>
                   </li>
                   <li className="flex items-start space-x-3">
-                    <CheckCircle2 className="w-5 h-5 text-cyan-400 shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-5 h-5 text-[#DFC993] shrink-0 mt-0.5" />
                     <div>
                       <strong className="text-white block font-display">Zero Commission Launch Offer</strong>
                       <span>Poora kiraya aapka! Shuruat me koi extra cut nahi.</span>
                     </div>
                   </li>
                   <li className="flex items-start space-x-3">
-                    <CheckCircle2 className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
                     <div>
                       <strong className="text-white block font-display">24x7 Local Call Support</strong>
                       <span>Har raste par hum aapke saath hain. Hindi me help support.</span>
                     </div>
                   </li>
                   <li className="flex items-start space-x-3">
-                    <ShieldCheck className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
+                    <ShieldCheck className="w-5 h-5 text-[#DFC993] shrink-0 mt-0.5" />
                     <div>
                       <strong className="text-white block font-display">Free Driver Uniform &amp; Branding Kit</strong>
                       <span>Chaloji partner badge aur rewards har hafte!</span>
@@ -126,15 +123,15 @@ export function DriverJoinSection() {
             </TiltCard>
 
             {/* Quick Call Box */}
-            <div className="glass-panel p-5 rounded-2xl border border-emerald-500/30 flex items-center justify-between">
+            <div className="glass-panel p-5 rounded-2xl border border-[#DFC993]/30 flex items-center justify-between">
               <div>
                 <span className="text-xs text-gray-400 block font-semibold">Direct Call Helpline</span>
-                <span className="text-lg font-black text-emerald-400 font-mono">+91 80877 47774</span>
+                <span className="text-lg font-black text-[#DFC993] font-mono">+91 80877 47774</span>
               </div>
               <MagneticButton>
                 <a
                   href="tel:8087747774"
-                  className="px-4 py-2.5 rounded-xl bg-emerald-500 text-black text-xs font-black uppercase tracking-wider hover:bg-emerald-400 transition-all flex items-center space-x-1.5 shadow-lg shadow-emerald-500/20"
+                  className="px-4 py-2.5 rounded-xl bg-gradient-to-r from-[#DFC993] to-[#B58E4A] text-[#041611] text-xs font-black uppercase tracking-wider hover:brightness-110 transition-all flex items-center space-x-1.5 shadow-lg shadow-[#DFC993]/20"
                 >
                   <Phone className="w-4 h-4" />
                   <span>Call Now</span>
@@ -146,7 +143,7 @@ export function DriverJoinSection() {
           {/* Right Lead Capture Form */}
           <div className="lg:col-span-7">
             <TiltCard tiltAmount={6} scaleOnHover={1.01}>
-              <div className="glass-card p-8 sm:p-10 rounded-3xl border border-emerald-500/40 shadow-2xl shadow-emerald-950/50 relative overflow-hidden">
+              <div className="glass-card p-8 sm:p-10 rounded-3xl border border-[#DFC993]/25 shadow-2xl shadow-emerald-950/50 relative overflow-hidden">
                 {/* Form Title */}
                 <div className="mb-6 space-y-1">
                   <h3 className="text-2xl font-black text-white font-display">Driver Registration Form</h3>
@@ -164,7 +161,7 @@ export function DriverJoinSection() {
                     </p>
                     <button
                       onClick={() => setSubmitted(false)}
-                      className="px-6 py-2.5 rounded-xl glass-panel border border-white/20 text-xs font-bold text-gray-300 hover:text-white transition-all"
+                      className="px-6 py-2.5 rounded-xl glass-panel border border-[#DFC993]/30 text-xs font-bold text-[#F7EBD2] hover:text-white transition-all"
                     >
                       Submit Another Application
                     </button>
@@ -185,7 +182,7 @@ export function DriverJoinSection() {
                             onClick={() => setVehicle(v.id)}
                             className={`py-3 px-3 rounded-xl border text-center transition-all flex flex-col items-center justify-center space-y-1.5 ${
                               vehicle === v.id
-                                ? "bg-emerald-500/20 border-emerald-500 text-white shadow-lg shadow-emerald-500/20 scale-[1.02]"
+                                ? "bg-[#DFC993]/15 border-[#DFC993] text-white shadow-lg shadow-[#DFC993]/20 scale-[1.02]"
                                 : "bg-white/5 border-white/10 text-gray-400 hover:text-white hover:bg-white/10"
                             }`}
                           >
@@ -205,7 +202,7 @@ export function DriverJoinSection() {
                     {/* Name Input */}
                     <div className="space-y-1.5">
                       <label className="text-xs font-bold text-gray-300 uppercase tracking-wider flex items-center space-x-1.5">
-                        <User className="w-3.5 h-3.5 text-emerald-400" />
+                        <User className="w-3.5 h-3.5 text-[#DFC993]" />
                         <span>2. Aapka Poora Naam:</span>
                       </label>
                       <input
@@ -214,14 +211,14 @@ export function DriverJoinSection() {
                         placeholder="e.g. Ramesh Kumar"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
-                        className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white text-sm placeholder-gray-500 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all font-medium"
+                        className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white text-sm placeholder-gray-500 focus:outline-none focus:border-[#DFC993] focus:ring-1 focus:ring-[#DFC993]/40 transition-all font-medium"
                       />
                     </div>
 
                     {/* Phone Input */}
                     <div className="space-y-1.5">
                       <label className="text-xs font-bold text-gray-300 uppercase tracking-wider flex items-center space-x-1.5">
-                        <Phone className="w-3.5 h-3.5 text-emerald-400" />
+                        <Phone className="w-3.5 h-3.5 text-[#DFC993]" />
                         <span>3. Mobile Number (WhatsApp):</span>
                       </label>
                       <input
@@ -231,14 +228,14 @@ export function DriverJoinSection() {
                         placeholder="e.g. 9876543210"
                         value={phone}
                         onChange={(e) => setPhone(e.target.value)}
-                        className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white text-sm placeholder-gray-500 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all font-mono"
+                        className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white text-sm placeholder-gray-500 focus:outline-none focus:border-[#DFC993] focus:ring-1 focus:ring-[#DFC993]/40 transition-all font-mono"
                       />
                     </div>
 
                     {/* City Input */}
                     <div className="space-y-1.5">
                       <label className="text-xs font-bold text-gray-300 uppercase tracking-wider flex items-center space-x-1.5">
-                        <MapPin className="w-3.5 h-3.5 text-emerald-400" />
+                        <MapPin className="w-3.5 h-3.5 text-[#DFC993]" />
                         <span>4. Aapka Shehar / Area:</span>
                       </label>
                       <input
@@ -247,16 +244,16 @@ export function DriverJoinSection() {
                         placeholder="e.g. Phoolpur, Prayagraj, Jaunpur"
                         value={city}
                         onChange={(e) => setCity(e.target.value)}
-                        className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white text-sm placeholder-gray-500 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all font-medium"
+                        className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white text-sm placeholder-gray-500 focus:outline-none focus:border-[#DFC993] focus:ring-1 focus:ring-[#DFC993]/40 transition-all font-medium"
                       />
                     </div>
 
                     {/* Submit CTA */}
                     <button
                       type="submit"
-                      className="w-full py-4 rounded-xl bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 text-black text-sm font-black uppercase tracking-wider shadow-lg shadow-emerald-500/30 hover:shadow-emerald-500/60 hover:scale-[1.01] active:scale-[0.99] transition-all flex items-center justify-center space-x-2"
+                      className="w-full py-4 rounded-xl bg-gradient-to-r from-[#DFC993] via-[#34D399] to-[#10B981] text-[#041611] text-sm font-black uppercase tracking-wider shadow-lg shadow-[#DFC993]/30 hover:shadow-emerald-500/50 hover:scale-[1.01] active:scale-[0.99] transition-all flex items-center justify-center space-x-2"
                     >
-                      <MessageSquare className="w-5 h-5" />
+                      <MessageSquare className="w-5 h-5 text-[#041611]" />
                       <span>Instant Driver Join Request (WhatsApp)</span>
                     </button>
 
@@ -277,4 +274,3 @@ export function DriverJoinSection() {
     </section>
   );
 }
-

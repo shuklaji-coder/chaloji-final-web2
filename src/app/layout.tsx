@@ -5,10 +5,11 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
-  themeColor: "#08090C",
+  themeColor: "#041611",
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://chaloji.com"),
   title: "ChaloJi | Premium Cab Booking & Mobility Platform - Phoolpur, UP",
   description: "Book instant cabs, outstation rides & airport transfers with zero surge pricing. Verified drivers, live GPS tracking & 24/7 support. Download the ChaloJi app now!",
   keywords: ["ChaloJi", "Cab Booking Phoolpur", "Outstation Cab Uttar Pradesh", "Airport Cab", "Zero Surge Pricing", "Live Ride Tracking", "Bike Taxi", "Auto Rental", "Sedan Booking", "SUV Rental"],
@@ -159,7 +160,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdDriverApp) }}
         />
       </head>
-      <body className="bg-[#08090C] text-[#E2E8F0] antialiased selection:bg-emerald-400 selection:text-black">
+      <body className="bg-[#041611] text-[#F4F7F5] antialiased selection:bg-[#DFC993] selection:text-[#041611]">
         {children}
       </body>
     </html>

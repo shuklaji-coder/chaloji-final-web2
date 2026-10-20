@@ -102,7 +102,7 @@ export function HeroBookingCard({ onOpenModal }: { onOpenModal?: (pickup?: strin
             value={pickup}
             onChange={(e) => setPickup(e.target.value)}
             placeholder="Enter pickup address or landmark"
-            className="w-full bg-[#08090C] border border-white/10 focus:border-emerald-500 rounded-2xl px-4 py-3 text-xs text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-emerald-500 transition-all"
+            className="w-full bg-[#041611] border border-[#DFC993]/20 focus:border-[#DFC993] rounded-2xl px-4 py-3 text-xs text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-[#DFC993]/40 transition-all"
             required
           />
         </div>
@@ -110,14 +110,14 @@ export function HeroBookingCard({ onOpenModal }: { onOpenModal?: (pickup?: strin
         {/* Drop Input */}
         <div>
           <label className="text-[11px] font-bold text-gray-300 mb-1 flex items-center gap-1">
-            <Navigation className="w-3.5 h-3.5 text-cyan-400" /> Destination / Drop Location
+            <Navigation className="w-3.5 h-3.5 text-[#DFC993]" /> Destination / Drop Location
           </label>
           <input
             type="text"
             value={drop}
             onChange={(e) => setDrop(e.target.value)}
             placeholder="Where do you want to go?"
-            className="w-full bg-[#08090C] border border-white/10 focus:border-emerald-500 rounded-2xl px-4 py-3 text-xs text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-emerald-500 transition-all"
+            className="w-full bg-[#041611] border border-[#DFC993]/20 focus:border-[#DFC993] rounded-2xl px-4 py-3 text-xs text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-[#DFC993]/40 transition-all"
             required
           />
         </div>

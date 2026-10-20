@@ -69,7 +69,7 @@ export function AnimatedText({
             variants={childVariants}
             className={`inline-block ${
               isGradient
-                ? "bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 bg-clip-text text-transparent font-black"
+                ? "bg-gradient-to-r from-[#FFF9EE] via-[#DFC993] to-[#10B981] bg-clip-text text-transparent font-black"
                 : ""
             }`}
           >

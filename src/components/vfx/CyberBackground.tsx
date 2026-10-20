@@ -55,11 +55,11 @@ export function CyberBackground() {
       vx: (Math.random() - 0.5) * 0.4,
       vy: (Math.random() - 0.5) * 0.4,
       color:
-        Math.random() > 0.6
+        Math.random() > 0.55
           ? "rgba(16, 185, 129, "
           : Math.random() > 0.3
-          ? "rgba(6, 182, 212, "
-          : "rgba(249, 115, 22, ",
+          ? "rgba(223, 201, 147, "
+          : "rgba(247, 235, 210, ",
       alpha: Math.random() * 0.6 + 0.2,
     }));
 
@@ -95,30 +95,36 @@ export function CyberBackground() {
   }, []);
 
   return (
-    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden bg-[#08090C]">
+    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden bg-[#041611]">
       {/* Animated Mesh Grid */}
-      <div className="absolute inset-0 bg-grid-pattern opacity-20" />
+      <div className="absolute inset-0 bg-grid-pattern opacity-25" />
 
       {/* Shifting Dynamic Aurora Lights */}
       <motion.div
-        className="aurora-blob absolute -top-[20%] -left-[10%] w-[60vw] h-[60vw] rounded-full blur-[140px] opacity-30"
+        className="aurora-blob absolute -top-[20%] -left-[10%] w-[60vw] h-[60vw] rounded-full blur-[140px] opacity-35"
         style={{
           x: springX,
           y: springY,
-          background: "radial-gradient(circle, rgba(16,185,129,0.4) 0%, rgba(6,182,212,0.15) 50%, transparent 80%)",
+          background: "radial-gradient(circle, rgba(16,185,129,0.35) 0%, rgba(5,150,105,0.18) 50%, transparent 80%)",
         }}
       />
       <motion.div
-        className="aurora-blob absolute -bottom-[20%] -right-[10%] w-[60vw] h-[60vw] rounded-full blur-[140px] opacity-25"
+        className="aurora-blob absolute -bottom-[20%] -right-[10%] w-[60vw] h-[60vw] rounded-full blur-[140px] opacity-30"
         style={{
           x: springX,
           y: springY,
-          background: "radial-gradient(circle, rgba(249,115,22,0.3) 0%, rgba(139,92,246,0.15) 50%, transparent 80%)",
+          background: "radial-gradient(circle, rgba(223,201,147,0.32) 0%, rgba(181,142,74,0.15) 50%, transparent 80%)",
+        }}
+      />
+      <div
+        className="aurora-blob absolute top-1/3 left-1/3 w-[45vw] h-[45vw] rounded-full blur-[160px] opacity-20 pointer-events-none"
+        style={{
+          background: "radial-gradient(circle, rgba(247,235,210,0.18) 0%, rgba(16,185,129,0.12) 50%, transparent 75%)",
         }}
       />
 
       {/* Floating 3D Canvas Particles */}
-      <canvas ref={canvasRef} className="absolute inset-0 w-full h-full opacity-70" />
+      <canvas ref={canvasRef} className="absolute inset-0 w-full h-full opacity-75" />
     </div>
   );
 }

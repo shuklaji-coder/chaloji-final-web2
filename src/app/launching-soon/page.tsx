@@ -24,7 +24,6 @@ import {
   ChevronLeft,
   Users,
   Smartphone,
-  Star,
   Clock,
   Check,
   TrendingUp,
@@ -86,7 +85,7 @@ export default function LaunchingSoonPage() {
           particleCount: 120,
           spread: 80,
           origin: { y: 0.6 },
-          colors: ["#10B981", "#06B6D4", "#F59E0B", "#3B82F6", "#EC4899"],
+          colors: ["#DFC993", "#10B981", "#F7EBD2", "#059669", "#B58E4A"],
         });
       } catch (err) {
         console.error("Confetti error", err);
@@ -96,7 +95,7 @@ export default function LaunchingSoonPage() {
 
   return (
     <LenisProvider>
-      <main className="relative min-h-screen bg-[#08090C] text-[#E2E8F0] overflow-x-hidden selection:bg-emerald-400 selection:text-black">
+      <main className="relative min-h-screen bg-[#041611] text-[#F4F7F5] overflow-x-hidden selection:bg-[#DFC993] selection:text-[#041611]">
         {/* Global VFX Background */}
         <CyberBackground />
 
@@ -112,13 +111,13 @@ export default function LaunchingSoonPage() {
           <div className="flex items-center justify-between">
             <Link
               href="/"
-              className="inline-flex items-center space-x-2 text-xs font-semibold text-gray-400 hover:text-emerald-400 transition-colors px-3 py-1.5 rounded-full bg-white/5 border border-white/10 hover:border-emerald-500/40 backdrop-blur-md"
+              className="inline-flex items-center space-x-2 text-xs font-semibold text-gray-300 hover:text-[#DFC993] transition-colors px-3 py-1.5 rounded-full bg-white/5 border border-[#DFC993]/20 hover:border-[#DFC993]/50 backdrop-blur-md"
             >
               <ChevronLeft className="w-4 h-4" />
               <span>Back to Home</span>
             </Link>
-            <div className="flex items-center space-x-2 text-xs text-emerald-400 font-mono bg-emerald-950/40 px-3 py-1.5 rounded-full border border-emerald-500/30">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
+            <div className="flex items-center space-x-2 text-xs text-[#DFC993] font-mono bg-emerald-950/40 px-3 py-1.5 rounded-full border border-[#DFC993]/30">
+              <span className="w-2 h-2 rounded-full bg-[#DFC993] animate-ping" />
               <span>STAGE 1: PRE-LAUNCH ACCESS</span>
             </div>
           </div>
@@ -126,33 +125,33 @@ export default function LaunchingSoonPage() {
           {/* HERO SECTION */}
           <div className="text-center space-y-6 max-w-4xl mx-auto">
             {/* Pulsing Status Tag */}
-            <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-amber-500/20 via-emerald-500/20 to-cyan-500/20 border border-amber-500/40 backdrop-blur-md text-amber-300 text-xs font-bold tracking-wider uppercase shadow-lg shadow-amber-950/50 animate-pulse">
-              <Rocket className="w-4 h-4 text-amber-400" />
+            <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-[#DFC993]/20 via-emerald-500/20 to-[#DFC993]/20 border border-[#DFC993]/40 backdrop-blur-md text-[#DFC993] text-xs font-bold tracking-wider uppercase shadow-lg shadow-emerald-950/50 animate-pulse">
+              <Rocket className="w-4 h-4 text-[#DFC993]" />
               <span>🪔 GRAND POST-DIWALI LAUNCH 🪔</span>
             </div>
 
             {/* Main Headline */}
             <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold text-white tracking-tight leading-[1.1]">
               Safar Ka Naya Andaaz <br />
-              <span className="bg-gradient-to-r from-amber-400 via-emerald-300 to-cyan-400 bg-clip-text text-transparent drop-shadow-sm">
+              <span className="bg-gradient-to-r from-[#FFF9EE] via-[#DFC993] to-[#10B981] bg-clip-text text-transparent drop-shadow-sm">
                 Launching Post-Diwali! 🪔
               </span>
             </h1>
 
             {/* Description */}
             <p className="text-base sm:text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed">
-              Get ready for India&apos;s next-generation 0% surge ride platform. Launching right after Diwali across <strong>Mumbai, Bengaluru, Chennai, Varanasi, Phoolpur & PAN-India</strong>!
+              Get ready for India&apos;s next-generation 0% surge ride platform. Launching right after Diwali across <strong>Mumbai, Bengaluru, Chennai, Varanasi, Phoolpur &amp; PAN-India</strong>!
             </p>
           </div>
 
           {/* DYNAMIC COUNTDOWN TIMER */}
           <div className="max-w-4xl mx-auto">
-            <div className="glass-panel p-6 sm:p-10 rounded-3xl border border-white/10 relative overflow-hidden bg-gradient-to-b from-white/[0.07] to-transparent shadow-2xl shadow-emerald-950/30">
-              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-emerald-400 to-transparent" />
+            <div className="glass-panel p-6 sm:p-10 rounded-3xl border border-[#DFC993]/25 relative overflow-hidden bg-gradient-to-b from-white/[0.07] to-transparent shadow-2xl shadow-emerald-950/30">
+              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#DFC993] to-transparent" />
               
               <div className="text-center mb-8">
-                <span className="text-xs font-mono text-emerald-400 tracking-widest uppercase flex items-center justify-center space-x-2">
-                  <Clock className="w-4 h-4 text-emerald-400 animate-spin-slow" />
+                <span className="text-xs font-mono text-[#DFC993] tracking-widest uppercase flex items-center justify-center space-x-2">
+                  <Clock className="w-4 h-4 text-[#DFC993] animate-spin-slow" />
                   <span>COUNTDOWN TO OFFICIAL APP DEPLOYMENT</span>
                 </span>
               </div>
@@ -167,15 +166,15 @@ export default function LaunchingSoonPage() {
                 ].map((item, idx) => (
                   <div
                     key={idx}
-                    className="relative group p-4 sm:p-6 rounded-2xl bg-[#08090C]/80 border border-white/10 hover:border-emerald-500/50 transition-all duration-300 hover:scale-105 shadow-inner"
+                    className="relative group p-4 sm:p-6 rounded-2xl bg-[#041611]/80 border border-[#DFC993]/20 hover:border-[#DFC993]/50 transition-all duration-300 hover:scale-105 shadow-inner"
                   >
-                    <div className="text-4xl sm:text-6xl font-black text-white font-mono tracking-tight bg-gradient-to-b from-white to-gray-400 bg-clip-text text-transparent">
+                    <div className="text-4xl sm:text-6xl font-black text-white font-mono tracking-tight bg-gradient-to-b from-white to-[#DFC993] bg-clip-text text-transparent">
                       {String(item.value).padStart(2, "0")}
                     </div>
-                    <div className="text-xs font-semibold text-emerald-400 uppercase tracking-widest mt-2">
+                    <div className="text-xs font-semibold text-[#DFC993] uppercase tracking-widest mt-2">
                       {item.label}
                     </div>
-                    <div className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-emerald-500 to-teal-400 rounded-b-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <div className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-[#DFC993] to-[#10B981] rounded-b-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
                   </div>
                 ))}
               </div>
@@ -184,12 +183,12 @@ export default function LaunchingSoonPage() {
 
           {/* VIP EARLY ACCESS / NOTIFY ME FORM */}
           <div className="max-w-3xl mx-auto">
-            <div className="relative rounded-3xl p-8 sm:p-12 bg-gradient-to-b from-emerald-950/40 via-[#0B0F17] to-[#08090C] border border-emerald-500/30 shadow-2xl shadow-emerald-500/10 overflow-hidden">
-              <div className="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
+            <div className="relative rounded-3xl p-8 sm:p-12 bg-gradient-to-b from-emerald-950/40 via-[#072019] to-[#041611] border border-[#DFC993]/30 shadow-2xl shadow-emerald-500/10 overflow-hidden">
+              <div className="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-[#DFC993]/10 rounded-full blur-3xl pointer-events-none" />
               
               <div className="relative z-10 space-y-6 text-center">
-                <div className="inline-flex items-center space-x-2 text-xs font-bold text-amber-400 bg-amber-400/10 px-3 py-1 rounded-full border border-amber-400/30">
-                  <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+                <div className="inline-flex items-center space-x-2 text-xs font-bold text-[#DFC993] bg-[#DFC993]/15 px-3 py-1 rounded-full border border-[#DFC993]/40">
+                  <Sparkles className="w-3.5 h-3.5 text-[#DFC993]" />
                   <span>EARLY BIRD EXCLUSIVE PERK</span>
                 </div>
 
@@ -202,13 +201,13 @@ export default function LaunchingSoonPage() {
                 </p>
 
                 {/* Role Switcher Tabs */}
-                <div className="flex justify-center space-x-2 bg-black/50 p-1.5 rounded-full border border-white/10 max-w-xs mx-auto">
+                <div className="flex justify-center space-x-2 bg-black/50 p-1.5 rounded-full border border-[#DFC993]/20 max-w-xs mx-auto">
                   <button
                     type="button"
                     onClick={() => setRoleTab("rider")}
                     className={`flex-1 py-2 px-4 rounded-full text-xs font-bold transition-all duration-300 flex items-center justify-center space-x-2 ${
                       roleTab === "rider"
-                        ? "bg-gradient-to-r from-emerald-500 to-teal-500 text-black shadow-lg"
+                        ? "bg-gradient-to-r from-[#DFC993] to-[#10B981] text-[#041611] shadow-lg"
                         : "text-gray-400 hover:text-white"
                     }`}
                   >
@@ -220,7 +219,7 @@ export default function LaunchingSoonPage() {
                     onClick={() => setRoleTab("driver")}
                     className={`flex-1 py-2 px-4 rounded-full text-xs font-bold transition-all duration-300 flex items-center justify-center space-x-2 ${
                       roleTab === "driver"
-                        ? "bg-gradient-to-r from-emerald-500 to-teal-500 text-black shadow-lg"
+                        ? "bg-gradient-to-r from-[#DFC993] to-[#10B981] text-[#041611] shadow-lg"
                         : "text-gray-400 hover:text-white"
                     }`}
                   >
@@ -230,7 +229,7 @@ export default function LaunchingSoonPage() {
                 </div>
 
                 {submitted ? (
-                  <div className="p-6 rounded-2xl bg-emerald-950/60 border border-emerald-500/50 space-y-3 animate-fade-in">
+                  <div className="p-6 rounded-2xl bg-[#072019] border border-[#DFC993]/40 space-y-3 animate-fade-in">
                     <div className="w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto border border-emerald-500/40">
                       <CheckCircle2 className="w-6 h-6" />
                     </div>
@@ -242,7 +241,7 @@ export default function LaunchingSoonPage() {
                     </p>
                     <button
                       onClick={() => setSubmitted(false)}
-                      className="text-xs font-semibold text-emerald-400 underline hover:text-emerald-300 mt-2"
+                      className="text-xs font-semibold text-[#DFC993] underline hover:text-white mt-2"
                     >
                       Register another number / email
                     </button>
@@ -261,7 +260,7 @@ export default function LaunchingSoonPage() {
                           }
                           value={emailOrPhone}
                           onChange={(e) => setEmailOrPhone(e.target.value)}
-                          className="w-full px-4 py-3.5 rounded-xl bg-black/60 border border-white/15 text-white placeholder-gray-500 text-sm focus:outline-none focus:border-emerald-400 focus:ring-1 focus:ring-emerald-400 transition-all"
+                          className="w-full px-4 py-3.5 rounded-xl bg-black/60 border border-white/15 text-white placeholder-gray-500 text-sm focus:outline-none focus:border-[#DFC993] focus:ring-1 focus:ring-[#DFC993]/40 transition-all"
                         />
                       </div>
                       <div className="sm:w-36">
@@ -270,7 +269,7 @@ export default function LaunchingSoonPage() {
                           placeholder="City (e.g. Pune)"
                           value={cityName}
                           onChange={(e) => setCityName(e.target.value)}
-                          className="w-full px-4 py-3.5 rounded-xl bg-black/60 border border-white/15 text-white placeholder-gray-500 text-sm focus:outline-none focus:border-emerald-400 transition-all"
+                          className="w-full px-4 py-3.5 rounded-xl bg-black/60 border border-white/15 text-white placeholder-gray-500 text-sm focus:outline-none focus:border-[#DFC993] transition-all"
                         />
                       </div>
                     </div>
@@ -278,10 +277,10 @@ export default function LaunchingSoonPage() {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full py-4 px-6 rounded-xl bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 text-black font-bold text-sm tracking-wide uppercase shadow-xl shadow-emerald-500/25 hover:shadow-emerald-500/40 hover:scale-[1.01] active:scale-[0.99] transition-all flex items-center justify-center space-x-2 group"
+                      className="w-full py-4 px-6 rounded-xl bg-gradient-to-r from-[#DFC993] via-[#34D399] to-[#10B981] text-[#041611] font-bold text-sm tracking-wide uppercase shadow-xl shadow-[#DFC993]/25 hover:shadow-emerald-500/40 hover:scale-[1.01] active:scale-[0.99] transition-all flex items-center justify-center space-x-2 group"
                     >
                       {isSubmitting ? (
-                        <div className="w-5 h-5 border-2 border-black border-t-transparent rounded-full animate-spin" />
+                        <div className="w-5 h-5 border-2 border-[#041611] border-t-transparent rounded-full animate-spin" />
                       ) : (
                         <>
                           <BellRing className="w-4 h-4" />
@@ -302,7 +301,7 @@ export default function LaunchingSoonPage() {
                       </span>
                       <span>•</span>
                       <span className="flex items-center space-x-1">
-                        <Zap className="w-3.5 h-3.5 text-amber-400" />
+                        <Zap className="w-3.5 h-3.5 text-[#DFC993]" />
                         <span>Instant SMS Alert at Launch</span>
                       </span>
                     </div>
@@ -315,13 +314,13 @@ export default function LaunchingSoonPage() {
           {/* UPCOMING REVOLUTIONARY FEATURES SHOWCASE */}
           <div className="space-y-10 max-w-6xl mx-auto pt-6">
             <div className="text-center space-y-3">
-              <span className="text-xs font-mono text-emerald-400 uppercase tracking-widest">
+              <span className="text-xs font-mono text-[#DFC993] uppercase tracking-widest">
                 WHAT TO EXPECT
               </span>
               <h2 className="text-3xl sm:text-5xl font-extrabold text-white">
                 Why Chaloji will Change the Way You Travel
               </h2>
-              <p className="text-sm sm:text-base text-gray-400 max-w-xl mx-auto">
+              <p className="text-sm sm:text-base text-gray-300 max-w-xl mx-auto">
                 Built from the ground up for riders and drivers with fairness, speed, and safety at its core.
               </p>
             </div>
@@ -341,24 +340,24 @@ export default function LaunchingSoonPage() {
                   title: "AI Smart Dispatch Engine",
                   desc: "Zero waiting time with predictive AI routing that assigns nearest verified drivers instantly.",
                   tag: "ULTRA FAST",
-                  color: "from-cyan-500/20 to-blue-500/10",
-                  border: "border-cyan-500/30",
+                  color: "from-[#DFC993]/20 to-emerald-500/10",
+                  border: "border-[#DFC993]/30",
                 },
                 {
                   icon: ShieldCheck,
                   title: "Triple Guard SOS Safety",
                   desc: "Real-time trip tracking, emergency contact broadcast, and verified driver background checks.",
                   tag: "MAX SAFETY",
-                  color: "from-amber-500/20 to-orange-500/10",
-                  border: "border-amber-500/30",
+                  color: "from-emerald-500/20 to-[#DFC993]/10",
+                  border: "border-emerald-500/30",
                 },
                 {
                   icon: MapPin,
                   title: "Intercity & Hourly Rentals",
                   desc: "Book cabs across cities or hire by the hour for business meetings and city shopping seamlessly.",
                   tag: "FLEXIBLE RIDES",
-                  color: "from-purple-500/20 to-pink-500/10",
-                  border: "border-purple-500/30",
+                  color: "from-[#DFC993]/20 to-[#B58E4A]/10",
+                  border: "border-[#DFC993]/30",
                 },
                 {
                   icon: Car,
@@ -373,8 +372,8 @@ export default function LaunchingSoonPage() {
                   title: "Instant Cashbacks & Rewards",
                   desc: "Earn Chaloji Coins on every kilometer traveled, redeemable on rides, food, and shopping.",
                   tag: "REWARDS",
-                  color: "from-rose-500/20 to-amber-500/10",
-                  border: "border-rose-500/30",
+                  color: "from-[#DFC993]/20 to-emerald-500/10",
+                  border: "border-[#DFC993]/30",
                 },
               ].map((feat, idx) => {
                 const IconComp = feat.icon;
@@ -384,15 +383,15 @@ export default function LaunchingSoonPage() {
                     className={`relative rounded-2xl p-6 bg-gradient-to-br ${feat.color} border ${feat.border} backdrop-blur-md hover:scale-[1.02] transition-all duration-300 group space-y-4`}
                   >
                     <div className="flex items-center justify-between">
-                      <div className="w-12 h-12 rounded-xl bg-black/60 border border-white/10 flex items-center justify-center text-emerald-400 group-hover:scale-110 transition-transform">
+                      <div className="w-12 h-12 rounded-xl bg-black/60 border border-white/10 flex items-center justify-center text-[#DFC993] group-hover:scale-110 transition-transform">
                         <IconComp className="w-6 h-6" />
                       </div>
-                      <span className="text-[10px] font-bold px-2.5 py-1 rounded-full bg-white/10 text-emerald-300 border border-white/10 uppercase tracking-wider">
+                      <span className="text-[10px] font-bold px-2.5 py-1 rounded-full bg-white/10 text-[#DFC993] border border-[#DFC993]/20 uppercase tracking-wider">
                         {feat.tag}
                       </span>
                     </div>
 
-                    <h3 className="text-xl font-bold text-white group-hover:text-emerald-300 transition-colors">
+                    <h3 className="text-xl font-bold text-white group-hover:text-[#DFC993] transition-colors">
                       {feat.title}
                     </h3>
                     <p className="text-xs text-gray-300 leading-relaxed">
@@ -405,11 +404,11 @@ export default function LaunchingSoonPage() {
           </div>
 
           {/* DEVELOPMENT & LAUNCH ROADMAP */}
-          <div className="max-w-4xl mx-auto glass-panel p-8 sm:p-10 rounded-3xl border border-white/10 space-y-8">
+          <div className="max-w-4xl mx-auto glass-panel p-8 sm:p-10 rounded-3xl border border-[#DFC993]/20 space-y-8">
             <div className="text-center space-y-2">
               <h3 className="text-2xl font-bold text-white flex items-center justify-center space-x-2">
-                <Rocket className="w-5 h-5 text-emerald-400" />
-                <span>Launch Roadmap & Progress</span>
+                <Rocket className="w-5 h-5 text-[#DFC993]" />
+                <span>Launch Roadmap &amp; Progress</span>
               </h3>
               <p className="text-xs text-gray-400">
                 We are actively testing and finalizing our platform for deployment.
@@ -432,7 +431,7 @@ export default function LaunchingSoonPage() {
                   status: "In Progress (85%)",
                   progress: 85,
                   icon: TrendingUp,
-                  color: "bg-amber-400",
+                  color: "bg-[#DFC993]",
                 },
                 {
                   phase: "Phase 3",
@@ -440,13 +439,13 @@ export default function LaunchingSoonPage() {
                   status: "Scheduled",
                   progress: 40,
                   icon: Smartphone,
-                  color: "bg-cyan-400",
+                  color: "bg-emerald-400",
                 },
               ].map((item, idx) => (
                 <div key={idx} className="space-y-2">
                   <div className="flex justify-between items-center text-xs">
                     <span className="font-bold text-white flex items-center space-x-2">
-                      <span className="px-2 py-0.5 rounded bg-white/10 text-emerald-400 font-mono">
+                      <span className="px-2 py-0.5 rounded bg-white/10 text-[#DFC993] font-mono">
                         {item.phase}
                       </span>
                       <span>{item.title}</span>
@@ -477,18 +476,18 @@ export default function LaunchingSoonPage() {
                   e.preventDefault();
                   setBookingOpen(true);
                 }}
-                className="px-6 py-3 rounded-xl glass-panel border border-white/15 hover:border-emerald-400 text-xs font-bold text-white flex items-center space-x-3 transition-all hover:scale-105"
+                className="px-6 py-3 rounded-xl glass-panel border border-[#DFC993]/20 hover:border-[#DFC993]/60 text-xs font-bold text-white flex items-center space-x-3 transition-all hover:scale-105"
               >
-                <Smartphone className="w-5 h-5 text-emerald-400" />
+                <Smartphone className="w-5 h-5 text-[#DFC993]" />
                 <div className="text-left">
                   <div className="text-[10px] text-gray-400 uppercase">Available Soon on</div>
-                  <div className="text-sm font-extrabold text-white">Google Play & App Store</div>
+                  <div className="text-sm font-extrabold text-white">Google Play &amp; App Store</div>
                 </div>
               </a>
 
               <Link
                 href="/"
-                className="px-6 py-3 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 text-black font-extrabold text-xs tracking-wider uppercase shadow-lg shadow-emerald-500/20 hover:scale-105 transition-all flex items-center space-x-2"
+                className="px-6 py-3 rounded-xl bg-gradient-to-r from-[#DFC993] via-[#34D399] to-[#10B981] text-[#041611] font-extrabold text-xs tracking-wider uppercase shadow-lg shadow-[#DFC993]/20 hover:scale-105 transition-all flex items-center space-x-2"
               >
                 <span>Explore Full Website</span>
                 <ArrowRight className="w-4 h-4" />
