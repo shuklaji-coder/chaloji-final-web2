@@ -43,16 +43,18 @@ interface BaraatConvoyCarouselProps {
 
 export function BaraatConvoyCarousel({ onOpenEventModal }: BaraatConvoyCarouselProps = {}) {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [direction, setDirection] = useState(1);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [touchStartX, setTouchStartX] = useState<number | null>(null);
   const autoPlayRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Auto-play interval handling (3 seconds auto-scroll)
+  // Auto-play interval handling (3.5 seconds auto-scroll)
   useEffect(() => {
     if (isAutoPlaying) {
       autoPlayRef.current = setInterval(() => {
+        setDirection(1);
         setActiveIndex((prev) => (prev + 1) % BAARAAT_SLIDES.length);
-      }, 3000);
+      }, 3500);
     }
     return () => {
       if (autoPlayRef.current) clearInterval(autoPlayRef.current);
@@ -75,10 +77,12 @@ export function BaraatConvoyCarousel({ onOpenEventModal }: BaraatConvoyCarouselP
   };
 
   const handleNext = () => {
+    setDirection(1);
     setActiveIndex((prev) => (prev + 1) % BAARAAT_SLIDES.length);
   };
 
   const handlePrev = () => {
+    setDirection(-1);
     setActiveIndex((prev) => (prev - 1 + BAARAAT_SLIDES.length) % BAARAAT_SLIDES.length);
   };
 
@@ -109,15 +113,16 @@ export function BaraatConvoyCarousel({ onOpenEventModal }: BaraatConvoyCarouselP
       <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-[#DFC993]/10 rounded-full blur-[160px] pointer-events-none" />
       <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-emerald-500/10 rounded-full blur-[160px] pointer-events-none" />
 
-      {/* FULL SCREEN CRISP IMAGE CANVAS (DEFAULT FULL SCREEN) */}
-      <div className="absolute inset-0 z-0 flex items-center justify-center p-2 sm:p-6 pt-12 pb-32">
-        <AnimatePresence mode="wait">
+      {/* FULL SCREEN CRISP IMAGE CANVAS WITH DIRECTION-AWARE TRANSITION */}
+      <div className="absolute inset-0 z-0 flex items-center justify-center p-2 sm:p-6 pt-12 pb-32 overflow-hidden">
+        <AnimatePresence mode="wait" custom={direction}>
           <motion.div
             key={BAARAAT_SLIDES[activeIndex].id}
-            initial={{ opacity: 0, scale: 0.97 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 1.03 }}
-            transition={{ duration: 0.5, ease: "easeInOut" }}
+            custom={direction}
+            initial={{ opacity: 0, x: direction * 80, scale: 0.95 }}
+            animate={{ opacity: 1, x: 0, scale: 1 }}
+            exit={{ opacity: 0, x: direction * -80, scale: 0.95 }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             className="relative w-full h-full flex items-center justify-center"
           >
             {/* Unblurred, Sharp Image Scaling */}
@@ -131,39 +136,66 @@ export function BaraatConvoyCarousel({ onOpenEventModal }: BaraatConvoyCarouselP
       </div>
 
       {/* FULL-SCREEN EDGE NAVIGATION ARROWS */}
-      <button
+      <motion.button
+        whileHover={{ scale: 1.1, x: -3 }}
+        whileTap={{ scale: 0.92 }}
         onClick={handlePrev}
-        className="absolute left-3 sm:left-8 top-1/2 -translate-y-1/2 z-30 w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-[#041611]/80 border border-[#DFC993]/35 text-[#F7EBD2] hover:text-[#DFC993] hover:border-[#10B981] hover:scale-110 transition-all duration-300 flex items-center justify-center shadow-2xl active:scale-95"
+        className="absolute left-3 sm:left-8 top-1/2 -translate-y-1/2 z-30 w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-[#041611]/80 border border-[#DFC993]/35 text-[#F7EBD2] hover:text-[#DFC993] hover:border-[#10B981] transition-all duration-300 flex items-center justify-center shadow-2xl"
         aria-label="Previous Slide"
       >
         <ChevronLeft className="w-7 h-7 sm:w-9 sm:h-9" />
-      </button>
+      </motion.button>
 
-      <button
+      <motion.button
+        whileHover={{ scale: 1.1, x: 3 }}
+        whileTap={{ scale: 0.92 }}
         onClick={handleNext}
-        className="absolute right-3 sm:right-8 top-1/2 -translate-y-1/2 z-30 w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-[#041611]/80 border border-[#DFC993]/35 text-[#F7EBD2] hover:text-[#DFC993] hover:border-[#10B981] hover:scale-110 transition-all duration-300 flex items-center justify-center shadow-2xl active:scale-95"
+        className="absolute right-3 sm:right-8 top-1/2 -translate-y-1/2 z-30 w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-[#041611]/80 border border-[#DFC993]/35 text-[#F7EBD2] hover:text-[#DFC993] hover:border-[#10B981] transition-all duration-300 flex items-center justify-center shadow-2xl"
         aria-label="Next Slide"
       >
         <ChevronRight className="w-7 h-7 sm:w-9 sm:h-9" />
-      </button>
+      </motion.button>
 
       {/* BOTTOM FLOATING CONTROLS & THUMBNAIL BAR */}
-      <div className="relative z-20 pb-6 sm:pb-8 px-4 sm:px-8 max-w-7xl mx-auto w-full flex flex-col md:flex-row items-center justify-between gap-4 bg-[#041611]/80 backdrop-blur-md p-4 sm:p-6 rounded-3xl border border-[#DFC993]/20 shadow-2xl">
+      <div className="relative z-20 pb-6 sm:pb-8 px-4 sm:px-8 max-w-7xl mx-auto w-full flex flex-col md:flex-row items-center justify-between gap-4 bg-[#041611]/85 backdrop-blur-xl p-4 sm:p-6 rounded-3xl border border-[#DFC993]/20 shadow-2xl">
         
+        {/* Autoplay Line Indicator at Top of Control Bar */}
+        <div className="absolute top-0 left-6 right-6 h-[2px] bg-white/10 overflow-hidden rounded-full">
+          {isAutoPlaying && (
+            <motion.div
+              key={activeIndex}
+              initial={{ width: "0%" }}
+              animate={{ width: "100%" }}
+              transition={{ duration: 3.5, ease: "linear" }}
+              className="h-full bg-gradient-to-r from-[#DFC993] via-[#34D399] to-[#10B981]"
+            />
+          )}
+        </div>
+
         {/* Slide Title & CTA */}
         <div className="space-y-1.5 max-w-lg text-center md:text-left">
-          <div className="inline-block">
-            <span className="px-3 py-1 rounded-full bg-[#DFC993]/20 border border-[#DFC993]/40 text-[#F7EBD2] text-[10px] sm:text-xs font-bold tracking-wider uppercase">
-              {BAARAAT_SLIDES[activeIndex].tag}
-            </span>
-          </div>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={BAARAAT_SLIDES[activeIndex].id}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className="inline-block">
+                <span className="px-3 py-1 rounded-full bg-[#DFC993]/20 border border-[#DFC993]/40 text-[#F7EBD2] text-[10px] sm:text-xs font-bold tracking-wider uppercase">
+                  {BAARAAT_SLIDES[activeIndex].tag}
+                </span>
+              </div>
 
-          <h3 className="text-lg sm:text-2xl font-black text-white font-display tracking-tight">
-            {BAARAAT_SLIDES[activeIndex].title}
-          </h3>
-          <p className="text-xs sm:text-sm text-gray-300 line-clamp-1">
-            {BAARAAT_SLIDES[activeIndex].subtitle}
-          </p>
+              <h3 className="text-lg sm:text-2xl font-black text-white font-display tracking-tight mt-1">
+                {BAARAAT_SLIDES[activeIndex].title}
+              </h3>
+              <p className="text-xs sm:text-sm text-gray-300 line-clamp-1">
+                {BAARAAT_SLIDES[activeIndex].subtitle}
+              </p>
+            </motion.div>
+          </AnimatePresence>
         </div>
 
         {/* Action Button & Autoplay Toggle */}
@@ -198,12 +230,17 @@ export function BaraatConvoyCarousel({ onOpenEventModal }: BaraatConvoyCarouselP
             {BAARAAT_SLIDES.map((slide, idx) => {
               const isActive = idx === activeIndex;
               return (
-                <button
+                <motion.button
                   key={slide.id}
-                  onClick={() => setActiveIndex(idx)}
-                  className={`relative rounded-xl overflow-hidden transition-all duration-300 shrink-0 border-2 bg-black ${
+                  whileHover={{ scale: 1.06 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => {
+                    setDirection(idx > activeIndex ? 1 : -1);
+                    setActiveIndex(idx);
+                  }}
+                  className={`relative rounded-xl overflow-hidden shrink-0 border-2 bg-black ${
                     isActive
-                      ? "border-[#DFC993] scale-105 shadow-xl ring-2 ring-[#DFC993]/40"
+                      ? "border-[#DFC993] shadow-xl ring-2 ring-[#DFC993]/40"
                       : "border-white/20 opacity-60 hover:opacity-100"
                   }`}
                 >
@@ -215,7 +252,7 @@ export function BaraatConvoyCarousel({ onOpenEventModal }: BaraatConvoyCarouselP
                   {isActive && (
                     <div className="absolute bottom-1 right-1 w-2 h-2 rounded-full bg-[#DFC993] animate-pulse" />
                   )}
-                </button>
+                </motion.button>
               );
             })}
           </div>

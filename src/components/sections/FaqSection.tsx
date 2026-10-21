@@ -80,16 +80,22 @@ export function FaqSection() {
           </div>
         </AnimatedSection>
 
-        <div className="space-y-4">
+        <motion.div layout className="space-y-4">
           {FAQS.map((faq, idx) => {
             const isOpen = openIndex === idx;
             return (
               <motion.div
+                layout
                 key={faq.question}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.5, delay: idx * 0.06, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ 
+                  duration: 0.5, 
+                  delay: idx * 0.05, 
+                  ease: [0.16, 1, 0.3, 1],
+                  layout: { duration: 0.35, ease: [0.16, 1, 0.3, 1] }
+                }}
                 className={`rounded-2xl glass-card overflow-hidden transition-colors duration-300 ${
                   isOpen ? "border-[#DFC993]/50 shadow-lg shadow-emerald-950/40" : "border-[#DFC993]/15"
                 }`}
@@ -97,7 +103,7 @@ export function FaqSection() {
                 <button
                   onClick={() => setOpenIndex(isOpen ? null : idx)}
                   aria-expanded={isOpen}
-                  className="w-full flex items-center justify-between gap-4 px-5 sm:px-7 py-5 text-left group"
+                  className="w-full flex items-center justify-between gap-4 px-5 sm:px-7 py-5 text-left group cursor-pointer"
                   data-cursor-expand="true"
                 >
                   <span
@@ -109,14 +115,14 @@ export function FaqSection() {
                   </span>
                   <motion.span
                     animate={{ rotate: isOpen ? 45 : 0 }}
-                    transition={{ duration: 0.25 }}
+                    transition={{ type: "spring", stiffness: 350, damping: 25 }}
                     className={`shrink-0 w-8 h-8 rounded-xl flex items-center justify-center border transition-colors duration-300 ${
                       isOpen
                         ? "bg-gradient-to-br from-[#DFC993] to-[#10B981] border-transparent text-[#041611]"
                         : "glass-panel border-[#DFC993]/20 text-[#DFC993]"
                     }`}
                   >
-                    <Plus className="w-4 h-4" />
+                    <Plus className="w-4 h-4 stroke-[2.5]" />
                   </motion.span>
                 </button>
 
@@ -130,7 +136,7 @@ export function FaqSection() {
                       transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
                       className="overflow-hidden"
                     >
-                      <p className="px-5 sm:px-7 pb-6 text-sm text-gray-300 leading-relaxed">
+                      <p className="px-5 sm:px-7 pb-6 text-sm text-gray-300 leading-relaxed border-t border-white/5 pt-4">
                         {faq.answer}
                       </p>
                     </motion.div>
@@ -139,7 +145,7 @@ export function FaqSection() {
               </motion.div>
             );
           })}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

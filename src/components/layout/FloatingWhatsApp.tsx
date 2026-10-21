@@ -17,9 +17,9 @@ export function FloatingWhatsApp() {
       aria-label="Chat with Chaloji on WhatsApp"
       initial={{ opacity: 0, scale: 0, y: 40 }}
       animate={{ opacity: 1, scale: 1, y: 0 }}
-      transition={{ delay: 1.2, type: "spring", stiffness: 260, damping: 18 }}
-      whileHover={{ scale: 1.06 }}
-      whileTap={{ scale: 0.94 }}
+      transition={{ delay: 1, type: "spring", stiffness: 260, damping: 18 }}
+      whileHover={{ scale: 1.08 }}
+      whileTap={{ scale: 0.92 }}
       className="group fixed bottom-5 right-5 sm:bottom-7 sm:right-7 z-50 flex items-center"
       data-cursor-expand="true"
     >
@@ -29,8 +29,12 @@ export function FloatingWhatsApp() {
         </span>
       </span>
 
-      <span className="relative flex w-14 h-14 sm:w-16 sm:h-16 items-center justify-center rounded-full bg-gradient-to-br from-emerald-500 via-emerald-600 to-teal-700 shadow-2xl shadow-emerald-500/40">
-        <span className="absolute inset-0 rounded-full bg-emerald-400 opacity-40 animate-ping" />
+      <span className="relative flex w-14 h-14 sm:w-16 sm:h-16 items-center justify-center rounded-full bg-gradient-to-br from-emerald-500 via-emerald-600 to-teal-700 shadow-2xl shadow-emerald-500/50">
+        <motion.span
+          animate={{ scale: [1, 1.45, 1], opacity: [0.6, 0, 0.6] }}
+          transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute inset-0 rounded-full bg-emerald-400 pointer-events-none"
+        />
 
         <svg
           viewBox="0 0 32 32"

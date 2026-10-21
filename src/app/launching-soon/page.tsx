@@ -5,6 +5,7 @@ import Link from "next/link";
 import confetti from "canvas-confetti";
 import { LenisProvider } from "@/components/vfx/LenisProvider";
 import { CyberBackground } from "@/components/vfx/CyberBackground";
+import { ScrollProgress } from "@/components/vfx/ScrollProgress";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { FloatingWhatsApp } from "@/components/layout/FloatingWhatsApp";
@@ -96,6 +97,9 @@ export default function LaunchingSoonPage() {
   return (
     <LenisProvider>
       <main className="relative min-h-screen bg-[#041611] text-[#F4F7F5] overflow-x-hidden selection:bg-[#DFC993] selection:text-[#041611]">
+        {/* Global Scroll Progress Bar */}
+        <ScrollProgress />
+
         {/* Global VFX Background */}
         <CyberBackground />
 

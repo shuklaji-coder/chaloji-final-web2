@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { 
-  Car, 
   Phone, 
   User, 
   MapPin, 
@@ -15,7 +15,6 @@ import {
 import { Shayari } from "@/components/ui/Shayari";
 import { TiltCard } from "@/components/vfx/TiltCard";
 import { AnimatedText } from "@/components/vfx/AnimatedText";
-import { MagneticButton } from "@/components/vfx/MagneticButton";
 import { AnimatedSection } from "@/components/vfx/AnimatedSection";
 
 const VEHICLE_TYPES = [
@@ -128,15 +127,15 @@ export function DriverJoinSection() {
                 <span className="text-xs text-gray-400 block font-semibold">Direct Call Helpline</span>
                 <span className="text-lg font-black text-[#DFC993] font-mono">+91 80877 47774</span>
               </div>
-              <MagneticButton>
-                <a
-                  href="tel:8087747774"
-                  className="px-4 py-2.5 rounded-xl bg-gradient-to-r from-[#DFC993] to-[#B58E4A] text-[#041611] text-xs font-black uppercase tracking-wider hover:brightness-110 transition-all flex items-center space-x-1.5 shadow-lg shadow-[#DFC993]/20"
-                >
-                  <Phone className="w-4 h-4" />
-                  <span>Call Now</span>
-                </a>
-              </MagneticButton>
+              <motion.a
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                href="tel:8087747774"
+                className="px-4 py-2.5 rounded-xl bg-gradient-to-r from-[#DFC993] to-[#B58E4A] text-[#041611] text-xs font-black uppercase tracking-wider hover:brightness-110 transition-all flex items-center space-x-1.5 shadow-lg shadow-[#DFC993]/20"
+              >
+                <Phone className="w-4 h-4" />
+                <span>Call Now</span>
+              </motion.a>
             </div>
           </div>
 
@@ -150,120 +149,152 @@ export function DriverJoinSection() {
                   <p className="text-xs text-gray-400">Apna naam aur phone number dalein — team turant contact karegi.</p>
                 </div>
 
-                {submitted ? (
-                  <div className="py-12 text-center space-y-5">
-                    <div className="w-16 h-16 rounded-full bg-emerald-500/20 border border-emerald-500/50 flex items-center justify-center mx-auto text-emerald-400">
-                      <CheckCircle2 className="w-10 h-10 animate-bounce" />
-                    </div>
-                    <h4 className="text-2xl font-black text-white font-display">Dhananyawad, {name}!</h4>
-                    <p className="text-sm text-gray-300 max-w-md mx-auto">
-                      Aapka details submit ho gaya hai. Humne WhatsApp par bhi message create kar diya hai. Chaloji Team aapko 15 minute me call karegi!
-                    </p>
-                    <button
-                      onClick={() => setSubmitted(false)}
-                      className="px-6 py-2.5 rounded-xl glass-panel border border-[#DFC993]/30 text-xs font-bold text-[#F7EBD2] hover:text-white transition-all"
+                <AnimatePresence mode="wait">
+                  {submitted ? (
+                    <motion.div
+                      key="submitted-state"
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.9 }}
+                      transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                      className="py-12 text-center space-y-5"
                     >
-                      Submit Another Application
-                    </button>
-                  </div>
-                ) : (
-                  <form onSubmit={handleSubmit} className="space-y-5">
-                    
-                    {/* Vehicle Type Selection */}
-                    <div className="space-y-2">
-                      <label className="text-xs font-bold text-gray-300 uppercase tracking-wider block">
-                        1. Apni Gadi Ka Prakar Chunein:
-                      </label>
-                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
-                        {VEHICLE_TYPES.map((v) => (
-                          <button
-                            key={v.id}
-                            type="button"
-                            onClick={() => setVehicle(v.id)}
-                            className={`py-3 px-3 rounded-xl border text-center transition-all flex flex-col items-center justify-center space-y-1.5 ${
-                              vehicle === v.id
-                                ? "bg-[#DFC993]/15 border-[#DFC993] text-white shadow-lg shadow-[#DFC993]/20 scale-[1.02]"
-                                : "bg-white/5 border-white/10 text-gray-400 hover:text-white hover:bg-white/10"
-                            }`}
-                          >
-                            <div className="w-12 h-10 flex items-center justify-center">
-                              <img
-                                src={v.icon}
-                                alt={v.label}
-                                className="max-h-full max-w-full object-contain filter drop-shadow-md transition-transform duration-300 group-hover:scale-110"
-                              />
-                            </div>
-                            <span className="text-xs font-bold font-display block leading-tight">{v.label}</span>
-                          </button>
-                        ))}
+                      <div className="w-16 h-16 rounded-full bg-emerald-500/20 border border-emerald-500/50 flex items-center justify-center mx-auto text-emerald-400">
+                        <CheckCircle2 className="w-10 h-10 animate-bounce" />
                       </div>
-                    </div>
-
-                    {/* Name Input */}
-                    <div className="space-y-1.5">
-                      <label className="text-xs font-bold text-gray-300 uppercase tracking-wider flex items-center space-x-1.5">
-                        <User className="w-3.5 h-3.5 text-[#DFC993]" />
-                        <span>2. Aapka Poora Naam:</span>
-                      </label>
-                      <input
-                        type="text"
-                        required
-                        placeholder="e.g. Ramesh Kumar"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                        className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white text-sm placeholder-gray-500 focus:outline-none focus:border-[#DFC993] focus:ring-1 focus:ring-[#DFC993]/40 transition-all font-medium"
-                      />
-                    </div>
-
-                    {/* Phone Input */}
-                    <div className="space-y-1.5">
-                      <label className="text-xs font-bold text-gray-300 uppercase tracking-wider flex items-center space-x-1.5">
-                        <Phone className="w-3.5 h-3.5 text-[#DFC993]" />
-                        <span>3. Mobile Number (WhatsApp):</span>
-                      </label>
-                      <input
-                        type="tel"
-                        required
-                        pattern="[0-9]{10}"
-                        placeholder="e.g. 9876543210"
-                        value={phone}
-                        onChange={(e) => setPhone(e.target.value)}
-                        className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white text-sm placeholder-gray-500 focus:outline-none focus:border-[#DFC993] focus:ring-1 focus:ring-[#DFC993]/40 transition-all font-mono"
-                      />
-                    </div>
-
-                    {/* City Input */}
-                    <div className="space-y-1.5">
-                      <label className="text-xs font-bold text-gray-300 uppercase tracking-wider flex items-center space-x-1.5">
-                        <MapPin className="w-3.5 h-3.5 text-[#DFC993]" />
-                        <span>4. Aapka Shehar / Area:</span>
-                      </label>
-                      <input
-                        type="text"
-                        required
-                        placeholder="e.g. Phoolpur, Prayagraj, Jaunpur"
-                        value={city}
-                        onChange={(e) => setCity(e.target.value)}
-                        className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white text-sm placeholder-gray-500 focus:outline-none focus:border-[#DFC993] focus:ring-1 focus:ring-[#DFC993]/40 transition-all font-medium"
-                      />
-                    </div>
-
-                    {/* Submit CTA */}
-                    <button
-                      type="submit"
-                      className="w-full py-4 rounded-xl bg-gradient-to-r from-[#DFC993] via-[#34D399] to-[#10B981] text-[#041611] text-sm font-black uppercase tracking-wider shadow-lg shadow-[#DFC993]/30 hover:shadow-emerald-500/50 hover:scale-[1.01] active:scale-[0.99] transition-all flex items-center justify-center space-x-2"
+                      <h4 className="text-2xl font-black text-white font-display">Dhananyawad, {name}!</h4>
+                      <p className="text-sm text-gray-300 max-w-md mx-auto">
+                        Aapka details submit ho gaya hai. Humne WhatsApp par bhi message create kar diya hai. Chaloji Team aapko 15 minute me call karegi!
+                      </p>
+                      <motion.button
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        onClick={() => setSubmitted(false)}
+                        className="px-6 py-2.5 rounded-xl glass-panel border border-[#DFC993]/30 text-xs font-bold text-[#F7EBD2] hover:text-white transition-all"
+                      >
+                        Submit Another Application
+                      </motion.button>
+                    </motion.div>
+                  ) : (
+                    <motion.form 
+                      key="active-form"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      onSubmit={handleSubmit} 
+                      className="space-y-5"
                     >
-                      <MessageSquare className="w-5 h-5 text-[#041611]" />
-                      <span>Instant Driver Join Request (WhatsApp)</span>
-                    </button>
+                      
+                      {/* Vehicle Type Selection */}
+                      <div className="space-y-2">
+                        <label className="text-xs font-bold text-gray-300 uppercase tracking-wider block">
+                          1. Apni Gadi Ka Prakar Chunein:
+                        </label>
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+                          {VEHICLE_TYPES.map((v) => {
+                            const isSelected = vehicle === v.id;
+                            return (
+                              <motion.button
+                                key={v.id}
+                                type="button"
+                                whileHover={{ scale: 1.03 }}
+                                whileTap={{ scale: 0.97 }}
+                                onClick={() => setVehicle(v.id)}
+                                className={`relative py-3 px-3 rounded-xl border text-center transition-colors duration-200 flex flex-col items-center justify-center space-y-1.5 overflow-hidden ${
+                                  isSelected
+                                    ? "border-[#DFC993] text-white shadow-lg shadow-[#DFC993]/20"
+                                    : "bg-white/5 border-white/10 text-gray-400 hover:text-white hover:bg-white/10"
+                                }`}
+                              >
+                                {isSelected && (
+                                  <motion.div
+                                    layoutId="driver-vehicle-active"
+                                    transition={{ type: "spring", stiffness: 350, damping: 28 }}
+                                    className="absolute inset-0 bg-[#DFC993]/15 border border-[#DFC993] rounded-xl"
+                                  />
+                                )}
+                                <div className="relative z-10 w-12 h-10 flex items-center justify-center">
+                                  <img
+                                    src={v.icon}
+                                    alt={v.label}
+                                    className="max-h-full max-w-full object-contain filter drop-shadow-md"
+                                  />
+                                </div>
+                                <span className="relative z-10 text-xs font-bold font-display block leading-tight">{v.label}</span>
+                              </motion.button>
+                            );
+                          })}
+                        </div>
+                      </div>
 
-                    <p className="text-[11px] text-gray-400 text-center flex items-center justify-center space-x-1">
-                      <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
-                      <span>Aapki privacy 100% surakshit hai. No spam!</span>
-                    </p>
+                      {/* Name Input */}
+                      <div className="space-y-1.5">
+                        <label className="text-xs font-bold text-gray-300 uppercase tracking-wider flex items-center space-x-1.5">
+                          <User className="w-3.5 h-3.5 text-[#DFC993]" />
+                          <span>2. Aapka Poora Naam:</span>
+                        </label>
+                        <input
+                          type="text"
+                          required
+                          placeholder="e.g. Ramesh Kumar"
+                          value={name}
+                          onChange={(e) => setName(e.target.value)}
+                          className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white text-sm placeholder-gray-500 focus:outline-none focus:border-[#DFC993] focus:ring-1 focus:ring-[#DFC993]/40 transition-all font-medium"
+                        />
+                      </div>
 
-                  </form>
-                )}
+                      {/* Phone Input */}
+                      <div className="space-y-1.5">
+                        <label className="text-xs font-bold text-gray-300 uppercase tracking-wider flex items-center space-x-1.5">
+                          <Phone className="w-3.5 h-3.5 text-[#DFC993]" />
+                          <span>3. Mobile Number (WhatsApp):</span>
+                        </label>
+                        <input
+                          type="tel"
+                          required
+                          pattern="[0-9]{10}"
+                          placeholder="e.g. 9876543210"
+                          value={phone}
+                          onChange={(e) => setPhone(e.target.value)}
+                          className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white text-sm placeholder-gray-500 focus:outline-none focus:border-[#DFC993] focus:ring-1 focus:ring-[#DFC993]/40 transition-all font-mono"
+                        />
+                      </div>
+
+                      {/* City Input */}
+                      <div className="space-y-1.5">
+                        <label className="text-xs font-bold text-gray-300 uppercase tracking-wider flex items-center space-x-1.5">
+                          <MapPin className="w-3.5 h-3.5 text-[#DFC993]" />
+                          <span>4. Aapka Shehar / Area:</span>
+                        </label>
+                        <input
+                          type="text"
+                          required
+                          placeholder="e.g. Phoolpur, Prayagraj, Jaunpur"
+                          value={city}
+                          onChange={(e) => setCity(e.target.value)}
+                          className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white text-sm placeholder-gray-500 focus:outline-none focus:border-[#DFC993] focus:ring-1 focus:ring-[#DFC993]/40 transition-all font-medium"
+                        />
+                      </div>
+
+                      {/* Submit CTA */}
+                      <motion.button
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        type="submit"
+                        className="w-full py-4 rounded-xl bg-gradient-to-r from-[#DFC993] via-[#34D399] to-[#10B981] text-[#041611] text-sm font-black uppercase tracking-wider shadow-lg shadow-[#DFC993]/30 hover:shadow-emerald-500/50 transition-all flex items-center justify-center space-x-2"
+                      >
+                        <MessageSquare className="w-5 h-5 text-[#041611]" />
+                        <span>Instant Driver Join Request (WhatsApp)</span>
+                      </motion.button>
+
+                      <p className="text-[11px] text-gray-400 text-center flex items-center justify-center space-x-1">
+                        <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
+                        <span>Aapki privacy 100% surakshit hai. No spam!</span>
+                      </p>
+
+                    </motion.form>
+                  )}
+                </AnimatePresence>
 
               </div>
             </TiltCard>
